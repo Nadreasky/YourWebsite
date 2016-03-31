@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Category";
+    List<Category> categories = ViewBag.categories;
+}
+
+<h2>Category</h2>
+
+<div class="container">
+    <div class="col-md-4">
+        <h2>Thêm Category mới</h2>
+        @using (Html.BeginForm("saveCategory", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input id="id" name="id" class="form-control" type="hidden" />
+            <label>Tên Category</label>
+            <input id="categoryName" name="categoryName" class="form-control" />
+            <label>Pre.Category (Nếu có)</label>
+            <select class="form-control" id="categoryList" name="preCateID">
+                <option value="0">None</option>
+                @{ 
+                    for(int i=0; i < categories.Count; i++)
+                    {
+                        Category cate_element = categories.ElementAt(i);
+                        <option value="@cate_element.ID">@cate_element.Name</option>
+                    }
+                }
+            </select>
+
+            <input id="btnAddCategory" type="submit" class="btn btn-success" value="Add" />
+        }
+    </div>
+    <div class="col-md-8">
+        <table class="table" id="categoryTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int i = 0; i < categories.Count; i++)
+                    {
+                        Category c = categories.ElementAt(i);
+                        <tr>
+                            <td>@c.ID</td>
+                            <td>@c.Name</td>
+                            <td><button class="btn btn-warning" onclick="editCategory(@c.ID)">Edit</button></td>
+                            <td><button class="btn btn-danger" onclick="deleteCategory(@c.ID)">Delete</button></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    function editCategory(id)
+    {
+        $.ajax({
+            url: "/Quanli/getCategoryInfo",
+            data: {
+                format: 'json',
+                cateID: id,
+            },
+            error: function () {
+                alert("Problem!")
+            },
+            success: function(data)
+            {
+                var cateObj = JSON.parse(data);
+                $("#id").val(cateObj.ID);
+                $("#categoryName").val(cateObj.Name);
+                $("#categoryList").val(cateObj.PreCateID);
+
+                $("#btnAddCategory").val("Update");
+            },
+            type: 'GET'
+        })
+    }
+
+    function deleteCategory(id)
+    {
+        $.ajax({
+            url: "/Quanli/deleteCategory",
+            data: {
+                format: 'json',
+                id: id
+            },
+            error: function () {
+                alert("Problem!")
+            },
+            success: function(data)
+            {
+                if (data === "Success")
+                {
+                    location.href = location.href;
+                }
+            },
+            type: 'POST'
+        })
+    }
+</script>
+
