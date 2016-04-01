@@ -109,7 +109,7 @@ namespace YourWebsite.Controllers
             }
             if (description == null || description.Equals(""))
             {
-                error += "Error: Không có tên sản phẩm";
+                error += "Error: Không có mô tả sản phẩm";
             }
             if (productPrice == null || productPrice.Equals(""))
             {
@@ -204,6 +204,33 @@ namespace YourWebsite.Controllers
 
 
             return RedirectToAction("Product");
+        }
+
+
+        public Object getProductInfo(int proId)
+        {
+            return JsonConvert.SerializeObject(_productService.findByID(proId));
+        }
+
+        [HttpPost]
+        public string deleteProduct(string proId)
+        {
+            int _id = -1;
+            if (proId == null || proId.Equals(""))
+            {
+                return "Error: ID không hợp lệ!";
+            }
+            else if (int.TryParse(proId, out _id) == false)
+            {
+                return "Error: Lỗi khi parse ID";
+            }
+            Product p = _productService.findByID(_id);
+            if (p == null)
+            {
+                return "Error: Không tìm thấy Category yêu cầu!";
+            }
+            _productService.delete(p);
+            return "Success";
         }
     }
 }

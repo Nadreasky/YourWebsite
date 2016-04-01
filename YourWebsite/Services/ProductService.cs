@@ -60,7 +60,7 @@ namespace YourWebsite.Services
                 _productRepository.Update(p);
             }
         }
-        public void deleteProduct(Product p)
+        public void delete(Product p)
         {
             _productRepository.Delete(p);
         }
