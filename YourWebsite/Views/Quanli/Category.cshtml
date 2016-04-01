@@ -14,20 +14,10 @@
             <input id="id" name="id" class="form-control" type="hidden" />
             <label>Tên Category</label>
             <input id="categoryName" name="categoryName" class="form-control" />
-            <label>Pre.Category (Nếu có)</label>
-            <select class="form-control" id="categoryList" name="preCateID">
-                <option value="0">None</option>
-                @{ 
-                    for(int i=0; i < categories.Count; i++)
-                    {
-                        Category cate_element = categories.ElementAt(i);
-                        <option value="@cate_element.ID">@cate_element.Name</option>
-                    }
-                }
-            </select>
-
+            <input id="preCateID" name="preCateID" class="form-control" value="0"  type="hidden"/>
+                
             <input id="btnAddCategory" type="submit" class="btn btn-success" value="Add" />
-        }
+            }
     </div>
     <div class="col-md-8">
         <table class="table" id="categoryTable">
@@ -41,19 +31,57 @@
             </thead>
             <tbody>
                 @{
-                    for (int i = 0; i < categories.Count; i++)
+                    for(int i = 0; i < categories.Count; i++)
                     {
                         Category c = categories.ElementAt(i);
-                        <tr>
-                            <td>@c.ID</td>
-                            <td>@c.Name</td>
-                            <td><button class="btn btn-warning" onclick="editCategory(@c.ID)">Edit</button></td>
-                            <td><button class="btn btn-danger" onclick="deleteCategory(@c.ID)">Delete</button></td>
-                        </tr>
+                        if (c.PreCateID == 0)
+                        {
+                            <tr>
+                                <td>@c.ID</td>
+                                <td>@c.Name</td>
+                                <td><button class="btn btn-warning" onclick="editCategory(@c.ID)">Edit</button></td>
+                                <td><button class="btn btn-danger" onclick="deleteCategory(@c.ID)">Delete</button></td>
+                                <td>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                for (int j = 0; j < categories.Count; j++)
+                                                {
+                                                    Category sc = categories.ElementAt(j);
+                                                    if (sc.PreCateID == c.ID)
+                                                    {
+                                                        <tr>
+                                                            <td>@sc.Name</td>
+                                                            <td hidden="hidden"><button class="btn btn-warning" onclick="editCategory(@sc.ID)">Edit</button></td>
+                                                            <td><button class="btn btn-danger" onclick="deleteCategory(@sc.ID)">Delete</button></td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                <tr>
+                                                    @using (Html.BeginForm("saveCategory", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                    {
+                                                        <td hidden="hidden"><input class="form-control" id="subCateID" name="id" /></td>
+                                                        <td hidden="hidden"><input class="form-control" id="SubPreID" name="preCateID" value="@c.ID" /></td>
+                                                        <td><input id="subCategoryName" name="categoryName" class="form-control" placeholder="Tên sub-category" /></td>
+                                                        <td><input id="btnAddSubCategory" type="submit" class="btn btn-success" value="Add" /></td>
+                                                    }
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        }
                     }
                 }
             </tbody>
         </table>
+
     </div>
 </div>
 
@@ -75,7 +103,6 @@
                 var cateObj = JSON.parse(data);
                 $("#id").val(cateObj.ID);
                 $("#categoryName").val(cateObj.Name);
-                $("#categoryList").val(cateObj.PreCateID);
 
                 $("#btnAddCategory").val("Update");
             },

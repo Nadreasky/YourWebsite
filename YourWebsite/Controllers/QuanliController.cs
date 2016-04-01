@@ -23,6 +23,11 @@ namespace YourWebsite.Controllers
             return View();
         }
 
+        public ActionResult Product()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult saveCategory(string id, string categoryName, string preCateID)
@@ -41,6 +46,7 @@ namespace YourWebsite.Controllers
 
             return RedirectToAction("Category");
         }
+
 
         public Object getCategoryInfo(int cateID)
         {
