@@ -23,8 +23,13 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Price" Type="float" />
+    <Property Name="CateID" Type="int" />
     <Property Name="Descriptions" Type="nvarchar(max)" />
     <Property Name="Quantity" Type="int" />
+    <Property Name="Img1" Type="nvarchar(max)" />
+    <Property Name="Img2" Type="nvarchar(max)" />
+    <Property Name="Img3" Type="nvarchar(max)" />
+    <Property Name="Img4" Type="nvarchar(max)" />
   </EntityType>
   <EntityContainer Name="OnlineShopModelStoreContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />

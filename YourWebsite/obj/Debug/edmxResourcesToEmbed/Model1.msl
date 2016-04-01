@@ -25,8 +25,13 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
           <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Img1" ColumnName="Img1" />
+          <ScalarProperty Name="Img2" ColumnName="Img2" />
+          <ScalarProperty Name="Img3" ColumnName="Img3" />
+          <ScalarProperty Name="Img4" ColumnName="Img4" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -28,7 +28,7 @@ namespace YourWebsite.Services
                 c.Name = name;
                 if (preCateID < 0 )
                 {
-                    c.PreCateID = 0;
+                    c.PreCateID = SLIMCONFIG.NONE_PRE_CATEGORY;
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace YourWebsite.Services
                 c.Name = name;
                 if (preCateID < 0)
                 {
-                    c.PreCateID = 0;
+                    c.PreCateID = SLIMCONFIG.NONE_PRE_CATEGORY;
                 }
                 else
                 {

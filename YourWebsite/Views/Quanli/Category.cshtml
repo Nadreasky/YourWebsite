@@ -14,7 +14,7 @@
             <input id="id" name="id" class="form-control" type="hidden" />
             <label>Tên Category</label>
             <input id="categoryName" name="categoryName" class="form-control" />
-            <input id="preCateID" name="preCateID" class="form-control" value="0"  type="hidden"/>
+            <input id="preCateID" name="preCateID" class="form-control" value="@SLIMCONFIG.NONE_PRE_CATEGORY"  type="hidden"/>
                 
             <input id="btnAddCategory" type="submit" class="btn btn-success" value="Add" />
             }
@@ -34,7 +34,7 @@
                     for(int i = 0; i < categories.Count; i++)
                     {
                         Category c = categories.ElementAt(i);
-                        if (c.PreCateID == 0)
+                        if (c.PreCateID == SLIMCONFIG.NONE_PRE_CATEGORY)
                         {
                             <tr>
                                 <td>@c.ID</td>

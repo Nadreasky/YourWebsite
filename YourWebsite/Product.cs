@@ -17,7 +17,12 @@ namespace YourWebsite
         public int ID { get; set; }
         public string Name { get; set; }
         public Nullable<double> Price { get; set; }
+        public Nullable<int> CateID { get; set; }
         public string Descriptions { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public string Img1 { get; set; }
+        public string Img2 { get; set; }
+        public string Img3 { get; set; }
+        public string Img4 { get; set; }
     }
 }

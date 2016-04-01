@@ -1,7 +1,78 @@
 ﻿
 @{
     ViewBag.Title = "Product";
+    List<Category> categories = ViewBag.categories;
+    List<Product> products = ViewBag.products;
 }
 
 <h2>Product</h2>
+<head>
+    <script type="text/javascript" src="~/Content/ckeditor/ckeditor.js"></script>
+</head>
 
+<div class="container">
+    <div class="col-md-4">
+        <h2>Thêm sản phẩm mới</h2>
+        @using (Html.BeginForm("saveProduct", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input class="form-control" id="id" name="id" type="hidden" />
+            <label>Tên sản phẩm</label>
+            <input class="form-control" id="productName" name="productName" />
+            <label>Giá sản phẩm</label>
+            <input class="form-control" id="priceProduct" name="productPrice" />
+            <label>Category</label>
+            <select class="form-control" name="productCateID">
+                @{ 
+                    for (int i = 0; i < categories.Count; i++)
+                    {
+                        Category c = categories.ElementAt(i);
+                        if (c.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY)
+                        {
+                            <option value="@c.ID">@c.Name</option>
+                        }
+                    }
+                }
+            </select>
+            <label>Số lượng</label>
+            <input class="form-control" id="quantity" name="quantity" />
+            <label>Hình ảnh sản phẩm</label>
+            <input class="form-control" type="file" id="productImg1" name="productImg1" />
+            <input class="form-control" type="file" id="productImg2" name="productImg2" />
+            <input class="form-control" type="file" id="productImg3" name="productImg3" />
+            <input class="form-control" type="file" id="productImg4" name="productImg4" />
+            <label>Description</label>
+            <textarea name="description" id="description" class="form-control" rows="10"></textarea>
+            <script>
+                CKEDITOR.replace('description');
+            </script>
+            
+            <input type="submit" class="btn btn-success" id="btnAddProduct" value="Add" />
+                    }
+    </div>
+    <div class="col-md-8">
+        <table class="table" id="productTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ 
+                    for (int i = 0; i < products.Count; i++)
+                    {
+                        Product p = products.ElementAt(i);
+                        <tr>
+                            <td>@p.ID</td>
+                            <td>@p.Name</td>
+                            <td>@p.Price</td>
+                            <td>@p.Quantity</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
