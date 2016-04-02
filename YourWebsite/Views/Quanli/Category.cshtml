@@ -56,8 +56,8 @@
                                                     if (sc.PreCateID == c.ID)
                                                     {
                                                         <tr>
-                                                            <td>@sc.Name</td>
-                                                            <td hidden="hidden"><button class="btn btn-warning" onclick="editCategory(@sc.ID)">Edit</button></td>
+                                                            <td><input id="subCateName+@sc.ID" class="form-control" disabled="disabled" value="@sc.Name" /></td>
+                                                            <td><button id="btnEditSubCate+@sc.ID" class="btn btn-warning" onclick="editSubCategory(@sc.ID)">Edit</button></td>
                                                             <td><button class="btn btn-danger" onclick="deleteCategory(@sc.ID)">Delete</button></td>
                                                         </tr>
                                                     }
@@ -108,6 +108,44 @@
             },
             type: 'GET'
         })
+    }
+
+    var editable = false;
+    function editSubCategory(id)
+    {
+        if(editable == false)
+        {
+            var btn = document.getElementById("btnEditSubCate+"+id).firstChild;
+            btn.data = btn.data = "Edit" ? "Update" : "Edit";
+            var x = document.getElementById("subCateName+"+id).disabled = false;
+            editable = true;
+        }
+        else
+        {
+            var subCateName = document.getElementById("subCateName+"+id).value; //chua lay dc data
+            alert(subCateName);
+            $.ajax({
+                url: "/Quanli/editSubCate",
+                data: {
+                    format: 'json',
+                    id: id,
+                    name: subCateName
+                },
+                error: function() {
+                    alert("Problem");
+                },
+                success: function(data) {
+                    if (data === "success")
+                    {
+                        
+                        editable = false;
+                        var x = document.getElementById("subCateName+" + id).disabled = true;
+                        location.href = location.href;
+                    }
+                },
+                type: 'POST'
+            })
+        }
     }
 
     function deleteCategory(id)

@@ -53,6 +53,32 @@ namespace YourWebsite.Controllers
             return RedirectToAction("Category");
         }
 
+        [HttpPost]
+        [ValidateInput(false)]
+        public string editSubCate(string id, string name)
+        {
+            int _id = -1;
+            if (id == null || id.Equals(""))
+            {
+                return "Error: ID không hợp lệ!";
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                return "Error: Lỗi khi parse ID";
+            }
+            if (name == null || name.Equals(""))
+            {
+                return "Error: Không có tên sub-category";
+            }
+            Category c = _categoryService.findByid(_id);
+            if (c == null)
+            {
+                return "Error: Không tìm thấy Category yêu cầu!";
+            }
+            c.Name = name;
+            _categoryService.addCategory(c.ID, c.Name, (int)c.PreCateID);
+            return "success";
+        }
 
         public Object getCategoryInfo(int cateID)
         {
