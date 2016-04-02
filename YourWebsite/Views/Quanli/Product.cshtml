@@ -42,9 +42,7 @@
             <input class="form-control" type="file" id="productImg4" name="productImg4" />
             <label>Description</label>
             <textarea name="description" id="description" class="form-control" rows="10"></textarea>
-            <script>
-                CKEDITOR.replace('description');
-            </script>
+         
             
             <input type="submit" class="btn btn-success" id="btnAddProduct" value="Add" />
                     }
@@ -80,12 +78,14 @@
         </table>
     </div>
 </div>
-
+<script>
+                CKEDITOR.replace('description')
+</script>
 
 <script>
     function editProduct(id)
     {
-       jQuery.ajax({
+       $.ajax({
             url: "/Quanli/getProductInfo",
             data: {
                 format: 'json',
@@ -109,7 +109,7 @@
     }
 
     function deleteProduct(id) {
-        jQuery.ajax({
+        $.ajax({
             url: "/Quanli/deleteProduct",
             data: {
                 format: 'json',
