@@ -89,7 +89,7 @@
 <script>
     function editCategory(id)
     {
-        $.ajax({
+        jQuery.ajax({
             url: "/Quanli/getCategoryInfo",
             data: {
                 format: 'json',
@@ -112,7 +112,7 @@
 
     function deleteCategory(id)
     {
-        $.ajax({
+       jQuery.ajax({
             url: "/Quanli/deleteCategory",
             data: {
                 format: 'json',

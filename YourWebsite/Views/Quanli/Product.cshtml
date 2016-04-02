@@ -85,7 +85,7 @@
 <script>
     function editProduct(id)
     {
-        $.ajax({
+       jQuery.ajax({
             url: "/Quanli/getProductInfo",
             data: {
                 format: 'json',
@@ -109,7 +109,7 @@
     }
 
     function deleteProduct(id) {
-        $.ajax({
+        jQuery.ajax({
             url: "/Quanli/deleteProduct",
             data: {
                 format: 'json',
