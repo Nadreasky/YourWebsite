@@ -15,6 +15,7 @@
         <h2>Thêm sản phẩm mới</h2>
         @using (Html.BeginForm("saveProduct", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
+            <input class="form-control" id="id" name="id" type="hidden"/>
             <label>Tên sản phẩm</label>
             <input class="form-control" id="productName" name="productName" />
             <label>Giá sản phẩm</label>
