@@ -1,0 +1,135 @@
+#themeDemos {
+	width: 158px;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	z-index: 1000000;
+	height: 70%;
+	background: #000;
+	margin-bottom: -100%;
+}
+#themeDemos a {
+	width:100%;
+	color: #fff;
+	display:  block;
+	vertical-align: middle;
+	text-decoration: none;
+	padding: 14px 0;
+	font: 14px/29px 'Oswald', sans-serif;
+	text-transform: uppercase;
+}
+#themeDemos .arrow {
+	display: inline-block;
+	margin:0 8px;
+	padding:3px 10px;
+	border-radius: 3px;
+	background:#9d3bc6;
+	background-image:none;
+	box-shadow: none;
+	color:#fff;
+	text-transform:uppercase;
+	font-size:16px;
+	line-height:27px;
+}
+#themeDemos .arrow .icon-down-2 {
+	display: none;
+}
+#themeDemos.open-panel .arrow .icon-down-2 {
+	display: block;
+}
+#themeDemos.open-panel .arrow .icon-up-2 {
+	display: none;
+}
+#themeDemos .demoViewsOuter {
+	width: 158px;
+	overflow: hidden;
+}
+#themeDemos .demoViews {
+	width:178px;
+	display: block;
+	background: #000;
+	overflow: hidden;
+	overflow-y: auto;
+	outline: none;
+}
+#themeDemos .demoViews .item {
+	padding: 4px 8px;
+	position:relative;
+	width: 142px;
+	height: 112px;
+}
+#themeDemos .demoViews .item img {
+	max-width: none;
+	position:absolute;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+#themeDemos .demoViews .item:hover img {
+	opacity: 0.3;
+}
+#themeDemos .demoViews .item.comingsoon:hover img {
+	opacity: 1;
+}
+#themeDemos .demoViews .item .title {
+	opacity: 0;
+	position:absolute;
+	width:142px;
+	margin: 40px 0 0;
+	font: 11px/15px 'Oswald', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	color:#fff;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+#themeDemos .demoViews .item:hover .title {
+	opacity: 1;
+}
+#themeDemos .demoViews .item .launch {
+	position:absolute;
+	display:  inline-block;
+	opacity: 0;
+	top: 80px;
+	left:0;
+	right:0;
+	margin: 0 auto;
+	padding:0;
+	width:60px;
+	font: 11px/17px 'Oswald', sans-serif !important;
+	text-transform: uppercase;
+	text-align: center;
+	color:#fff;
+	border-radius: 2px;
+	background:#9d3bc6;
+	background-image:none;
+	box-shadow: none;
+	text-transform:uppercase;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+#themeDemos .demoViews .item:hover .launch {
+	opacity: 1;
+}
+#themeDemos .demoView {
+	position: absolute;
+	top: 0px;
+	background: #000;
+	left: 157px;
+	padding: 10px 5px 5px;
+	width: 465px;
+	height: 378px;
+	display: none;
+}
+#themeDemos .demoView .title {
+	padding: 10px 0;
+	font: 14px/27px 'Oswald', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	color:#fff;
+}

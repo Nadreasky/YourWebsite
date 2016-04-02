@@ -18,6 +18,21 @@ namespace YourWebsite.Services
         {
             return _categoryRepository.List.ToList();
         }
+
+        public List<Category> getAllSubCate()
+        {
+            List<Category> c = _categoryRepository.List.ToList();
+            List<Category> sc = new List<Category>();
+            for (int i = 0; i < c.Count; i++)
+            {
+                Category ca = c.ElementAt(i);
+                if(ca.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY)
+                {
+                    sc.Add(ca);
+                }
+            }
+            return sc;
+        }
         public void addCategory(int id, String name, int preCateID)
         {
             Category c;

@@ -243,6 +243,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -322,6 +323,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\buyshop\wp-admin\" />
+    <Folder Include="Content\buyshop\wp-content\" />
+    <Folder Include="Content\buyshop\wp-includes\" />
     <Folder Include="Content\ckeditor\" />
   </ItemGroup>
   <ItemGroup>
