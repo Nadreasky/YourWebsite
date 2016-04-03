@@ -1,7 +1,100 @@
 ﻿
 @{
     ViewBag.Title = "SliderManager";
+    List<Image> images = ViewBag.images;
 }
 
 <h2>SliderManager</h2>
 
+<div class="container">
+    @{ 
+        if(images == null || images.Count == 0)
+        {
+            <h3>Hiện chưa có hình ảnh nào cho slider</h3>
+            <div class="form-inline">
+                @using (Html.BeginForm("saveImgSlider", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="hidden" name="id" class="form-control" />
+                    <input type="hidden" name="proID" class="form-control" value="-1" /> //xoa neu change DB
+                    <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
+                    <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Add" />
+                }
+                
+            </div>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Image</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        @{
+                            for (int i = 0; i < images.Count; i++)
+                            {
+                                int n = i + 1;
+                                Image m = images.ElementAt(i);
+                                <tr>
+                                    <td>@n</td>
+                                    <td><img src="@m.Link" style="height:200px;width:auto" /></td>
+                                    <td>
+                                        @using (Html.BeginForm("saveImgSlider", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            <input type="hidden" name="id" class="form-control" value="@m.ID" />
+                                            <input type="hidden" name="proID" class="form-control" value="-1" /> //xoa neu change DB
+                                            <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
+                                            <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Update" />
+                                        }
+                                    </td>
+                                    <td><button class="btn btn-danger" id="btnDelete" onclick="deleteImg(@m.ID)">Delete</button></td>
+                                </tr>
+                            }
+                        }
+                    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            @using (Html.BeginForm("saveImgSlider", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="hidden" name="id" class="form-control" />
+                                <input type="hidden" name="proID" class="form-control" value="-1" /> //xoa neu change DB
+                                <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
+                                <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Add" />
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    }
+</div>
+
+<script>
+    function deleteImg(id)
+    {
+        $.ajax({
+            url: "/Quanli/deleteImage",
+            data: {
+                format: 'json',
+                id: id
+            },
+            error: function () {
+                alert("Problem!")
+            },
+            success: function (data) {
+                if (data === "Success") {
+                    location.href = location.href;
+                }
+            },
+            type: 'POST'
+        })
+    }
+</script>

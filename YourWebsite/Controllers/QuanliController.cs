@@ -13,6 +13,7 @@ namespace YourWebsite.Controllers
     {
         CategoryService _categoryService = new CategoryService();
         ProductService _productService = new ProductService();
+        ImageService _imageService = new ImageService();
         // GET: Quanli
         public ActionResult Index()
         {
@@ -31,6 +32,13 @@ namespace YourWebsite.Controllers
             ViewBag.categories = allCategory;
             List<Product> allProduct = _productService.getAll();
             ViewBag.products = allProduct;
+            return View();
+        }
+
+        public ActionResult SliderManager()
+        {
+            List<Image> allImage = _imageService.getAll();
+            ViewBag.images = allImage;
             return View();
         }
 
@@ -256,6 +264,77 @@ namespace YourWebsite.Controllers
                 return "Error: Không tìm thấy Category yêu cầu!";
             }
             _productService.delete(p);
+            return "Success";
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult saveImgSlider(string id, string proID, HttpPostedFileBase path)
+        {
+            string error = "";
+            int _id = -1;
+            int _proID = -1; //xoa neu change DB
+            string filePath = "";
+
+            if (id == null || id.Equals(""))
+            {
+                _id = -1;
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                error += "Error: Không thể parse ImageID";
+            }
+
+            if (proID == null || proID.Equals(""))
+            {
+                _proID = -1;
+            }
+            else if (int.TryParse(proID, out _proID) == false)
+            {
+                error += "Error: Không thể parse cateID";
+            }
+
+            if (path != null && path.FileName != null)
+            {
+                string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
+                if (!Directory.Exists(newPath))
+                {
+                    System.IO.Directory.CreateDirectory(newPath);
+                }
+                path.SaveAs(newPath + "/" + path.FileName);
+                filePath = "/Images/" + "SilderImages/" + path.FileName;
+            }
+            else
+            {
+                ViewBag.Error += "File name is not found <\br>";
+            }
+
+            TempData["Error"] = error;
+            if (error.Equals(""))
+            {
+                _imageService.addImage(_id, _proID, filePath);
+            }
+
+            return RedirectToAction("SliderManager");
+        }
+
+        [HttpPost]
+        public string deleteImage(string id)
+        {
+            int _id = -1;
+            if (id == null || id.Equals(""))
+            {
+                return "Error: ID không hợp lệ!";
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                return "Error: Lỗi khi parse ID";
+            }
+            Image i = _imageService.findByID(_id);
+            if (i == null)
+            {
+                return "Error: Không tìm thấy hình ảnh yêu cầu!";
+            }
+            _imageService.delete(i);
             return "Success";
         }
     }
