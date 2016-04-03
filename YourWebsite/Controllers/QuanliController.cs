@@ -42,6 +42,13 @@ namespace YourWebsite.Controllers
             return View();
         }
 
+        public ActionResult ImageManager()
+        {
+            List<Image> allImage = _imageService.getAll();
+            ViewBag.images = allImage;
+            return View();
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult saveCategory(string id, string categoryName, string preCateID)
@@ -266,6 +273,7 @@ namespace YourWebsite.Controllers
             _productService.delete(p);
             return "Success";
         }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult saveImgSlider(string id, string nameCode, HttpPostedFileBase path, string utility)
@@ -317,6 +325,8 @@ namespace YourWebsite.Controllers
             return RedirectToAction("SliderManager");
         }
 
+
+
         [HttpPost]
         public string deleteImage(string id)
         {
@@ -336,6 +346,63 @@ namespace YourWebsite.Controllers
             }
             _imageService.delete(i);
             return "Success";
+        }
+
+        public Object getImageInfo(int id)
+        {
+            return JsonConvert.SerializeObject(_imageService.findByID(id));
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult saveImg(string id, string nameCode, HttpPostedFileBase path, string utility)
+        {
+            string error = "";
+            int _id = -1;
+            int _nameCode = SLIMCONFIG.SLIDER_IMAGE;
+            string _path = "";
+
+            if (id == null || id.Equals(""))
+            {
+                _id = -1;
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                error += "Error: Không thể parse ImageID";
+            }
+
+            if (nameCode == null || nameCode.Equals(""))
+            {
+                _nameCode = SLIMCONFIG.SLIDER_IMAGE;
+            }
+            else if (int.TryParse(nameCode, out _nameCode) == false)
+            {
+                error += "Error: Không thể parse cateID";
+            }
+
+            if (path != null && path.FileName != null)
+            {
+                string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
+                if (!Directory.Exists(newPath))
+                {
+                    System.IO.Directory.CreateDirectory(newPath);
+                }
+                path.SaveAs(newPath + "/" + path.FileName);
+                _path = "/Images/" + "SilderImages/" + path.FileName;
+            }
+            else
+            {
+                ViewBag.Error += "File name is not found <\br>";
+            }
+
+            TempData["Error"] = error;
+            if (error.Equals(""))
+            {
+                _imageService.addImage(_id, _nameCode, _path, utility);
+            }
+
+            return RedirectToAction("ImageManager");
         }
     }
 }
