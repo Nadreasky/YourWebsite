@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YourWebsite.Services;
 
 namespace YourWebsite.Controllers
 {
@@ -10,6 +11,9 @@ namespace YourWebsite.Controllers
     {
         public ActionResult Index()
         {
+            ImageService _imageService = new ImageService();
+            List<Image> sliderImages = _imageService.getAllSliderImage();
+            ViewBag.sliderImages = sliderImages;
             return View();
         }
 

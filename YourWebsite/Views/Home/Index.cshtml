@@ -1,4 +1,6 @@
-﻿
+﻿@{ 
+    List<Image> sliderImages = ViewBag.sliderImages;
+}
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -437,24 +439,21 @@
                     <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin:0px auto;background-color:#FFFFFF;padding:0px;margin-top:0px;margin-bottom:0px;max-height:495px;">
                         <div id="rev_slider_1_1" class="rev_slider fullwidthabanner" style="display:none;max-height:495px;height:495;">
                             <ul>
-                                <!-- SLIDE  -->
-                                <li data-transition="slidehorizontal" data-slotamount="7" data-masterspeed="300" data-link="http://demo.ethemeuk.com/buyshop/woocommerce/demo/?page_id=26" data-target="_blank">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="~/Content/buyshop/wp-content/uploads/2013/12/slider1.jpg" alt="slider1" data-bgposition="center top" data-bgfit="contain" data-bgrepeat="no-repeat">
-                                    <!-- LAYERS -->
-                                </li>
-                                <!-- SLIDE  -->
-                                <li data-transition="slidehorizontal" data-slotamount="7" data-masterspeed="300" data-link="http://demo.ethemeuk.com/buyshop/woocommerce/demo/?page_id=536" data-target="_blank">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="~/Content/buyshop/wp-content/uploads/2014/04/anim3_.gif" alt="anim3_" data-bgposition="center top" data-bgfit="contain" data-bgrepeat="no-repeat">
-                                    <!-- LAYERS -->
-                                </li>
-                                <!-- SLIDE  -->
-                                <li data-transition="slidehorizontal" data-slotamount="7" data-masterspeed="300" data-link="http://demo.ethemeuk.com/buyshop/woocommerce/demo/?page_id=257">
-                                    <!-- MAIN IMAGE -->
-                                    <img src="~/Content/buyshop/wp-content/uploads/2014/04/slider2_.jpg" alt="slider2_" data-bgposition="center top" data-bgfit="contain" data-bgrepeat="no-repeat">
-                                    <!-- LAYERS -->
-                                </li>
+                                
+
+                                @{
+                                    for (int i = 0; i < sliderImages.Count; i++)
+                                    {
+                                        Image m = sliderImages.ElementAt(i);
+                                        <!-- SLIDE  -->
+                                        <li data-transition="slidehorizontal" data-slotamount="7" data-masterspeed="300" data-link="@m.Utility">
+                                            <!-- MAIN IMAGE -->
+                                            <img src="@m.Path" alt="slider2_" data-bgposition="center top" data-bgfit="contain" data-bgrepeat="no-repeat">
+                                            <!-- LAYERS -->
+                                        </li>
+                                    }
+                                }
+
                             </ul>
                             <div class="tp-bannertimer tp-bottom"></div>
                         </div>

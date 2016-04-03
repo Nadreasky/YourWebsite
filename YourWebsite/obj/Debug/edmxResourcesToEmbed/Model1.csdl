@@ -13,8 +13,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductID" Type="Int32" />
-    <Property Name="Link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="NameCode" Type="Int32" />
+    <Property Name="Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Utility" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Product">
     <Key>

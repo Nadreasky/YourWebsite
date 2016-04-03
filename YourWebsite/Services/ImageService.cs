@@ -17,19 +17,34 @@ namespace YourWebsite.Services
         {
             return _imageRepository.List.ToList();
         }
-        public void addImage(int id, int proID, string imgPath)
+        public List<Image> getAllSliderImage()
+        {
+            List<Image> allImage = getAll();
+            List<Image> sliderImages = new List<Image>();
+            for (int i = 0; i < allImage.Count; i++)
+            {
+                Image m = allImage.ElementAt(i);
+                if(m.NameCode == SLIMCONFIG.SLIDER_IMAGE)
+                {
+                    sliderImages.Add(m);
+                }
+            }
+            return sliderImages;
+        }
+        public void addImage(int id, int nameCode, string path, string utility)
         {
             Image i = findByID(id);
             if(i == null)
             {
                 i = new Image();
-                i.ProductID = proID;
-                i.Link = imgPath;
+                i.NameCode = nameCode;
+                i.Path = path;
+                i.Utility = utility;
                 _imageRepository.Add(i);
             }
             else
             {
-                i.Link = imgPath;
+                i.Path = path;
                 _imageRepository.Update(i);
             }
         }
