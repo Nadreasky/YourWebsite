@@ -60,7 +60,10 @@ namespace YourWebsite.Services
             else
             {
                 i.NameCode = nameCode;
-                i.Path = path;
+                if (path != null && !path.Equals(""))
+                {
+                    i.Path = path;
+                }
                 i.Utility = utility;
                 _imageRepository.Update(i);
             }
