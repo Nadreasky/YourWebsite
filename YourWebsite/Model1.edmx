@@ -18,8 +18,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductID" Type="int" />
-          <Property Name="Link" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NameCode" Type="int" />
+          <Property Name="Path" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Utility" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -59,8 +60,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="Link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="NameCode" Type="Int32" />
+          <Property Name="Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Utility" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -101,8 +103,9 @@
             <EntityTypeMapping TypeName="OnlineShopModel.Image">
               <MappingFragment StoreEntitySet="Images">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="NameCode" ColumnName="NameCode" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Utility" ColumnName="Utility" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

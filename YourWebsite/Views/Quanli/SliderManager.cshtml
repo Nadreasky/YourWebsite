@@ -15,7 +15,8 @@
                 @using (Html.BeginForm("saveImgSlider", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     <input type="hidden" name="id" class="form-control" />
-                    <input type="hidden" name="proID" class="form-control" value="-1" /> //xoa neu change DB
+                    <input type="hidden" name="utility" class="form-control" value=""/>
+                    <input type="hidden" name="nameCode" class="form-control" value="@SLIMCONFIG.SLIDER_IMAGE" />
                     <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
                     <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Add" />
                 }
@@ -42,12 +43,13 @@
                                 Image m = images.ElementAt(i);
                                 <tr>
                                     <td>@n</td>
-                                    <td><img src="@m.Link" style="height:200px;width:auto" /></td>
+                                    <td><img src="@m.Path" style="height:200px;width:auto" /></td>
                                     <td>
                                         @using (Html.BeginForm("saveImgSlider", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                         {
                                             <input type="hidden" name="id" class="form-control" value="@m.ID" />
-                                            <input type="hidden" name="proID" class="form-control" value="-1" /> //xoa neu change DB
+                                            <input type="hidden" name="utility" class="form-control" value="" />
+                                            <input type="hidden" name="nameCode" class="form-control" value="@SLIMCONFIG.SLIDER_IMAGE" />
                                             <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
                                             <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Update" />
                                         }
@@ -65,7 +67,8 @@
                             @using (Html.BeginForm("saveImgSlider", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 <input type="hidden" name="id" class="form-control" />
-                                <input type="hidden" name="proID" class="form-control" value="-1" /> //xoa neu change DB
+                                <input type="hidden" name="utility" class="form-control" value="" />
+                                <input type="hidden" name="nameCode" class="form-control" value="@SLIMCONFIG.SLIDER_IMAGE" />
                                 <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
                                 <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Add" />
                             }
@@ -78,6 +81,7 @@
 </div>
 
 <script>
+
     function deleteImg(id)
     {
         $.ajax({

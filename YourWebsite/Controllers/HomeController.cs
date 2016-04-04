@@ -21,6 +21,9 @@ namespace YourWebsite.Controllers
                 mainModel.Add(c, l);
             }
             ViewBag.mainModel = mainModel;
+            ImageService _imageService = new ImageService();
+            List<Image> sliderImages = _imageService.getAllSliderImage();
+            ViewBag.sliderImages = sliderImages;
             return View();
         }
 

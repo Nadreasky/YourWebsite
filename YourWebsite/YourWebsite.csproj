@@ -326,6 +326,8 @@
     <Content Include="Views\Quanli\Product.cshtml" />
     <Content Include="Views\Quanli\SliderManager.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
+
+    <Content Include="Views\Quanli\ImageManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

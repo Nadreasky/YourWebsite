@@ -13,8 +13,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductID" Type="int" />
-    <Property Name="Link" Type="nvarchar" MaxLength="1000" />
+    <Property Name="NameCode" Type="int" />
+    <Property Name="Path" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Utility" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Product">
     <Key>

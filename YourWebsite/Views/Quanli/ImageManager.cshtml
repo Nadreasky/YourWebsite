@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "ImageManager";
+    List<Image> images = ViewBag.images;
+}
+
+<h2>ImageManager</h2>
+
+<div class="container">
+    <div class="col-md-4">
+        @using (Html.BeginForm("saveImg", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="hidden" name="id" id="id" class="form-control" />
+            <label>Chọn chức năng của hình ảnh</label>
+            <select class="form-control" id="nameCode" name="nameCode">
+                <option value="@SLIMCONFIG.UNIDENTIFIED_IMAGE">Unidentified</option>
+                <option value="@SLIMCONFIG.MENU_BACKGROUND_IMAGE">Menu Background Image</option>
+                <option value="@SLIMCONFIG.SLIDER_IMAGE">Slider Image</option>
+            </select>
+            <label>Chọn hình ảnh</label>
+            <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
+            <label>Mô tả cho hình ảnh</label>
+            <input id="utility" name="utility" class="form-control" />
+            <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Add" />
+        }
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Type</th>
+                    <th>Mô tả</th>
+                    <th>Thumbnail</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ 
+                    for(int i = 0; i < images.Count; i++)
+                    {
+                        Image im = images.ElementAt(i);
+                        <tr>
+                            <td>@im.ID</td>
+                            <td>@im.NameCode</td>
+                            <td>@im.Utility</td>
+                            <td><img src="@im.Path" /></td>
+                            <td><button class="btn btn-warning" id="btnEdit" onclick="editImage(@im.ID)">Edit</button></td>
+                            <td><button class="btn btn-danger" id="btnDelete" onclick="deleteImage(@im.ID)">Delete</button></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    function editImage(id)
+    {
+        $.ajax({
+            url: "/Quanli/getImageInfo",
+            data: {
+                format: 'json',
+                id: id
+            },
+            error: function() {
+                alert("Problem!");
+            },
+            success: function (data) {
+                var imgObj = JSON.parse(data);
+
+                $("#id").val(imgObj.ID);
+                $("#nameCode").val(imgObj.NameCode);
+                $("#utility").val(imgObj.Utility);
+                $("#btnSaveImg").val("Update");
+            }
+        })
+    }
+
+    function deleteImage(id)
+    {
+        $.ajax({
+            url: "/Quanli/deleteImage",
+            data: {
+                format: 'json',
+                id: id
+            },
+            error: function () {
+                alert("Problem!")
+            },
+            success: function (data) {
+                if (data === "Success") {
+                    location.href = location.href;
+                }
+            },
+            type: 'POST'
+        })
+    }
+</script>

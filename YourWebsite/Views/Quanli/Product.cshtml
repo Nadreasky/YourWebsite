@@ -26,10 +26,7 @@
                     for (int i = 0; i < categories.Count; i++)
                     {
                         Category c = categories.ElementAt(i);
-                        if (c.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY)
-                        {
-                            <option value="@c.ID">@c.Name</option>
-                        }
+                        <option value="@c.ID">@c.Name</option>
                     }
                 }
             </select>
@@ -51,7 +48,7 @@
         <table class="table" id="productTable">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th hidden="hidden">ID</th>
                     <th>Tên sản phẩm</th>
                     <th>Price</th>
                     <th>Quantity</th>
@@ -65,12 +62,22 @@
                     {
                         Product p = products.ElementAt(i);
                         <tr>
-                            <td>@p.ID</td>
+                            <td hidden="hidden">@p.ID</td>
                             <td>@p.Name</td>
                             <td>@p.Price</td>
                             <td>@p.Quantity</td>
-                            <td><button class="btn btn-warning" onclick="editProduct(@p.ID)">Edit</button></td>
-                            <td><button class="btn btn-danger" onclick="deleteProduct(@p.ID)">Delete</button></td>
+                            <td rowspan="2"><button style="margin-top:50px;" class="btn btn-warning" onclick="editProduct(@p.ID)">Edit</button></td>
+                            <td rowspan="2"><button style="margin-top:50px;" class="btn btn-danger" onclick="deleteProduct(@p.ID)">Delete</button></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <img src="@p.Img1" style="height:100px;width:100px;"/>
+                                <img src="@p.Img2" style="height:100px;width:100px;"/>
+                                <img src="@p.Img3" style="height:100px;width:100px;"/>
+                                <img src="@p.Img4" style="height:100px;width:100px;"/>
+                            </td>
+                            
                         </tr>
                     }
                 }

@@ -15,7 +15,8 @@ namespace YourWebsite
     public partial class Image
     {
         public int ID { get; set; }
-        public Nullable<int> ProductID { get; set; }
-        public string Link { get; set; }
+        public Nullable<int> NameCode { get; set; }
+        public string Path { get; set; }
+        public string Utility { get; set; }
     }
 }

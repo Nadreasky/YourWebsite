@@ -14,8 +14,9 @@
       <EntityTypeMapping TypeName="OnlineShopModel.Image">
         <MappingFragment StoreEntitySet="Images">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="NameCode" ColumnName="NameCode" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Utility" ColumnName="Utility" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
