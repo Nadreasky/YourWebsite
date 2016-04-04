@@ -105,7 +105,7 @@ namespace YourWebsite.Services
                 }
             
             count = 0;
-            for (int i = indexOfMainProduct - 1; i > 0 && count < 4; i--)
+            for (int i = indexOfMainProduct - 1; i >= 0 && count < 4; i--)
             {
 
                 Product p = allProduct.ElementAt(i);
@@ -162,15 +162,20 @@ namespace YourWebsite.Services
             if (mainProduct != null && mainProduct.CateID != null)
             {
                 Category mainProCate = _categoryService.findByid(mainProduct.CateID.Value);
-                //productTree.Add(mainProCate);
+                productTree.Add(mainProCate);
                 Category tmp = new Category();
+
                 tmp = mainProCate;
+
+
+
                 while(tmp != null && tmp.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY)
                 {
-                    productTree.Add(tmp);
                     if (tmp.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY && tmp.PreCateID != null)
                     {
+                        
                         Category c = _categoryService.findByid(tmp.PreCateID.Value);
+                        productTree.Add(c);
                         tmp = c;
                     }
                 }
