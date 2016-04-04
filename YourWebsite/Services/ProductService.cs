@@ -9,9 +9,11 @@ namespace YourWebsite.Services
     public class ProductService
     {
         ProductRepository _productRepository;
+        CategoryService _categoryService;
         public ProductService()
         {
             _productRepository = new ProductRepository();
+            _categoryService = new CategoryService();
         }
         public List<Product> getAll()
         {
@@ -78,5 +80,109 @@ namespace YourWebsite.Services
             Product p = _productRepository.FindById(id);
             return p;
         }
+
+        public List<Product> getRelativeProducts(int id)
+        {
+            Product mainProduct = findByID(id);
+            List<Product> relativeProducts = new List<Product>();
+            List<Product> allProduct = getAll();
+            int count = 0;
+
+            int indexOfMainProduct = allProduct.IndexOf(mainProduct);
+
+
+
+           
+                for (int i = indexOfMainProduct + 1;  i<allProduct.Count && count<4; i++)
+                {
+                   
+                        Product p = allProduct.ElementAt(i);
+                        if (p.CateID == mainProduct.CateID)
+                        {
+                            relativeProducts.Add(p);
+                            count++;
+                        }
+                }
+            
+            count = 0;
+            for (int i = indexOfMainProduct - 1; i > 0 && count < 4; i--)
+            {
+
+                Product p = allProduct.ElementAt(i);
+                if (p.CateID == mainProduct.CateID)
+                {
+                    relativeProducts.Add(p);
+                    count++;
+                }
+            }
+
+            //while (count < 4 && size <= allProduct.Count)
+            //{
+            //    for (int i = 0; i < allProduct.Count; i++)
+            //    {
+            //        Product p = allProduct.ElementAt(i);
+
+            //        if ((p.CateID == mainProduct.CateID) && (p.ID > id))
+            //        {
+            //            relativeProducts.Add(p);
+            //            count++;
+
+            //        }
+            //        size++;
+            //    }
+            //}
+
+            //count = 0;
+            //while (count < 4 && size <= allProduct.Count)
+            //{
+            //    for (int i = allProduct.Count-1; i >= 0; i--)
+            //    {
+            //        Product p = allProduct.ElementAt(i);
+
+            //        if ((p.CateID == mainProduct.CateID) && (p.ID < id))
+            //        {
+            //            relativeProducts.Add(p);
+            //            count++;
+
+            //        }
+            //        size++;
+            //    }
+            //}
+
+            return relativeProducts;
+            
+        }
+
+        public List<Category> getProductTree(int id)
+        {
+            List<Category> productTree = new List<Category>();
+
+            Product mainProduct = findByID(id);
+
+            if (mainProduct != null && mainProduct.CateID != null)
+            {
+                Category mainProCate = _categoryService.findByid(mainProduct.CateID.Value);
+                //productTree.Add(mainProCate);
+                Category tmp = new Category();
+                tmp = mainProCate;
+                while(tmp != null && tmp.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY)
+                {
+                    productTree.Add(tmp);
+                    if (tmp.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY && tmp.PreCateID != null)
+                    {
+                        Category c = _categoryService.findByid(tmp.PreCateID.Value);
+                        tmp = c;
+                    }
+                }
+                
+                
+            }
+
+            
+
+
+            return productTree;
+        }
+
     }
 }
