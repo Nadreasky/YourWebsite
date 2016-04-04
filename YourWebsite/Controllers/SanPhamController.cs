@@ -21,6 +21,13 @@ namespace YourWebsite.Controllers
             }
             ViewBag.mainProduct = mainProduct;
 
+            List<Product> relativeProducts = _productService.getRelativeProducts((int)id);
+
+            ViewBag.relativeProducts = relativeProducts;
+
+            List<Category> proTrees = _productService.getProductTree((int)id);
+            ViewBag.proTrees = proTrees;
+
             return View();
         }
     }
