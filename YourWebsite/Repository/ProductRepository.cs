@@ -60,6 +60,16 @@ namespace YourWebsite.Repository
             return result;
         }
 
+        public List<Product> getByCategoryId(int cateId)
+        {
+            var result = (from r in _productContext.Products where r.CateID == cateId select r).ToList();
+            if(result == null)
+            {
+                result = new List<Product>();
+            }
+            return result;
+        }
+
         public void Update(Product entity)
         {
             _productContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;

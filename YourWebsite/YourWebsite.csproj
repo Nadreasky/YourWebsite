@@ -204,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuanliController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +244,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets.pinterest.com\PinExt.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo.png" />
@@ -323,6 +325,7 @@
     <Content Include="Views\Quanli\Category.cshtml" />
     <Content Include="Views\Quanli\Product.cshtml" />
     <Content Include="Views\Quanli\SliderManager.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,6 +333,7 @@
     <Folder Include="Content\buyshop\wp-content\" />
     <Folder Include="Content\buyshop\wp-includes\" />
     <Folder Include="Content\ckeditor\" />
+    <Folder Include="Content\platform.twitter.com\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

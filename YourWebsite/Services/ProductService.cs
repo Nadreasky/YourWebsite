@@ -17,6 +17,11 @@ namespace YourWebsite.Services
         {
             return _productRepository.List.ToList();
         }
+        public List<Product> getAllProductByCategory(int categoryId)
+        {
+            return _productRepository.getByCategoryId(categoryId);
+        }
+
         public void addProduct(int id, string name, double price, int cateID, string des, int quantity, string imgPath1, string imgPath2, string imgPath3, string imgPath4)
         {
             Product p = findByID(id);
