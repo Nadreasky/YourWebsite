@@ -33,6 +33,7 @@
           <ScalarProperty Name="Img2" ColumnName="Img2" />
           <ScalarProperty Name="Img3" ColumnName="Img3" />
           <ScalarProperty Name="Img4" ColumnName="Img4" />
+          <ScalarProperty Name="Trend" ColumnName="Trend" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -12,5 +12,7 @@ namespace YourWebsite
         public static int SLIDER_IMAGE = -2;
         public static int MENU_BACKGROUND_IMAGE = -3;
         public static int UNIDENTIFIED_IMAGE = -4;
+        public static int IS_TREND = -5;
+        public static int IS_NOT_TREND = -6;
     }
 }

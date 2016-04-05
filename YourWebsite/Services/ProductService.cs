@@ -24,7 +24,7 @@ namespace YourWebsite.Services
             return _productRepository.getByCategoryId(categoryId);
         }
 
-        public void addProduct(int id, string name, double price, int cateID, string des, int quantity, string imgPath1, string imgPath2, string imgPath3, string imgPath4)
+        public void addProduct(int id, string name, double price, int cateID, string des, int quantity, string imgPath1, string imgPath2, string imgPath3, string imgPath4, int trend)
         {
             Product p = findByID(id);
             if (p == null)
@@ -39,6 +39,7 @@ namespace YourWebsite.Services
                 p.Img2 = imgPath2;
                 p.Img3 = imgPath3;
                 p.Img4 = imgPath4;
+                p.Trend = trend;
                 _productRepository.Add(p);
             }
             else
@@ -64,6 +65,7 @@ namespace YourWebsite.Services
                 {
                     p.Img4 = imgPath4;
                 }
+                p.Trend = trend;
                 _productRepository.Update(p);
             }
         }
@@ -183,11 +185,40 @@ namespace YourWebsite.Services
                 
             }
 
-            
-
-
             return productTree;
         }
 
+
+        public List<Product> getNewProducts()
+        {
+            List<Product> newProducts = new List<Product>();
+            List<Product> allProduct = getAll();
+
+            int count = 0;
+            for (int i = allProduct.Count - 1; i >= 0 && count < 4; i--)
+            {
+                Product p = allProduct.ElementAt(i);
+                newProducts.Add(p);
+                count++;
+            }
+
+            return newProducts;
+        }
+
+        public List<Product> getTrendProducts()
+        {
+            List<Product> trendProducts = new List<Product>();
+            List<Product> allProduct = getAll();
+
+            for (int i = allProduct.Count - 1; i >= 0; i--)
+            {
+                Product p = allProduct.ElementAt(i);
+                if (p.Trend == SLIMCONFIG.IS_TREND)
+                {
+                    trendProducts.Add(p);
+                }
+            }
+            return trendProducts;
+        }
     }
 }

@@ -31,6 +31,7 @@
     <Property Name="Img2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trend" Type="Int32" />
   </EntityType>
   <EntityContainer Name="OnlineshopEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categories" EntityType="Self.Category" />

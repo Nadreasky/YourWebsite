@@ -124,7 +124,7 @@ namespace YourWebsite.Controllers
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult saveProduct(string id, string productName, string productPrice, string productCateID, string description,
-            string quantity, HttpPostedFileBase productImg1, HttpPostedFileBase productImg2, HttpPostedFileBase productImg3, HttpPostedFileBase productImg4)
+            string quantity, HttpPostedFileBase productImg1, HttpPostedFileBase productImg2, HttpPostedFileBase productImg3, HttpPostedFileBase productImg4, string trend)
         {
             string error = "";
             int _id = -1;
@@ -135,6 +135,7 @@ namespace YourWebsite.Controllers
             string filePath2 = "";
             string filePath3 = "";
             string filePath4 = "";
+            int _trend = SLIMCONFIG.IS_NOT_TREND;
 
             if (id == null || id.Equals(""))
             {
@@ -174,6 +175,14 @@ namespace YourWebsite.Controllers
             else if (int.TryParse(quantity, out _quantity) == false)
             {
                 error += "Error: Không thể parse quantity của sản phẩm";
+            }
+            if (trend == null || trend.Equals(""))
+            {
+                _trend = SLIMCONFIG.IS_NOT_TREND;
+            }
+            else if (int.TryParse(trend, out _trend) == false)
+            {
+                error += "Error: Không thể parse Trend";
             }
 
             //check image
@@ -238,7 +247,7 @@ namespace YourWebsite.Controllers
             TempData["Error"] = error;
             if(error.Equals(""))
             {
-                _productService.addProduct(_id, productName, _productPrice, _productCateID, description, _quantity, filePath1, filePath2, filePath3, filePath4);
+                _productService.addProduct(_id, productName, _productPrice, _productCateID, description, _quantity, filePath1, filePath2, filePath3, filePath4, _trend);
             }
 
 

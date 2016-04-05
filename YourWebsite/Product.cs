@@ -24,5 +24,6 @@ namespace YourWebsite
         public string Img2 { get; set; }
         public string Img3 { get; set; }
         public string Img4 { get; set; }
+        public Nullable<int> Trend { get; set; }
     }
 }

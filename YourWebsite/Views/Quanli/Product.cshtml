@@ -30,8 +30,12 @@
                     }
                 }
             </select>
-            <label>Số lượng</label>
-            <input class="form-control" id="quantity" name="quantity" />
+            <label>Trend</label>
+            <select class="form-control" id="trend" name="trend">
+                <option value="@SLIMCONFIG.IS_NOT_TREND">Không</option>
+                <option value="@SLIMCONFIG.IS_TREND">Có</option>
+            </select>
+            <input type="hidden" class="form-control" id="quantity" name="quantity" />
             <label>Hình ảnh sản phẩm</label>
             <input class="form-control" type="file" id="productImg1" name="productImg1" />
             <input class="form-control" type="file" id="productImg2" name="productImg2" />
@@ -109,6 +113,7 @@
                 $("#productPrice").val(proObj.Price);
                 $("#productCateID").val(proObj.CateID);
                 $("#quantity").val(proObj.Quantity);
+                $("#trend").val(proObj.Trend);
                 CKEDITOR.instances['description'].setData(proObj.Descriptions);
                 $("#btnAddProduct").val("Update");
             }
