@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using YourWebsite.Repository;
 
 namespace YourWebsite.Services
@@ -80,6 +81,15 @@ namespace YourWebsite.Services
             }
             Image i = _imageRepository.FindById(id);
             return i;
+        }
+
+        public WebImage reSizeImg(HttpPostedFileBase file)
+        {
+            WebImage img = new WebImage(file.InputStream);
+
+            img.Resize(SLIMCONFIG.IMG_WIDTH, SLIMCONFIG.IMG_HEIGHT, true, true);
+
+            return img;
         }
     }
 }

@@ -14,5 +14,7 @@ namespace YourWebsite
         public static int UNIDENTIFIED_IMAGE = -4;
         public static int IS_TREND = -5;
         public static int IS_NOT_TREND = -6;
+        public static int IMG_WIDTH = 300;
+        public static int IMG_HEIGHT = 100000;
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using YourWebsite.Services;
 using System.IO;
+using System.Web.Helpers;
 
 namespace YourWebsite.Controllers
 {
@@ -193,7 +194,10 @@ namespace YourWebsite.Controllers
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg1.SaveAs(newPath + "/" + productImg1.FileName);
+                WebImage img = _imageService.reSizeImg(productImg1);
+                img.FileName = productImg1.FileName;
+                img.Save(newPath + "/" + img.FileName);
+                //productImg1.SaveAs(newPath + "/" + productImg1.FileName);
                 filePath1 = "/Images/" + "ProductImages/" + productImg1.FileName;
             }
             else
@@ -207,7 +211,9 @@ namespace YourWebsite.Controllers
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg2.SaveAs(newPath + "/" + productImg2.FileName);
+                WebImage img = _imageService.reSizeImg(productImg2);
+                img.FileName = productImg2.FileName;
+                img.Save(newPath + "/" + img.FileName);
                 filePath2 = "/Images/" + "ProductImages/" + productImg2.FileName;
             }
             else
@@ -221,7 +227,9 @@ namespace YourWebsite.Controllers
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg3.SaveAs(newPath + "/" + productImg3.FileName);
+                WebImage img = _imageService.reSizeImg(productImg3);
+                img.FileName = productImg3.FileName;
+                img.Save(newPath + "/" + img.FileName);
                 filePath3 = "/Images/" + "ProductImages/" + productImg3.FileName;
             }
             else
@@ -235,7 +243,9 @@ namespace YourWebsite.Controllers
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg4.SaveAs(newPath + "/" + productImg4.FileName);
+                WebImage img = _imageService.reSizeImg(productImg4);
+                img.FileName = productImg4.FileName;
+                img.Save(newPath + "/" + img.FileName);
                 filePath4 = "/Images/" + "ProductImages/" + productImg4.FileName;
             }
             else
