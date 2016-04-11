@@ -330,6 +330,7 @@
     <Content Include="Views\Quanli\ImageManager.cshtml" />
     <Content Include="Views\DanhMuc\Index.cshtml" />
     <Content Include="Views\Quanli\TrendImageManager.cshtml" />
+    <Content Include="Views\Quanli\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
