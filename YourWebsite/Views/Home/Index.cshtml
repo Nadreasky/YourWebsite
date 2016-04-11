@@ -3,6 +3,7 @@
     Dictionary<Category, List<Product>> mainModel = ViewBag.mainModel;
     List<Image> sliderImages = ViewBag.sliderImages;
     List<Product> newProducts = ViewBag.newProducts;
+    //List<Image> trendProducts = ViewBag.trendProducts;
     List<Product> trendProducts = ViewBag.trendProducts;
 }
 
@@ -179,12 +180,12 @@
                                                                                         <a href="/sanpham/@p.ID">
                                                                                             @p.Name
                                                                                         </a>
-                                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Quick View</a>
+                                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
                                                                                     <div class="wrapper">
 
                                                                                         @*<div class="product-price"><span class="amount">Giá: @p.Price</span></div>*@
 
-                                                                                        <div class="product-tocart"><a href="indexd5f5.html?add-to-cart=78" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
                                                                                         <div class="clearfix"></div>
                                                                                     </div>
                                                                                 </div>
@@ -221,16 +222,18 @@
                                                                                                 <a href="/sanpham/@p.ID">
                                                                                                     @p.Name
                                                                                                 </a>
-                                                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Quick View</a>
+                                                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
                                                                                             <div class="wrapper">
 
 
-                                                                                                <div class="product-tocart"><a href="indexd5f5.html?add-to-cart=78" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                                                                <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
                                                                                             </div>
                                                                                             <div class="clearfix"></div>
+                                                                                            @*
                                                                                             <div class="product-link">
                                                                                                 <a class="wft_add_to_wishlist" href="indexb436.html?action=add_to_wishlist&amp;add_to_wishlist=78" data-product-id="78" data-product-type="simple">Add to Wishlist</a>
                                                                                             </div>
+                                                                                                *@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -293,13 +296,13 @@
                                                                             <a href="/sanpham/@r.ID">
                                                                                 @r.Name
                                                                             </a>
-                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Quick View</a>
+                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
                                                                         <div class="wrapper">
 
 
 
 
-                                                                            <div class="product-tocart"><a href="#" rel="nofollow" data-product_id="1025" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                                            <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1025" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
                                                                             <div class="clearfix"></div>
                                                                         </div>
 
@@ -330,7 +333,6 @@
                                                                         </div>
                                                                         <div class="col-2 with_media">
                                                                             <div class="big_image">
-                                                                                <div class="label_new_top_left">New!</div>				
                                                                                 <a href="/sanpham/@r.ID">
 
                                                                                     <img width="300" height="300" src="@r.Img1" class="attachment-shop_single wp-post-image" alt="@r.Name">
@@ -343,20 +345,21 @@
                                                                                     <a href="/sanpham/@r.ID">
                                                                                         @r.Name
                                                                                     </a>
-                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Quick View</a>
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
                                                                                 <div class="wrapper">
 
 
 
 
-                                                                                    <div class="product-tocart"><a href="#" rel="nofollow" data-product_id="1025" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                                                    <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1025" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
 
                                                                                 </div>
                                                                                 <div class="clearfix"></div>
-
+                                                                                @*
                                                                                 <div class="product-link">
                                                                                     <a class="wft_add_to_wishlist" href="#" data-product-id="1025" data-product-type="simple">Add to Wishlist</a>
                                                                                 </div>
+                                                                                    *@
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -385,6 +388,7 @@
                                                                     @{
                                                                         for (int m = 0; m < trendProducts.Count; m++)
                                                                         {
+                                                                            //Image o = trendProducts.ElementAt(m);
                                                                             Product o = trendProducts.ElementAt(m);
                                                                             <li style="float: left; display: block; width: 152px;" class="clone"> <a href="/sanpham/@o.ID"><img alt="" src="@o.Img1"></a> </li>
                                                                         }
@@ -431,7 +435,7 @@
                                                                                 <a href="/sanpham/@p.ID">
                                                                                     @p.Name
                                                                                 </a>
-                                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Quick View</a>
+                                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
                                                                             <div class="wrapper">
 
                                                                                 @*<div class="product-price"><span class="amount">Giá: @p.Price</span></div>*@
@@ -473,7 +477,7 @@
                                                                                         <a href="/sanpham/@p.ID">
                                                                                             @p.Name
                                                                                         </a>
-                                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Quick View</a>
+                                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
                                                                                     <div class="wrapper">
 
                                                                                         <div class="product-price"><span class="amount">&pound;@p.Price</span></div>

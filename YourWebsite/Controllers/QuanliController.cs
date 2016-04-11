@@ -50,6 +50,15 @@ namespace YourWebsite.Controllers
             return View();
         }
 
+        public ActionResult TrendImageManager()
+        {
+            List<Category> categories = _categoryService.getAll();
+            ViewBag.categories = categories;
+            List<Image> trendImages = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
+            ViewBag.trendImages = trendImages;
+            return View();
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult saveCategory(string id, string categoryName, string preCateID)
@@ -189,12 +198,23 @@ namespace YourWebsite.Controllers
             //check image
             if (productImg1 != null && productImg1.FileName != null)
             {
+                
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                WebImage img = _imageService.reSizeImg(productImg1);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg1);
+                imgBig.FileName = productImg1.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
                 img.FileName = productImg1.FileName;
                 img.Save(newPath + "/" + img.FileName);
                 //productImg1.SaveAs(newPath + "/" + productImg1.FileName);
@@ -207,11 +227,21 @@ namespace YourWebsite.Controllers
             if (productImg2 != null && productImg2.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                WebImage img = _imageService.reSizeImg(productImg2);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg2);
+                imgBig.FileName = productImg2.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
                 img.FileName = productImg2.FileName;
                 img.Save(newPath + "/" + img.FileName);
                 filePath2 = "/Images/" + "ProductImages/" + productImg2.FileName;
@@ -223,11 +253,21 @@ namespace YourWebsite.Controllers
             if (productImg3 != null && productImg3.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                WebImage img = _imageService.reSizeImg(productImg3);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg3);
+                imgBig.FileName = productImg3.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
                 img.FileName = productImg3.FileName;
                 img.Save(newPath + "/" + img.FileName);
                 filePath3 = "/Images/" + "ProductImages/" + productImg3.FileName;
@@ -239,11 +279,21 @@ namespace YourWebsite.Controllers
             if (productImg4 != null && productImg4.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                WebImage img = _imageService.reSizeImg(productImg4);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg4);
+                imgBig.FileName = productImg4.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
                 img.FileName = productImg4.FileName;
                 img.Save(newPath + "/" + img.FileName);
                 filePath4 = "/Images/" + "ProductImages/" + productImg4.FileName;
@@ -379,7 +429,7 @@ namespace YourWebsite.Controllers
         {
             string error = "";
             int _id = -1;
-            int _nameCode = SLIMCONFIG.SLIDER_IMAGE;
+            int _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
             string _path = "";
 
             if (id == null || id.Equals(""))
@@ -393,7 +443,7 @@ namespace YourWebsite.Controllers
 
             if (nameCode == null || nameCode.Equals(""))
             {
-                _nameCode = SLIMCONFIG.SLIDER_IMAGE;
+                _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
             }
             else if (int.TryParse(nameCode, out _nameCode) == false)
             {
@@ -402,13 +452,43 @@ namespace YourWebsite.Controllers
 
             if (path != null && path.FileName != null)
             {
-                string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
-                if (!Directory.Exists(newPath))
+                if (_nameCode == SLIMCONFIG.IS_TREND)
                 {
-                    System.IO.Directory.CreateDirectory(newPath);
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "TrendImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "TrendImages/" + path.FileName;
                 }
-                path.SaveAs(newPath + "/" + path.FileName);
-                _path = "/Images/" + "SilderImages/" + path.FileName;
+                else if (_nameCode == SLIMCONFIG.SLIDER_IMAGE)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "SilderImages/" + path.FileName;
+                }
+                else
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "OtherImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "OtherImages/" + path.FileName;
+                }
+                
             }
             else
             {
@@ -423,5 +503,92 @@ namespace YourWebsite.Controllers
 
             return RedirectToAction("ImageManager");
         }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult saveTrendImg(string id, string nameCode, HttpPostedFileBase path, string utility)
+        {
+            string error = "";
+            int _id = -1;
+            int _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
+            string _path = "";
+
+            if (id == null || id.Equals(""))
+            {
+                _id = -1;
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                error += "Error: Không thể parse ImageID";
+            }
+
+            if (nameCode == null || nameCode.Equals(""))
+            {
+                _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
+            }
+            else if (int.TryParse(nameCode, out _nameCode) == false)
+            {
+                error += "Error: Không thể parse cateID";
+            }
+
+            if (path != null && path.FileName != null)
+            {
+                if (_nameCode == SLIMCONFIG.IS_TREND)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "TrendImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "TrendImages/" + path.FileName;
+                }
+                else if (_nameCode == SLIMCONFIG.SLIDER_IMAGE)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "SilderImages/" + path.FileName;
+                }
+                else
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "OtherImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "OtherImages/" + path.FileName;
+                }
+
+            }
+            else
+            {
+                ViewBag.Error += "File name is not found <\br>";
+            }
+
+            TempData["Error"] = error;
+            if (error.Equals(""))
+            {
+                _imageService.addImage(_id, _nameCode, _path, utility);
+            }
+
+            return RedirectToAction("TrendImageManager");
+        }
+
+        public Object getProductsByCate(int id)
+        {
+            return JsonConvert.SerializeObject(_productService.getAllProductByCategory(id));
+        }
+
     }
 }

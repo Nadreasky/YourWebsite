@@ -16,5 +16,9 @@ namespace YourWebsite
         public static int IS_NOT_TREND = -6;
         public static int IMG_WIDTH = 300;
         public static int IMG_HEIGHT = 100000;
+        public static int BIG_IMG_WIDTH = 900;
+        public static int BIG_IMG_HEIGHT = 100000;
+        public static string BIG_IMG_PATH = "~/BigImages/Images/";
+        public static string BIG_IMG_PATH_WEB = "/BigImages";
     }
 }

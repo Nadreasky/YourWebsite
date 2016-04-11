@@ -13,7 +13,11 @@ namespace YourWebsite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
+            routes.MapRoute(
+                name: "DanhMuc",
+                url: "DanhMuc/{id}",
+                defaults: new { controller = "DanhMuc", action = "Index" }
+            );
             routes.MapRoute(
                 name: "SanPhamDetail",
                 url: "Sanpham/{id}",

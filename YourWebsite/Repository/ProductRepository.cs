@@ -75,5 +75,15 @@ namespace YourWebsite.Repository
             _productContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             _productContext.SaveChanges();
         }
+
+        public string getProductName(int id)
+        {
+            var result = (from p in _productContext.Products where p.ID == id select p.Name).FirstOrDefault();
+            if (result == null)
+            {
+                result = "";
+            }
+            return result;
+        }
     }
 }

@@ -1,9 +1,13 @@
-﻿@{ 
-    Product mainProduct = ViewBag.mainProduct;
-    ViewBag.Title = "Your Shop" + " - " + mainProduct.Name;
-    List<Product> relativeProducts = ViewBag.relativeProducts;
-    List<Category> proTrees = ViewBag.proTrees;
+﻿
+@{
+    Category mainCate = ViewBag.mainCate;
+    ViewBag.Title = mainCate.Name;
+    List<Category> cateTree = ViewBag.cateTree;
+    List<Product> productListByCate = ViewBag.productListByCate;
+    List<Image> trendProducts = ViewBag.trendProducts;
 }
+
+
 
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en-US">
 <!--<![endif]-->
-<!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product=paisley-print-stretch-silk-camisole-3 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:49:47 GMT -->
+<!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product_cat=club-dresses by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:37:40 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -25,7 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>
-        Paisley-print stretch-silk camisole | BuyShop &#8211; Premium Responsive WooCommerce WordPress Theme
+        Club Dresses | Product Categories | BuyShop &#8211; Premium Responsive WooCommerce WordPress Theme
     </title>
 
     <link rel="stylesheet" href="~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector3294.css?v=3.0.1" type="text/css" media="all" />
@@ -51,13 +55,12 @@
         }
     </style>
     <script type="text/javascript">
-            var yith_wcwl_plugin_ajax_web_url = 'wp-admin/admin-ajax.html';
-            var login_redirect_url= 'wp-logind76b.html?redirect_to=%2Fbuyshop%2Fwoocommerce%2Fdemo_classic%2F%3Fproduct%3Dpaisley-print-stretch-silk-camisole-3';
+        var yith_wcwl_plugin_ajax_web_url = '~/Content/buyshop/wp-admin/admin-ajax.html';
+            var login_redirect_url= 'wp-login9b15.html?redirect_to=%2Fbuyshop%2Fwoocommerce%2Fdemo_classic%2F%3Fproduct_cat%3Dclub-dresses';
     </script>
     <meta name='robots' content='noindex,follow' />
     <link rel="alternate" type="application/rss+xml" title="BuyShop - Premium Responsive WooCommerce WordPress Theme &raquo; Feed" href="indexd784.html?feed=rss2" />
     <link rel="alternate" type="application/rss+xml" title="BuyShop - Premium Responsive WooCommerce WordPress Theme &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
-    <link rel="alternate" type="application/rss+xml" title="BuyShop - Premium Responsive WooCommerce WordPress Theme &raquo; Paisley-print stretch-silk camisole Comments Feed" href="indexe9b3.html?feed=rss2&amp;p=1024" />
     <link rel='stylesheet' id='language-selector-css' href='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector-click4264.css?ver=3.9.11' type='text/css' media='all' />
     <link rel='stylesheet' id='mmm_mega_main_menu-css' href='~/Content/buyshop/wp-content/plugins/mega_main_menu/src/css/cache.skincc1a.css?ver=1454064437' type='text/css' media='all' />
     <link rel='stylesheet' id='rs-plugin-settings-css' href='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/css/settings0b07.css?rev=4.3.3&amp;ver=3.9.11' type='text/css' media='all' />
@@ -88,19 +91,16 @@
     <link rel='stylesheet' id='fancybox-css-css' href='~/Content/buyshop/wp-content/themes/buyshop/css/jquery.fancybox285d.css?v=2.1.5&amp;ver=3.9.11' type='text/css' media='1' />
     <link rel='stylesheet' id='page-list-style-css' href='~/Content/buyshop/wp-content/plugins/sitemap/css/page-listbc19.css?ver=4.2' type='text/css' media='all' />
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/js/language-selector4264.js?ver=3.9.11'></script>
-    <script type='text/javascript' src='wp-includes/js/jquery/jquerya4e6.js?ver=1.11.0'></script>
-    <script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/jquerya4e6.js?ver=1.11.0'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce-multilingual/assets/js/cart_widget128b.js?ver=3.1'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.plugins.min0b07.js?rev=4.3.3&amp;ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.revolution.min0b07.js?rev=4.3.3&amp;ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/buyshop-panel/js/bs_panel4264.js?ver=3.9.11'></script>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" />
-    <link rel='prev' title='Dugan georgette top' href='indexffd7.html?product=dugan-georgette-top-3' />
-    <link rel='next' title='Marguerite stretch-tulle thong' href='index8144.html?product=marguerite-riding-printed-stretch-tulle-thong-3' />
     <meta name="generator" content="WordPress 3.9.11" />
     <meta name="generator" content="WooCommerce 2.1.7" />
-    <link rel='shortlink' href='indexf0fa.html?p=1024' />
 
     <!-- Contact Us Form -->
     <style type="text/css">
@@ -131,7 +131,7 @@
         }
     </style>
     <meta name="generator" content="WPML ver:3.0.1 stt:1,3;0" />
-    <link rel="alternate" type="application/rss+xml" title="New products" href="index1f80.html?post_type=product&amp;feed=rss2" />
+    <link rel="alternate" type="application/rss+xml" title="New products added to Club+Dresses" href="indexe200.html?post_type=product&amp;feed=rss2&amp;product_cat=club-dresses" />
     <link rel='stylesheet' id='wsl_css-css' href='~/Content/buyshop/wp-content/plugins/wordpress-social-login/assets/css/style4264.css?ver=3.9.11' type='text/css' media='all' />
 
     <style type="text/css">
@@ -147,7 +147,7 @@
         }
 
         .label-icon.sale-label {
-            background-image: url(wp-content/themes/buyshop/images/label-sale.html);
+            background-image: url(~/Content/buyshop/wp-content/themes/buyshop/images/label-sale.html);
         }
 
         .label-icon.new-label {
@@ -156,7 +156,7 @@
         }
 
         .label-icon.new-label {
-            background-image: url(wp-content/themes/buyshop/images/label-new.html);
+            background-image: url(~/Content/buyshop/-content/themes/buyshop/images/label-new.html);
         }
 
 
@@ -443,7 +443,7 @@
     <![endif]-->
 </head>
 
-<body class="single single-product postid-1024 woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
+<body class="archive tax-product_cat term-club-dresses term-28 woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
     <div id="wrap">
 
 
@@ -457,278 +457,256 @@
             </div>
         </div>
 
+        <!--HEADER-->
 
+
+
+        <!-- end of HEADER-->
         <section id="content">
             <div class="container top" role="main">
                 <div class="content_top">
                     <div class="wrapper_w">
                         <div class="pull-left">
-                        <div class="breadcrumbs">
-                            <a class="home" href="/">Home</a>
-                            <span>›</span>
-                            @{
-                                for (int i = proTrees.Count -1 ; i >= 0; i--)
-                                {
-                                    Category c = proTrees.ElementAt(i);
-                                    <a href="/danhmuc/@c.ID">@c.Name</a><span>›</span> //sua lai khi co trang hien thi category
-                                }
-                            }
-                            
-                            
-                            </div></div>	<div class="pull-right">
-                            <div class="direction-nav">
+                            <div class="breadcrumbs">
+                                <a class="home" href="/">Home</a><span>›</span>
                                 @{
-                                    bool hasPrv = false;
-                                 
-                                        for (int i = 0; i < relativeProducts.Count && hasPrv == false; i++)
-                                        {
-                                            Product p = relativeProducts.ElementAt(i);
-                                            if (p.ID < mainProduct.ID)
-                                            {
-                                                <span class="prev">
-                                                    <a href="@p.ID" rel="prev"><i class="icon-left-thin"></i></a><div class="small_preview prev hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@p.Img1" class="attachment-thumbnail wp-post-image" alt="wclo_ad_1_1 (26)" /></div>
-                                                </span>
-                                            hasPrv = true;
-
-                                        }
-                                    }
-
-                                    bool hasNxt = false;
-                                    for (int i = 0; i < relativeProducts.Count && hasNxt == false; i++)
+                                    for (int i = cateTree.Count - 1; i >= 0; i--)
                                     {
-                                        Product p = relativeProducts.ElementAt(i);
-                                        if (p.ID > mainProduct.ID)
+                                        Category c = cateTree.ElementAt(i);
+                                        if (i == 0)
                                         {
-                                            <span class="next">
-                                                <a href="@relativeProducts.ElementAt(0).ID" rel="next"><i class="icon-right-thin"></i></a><div class="small_preview next hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@relativeProducts.ElementAt(0).Img1" class="attachment-thumbnail wp-post-image" alt="woclo_01_1 (67)" /></div>
-                                            </span>
-                                            hasNxt = true;
+                                            @c.Name
+                                        }
+                                        else
+                                        {
+                                            <a href="/danhmuc/@c.ID">@c.Name</a>
+                                            <span>›</span>
                                         }
                                     }
-
-
-
-
                                 }
-                                
-                                
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row" style="width:1200px;">
+
+
+                    <div id="column_right" class="span9">
 
 
 
-                <div itemscope itemtype="http://schema.org/Product" id="product-1024" class="product-box">
-                    <div class="row">
-
-                        <div class="span5">
-                            <div class="product-img-box">
-                                <div class="row">
-                                    <div class="span1">
-
-                                        <div class="flexslider more-views">
-
-                                            <ul class="slides">
-                                                @if (!"".Equals(mainProduct.Img2))                                                {
-                                                    <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2" /></a></li>
-
-                                                }
-                                                @if (!"".Equals(mainProduct.Img1))
-                                                {
-                                                    <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" /></a></li>
-
-                                                }
-                                                @if (!"".Equals(mainProduct.Img3))
-                                                {
-                                                    <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img3" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img3'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img3" /></a></li>
-
-                                                }
 
 
+                        <div class="listing_header_row2">
+                            <div class="pull-left">
+                                <p class="woocommerce-result-count">
+                                    Showing all 6 results
+                                </p>
+                            </div>
+                            <div class="pull-right wft_pagination">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
 
+
+                        <div class="row big_with_description">
+
+
+                            @{
+                                for (int j = 0; j < productListByCate.Count; j++)
+                                {
+                                    Product p = productListByCate.ElementAt(j);
+                                    <div class="post-1016 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-coats product-cat-dresses product-cat-evening-dresses product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 385px, 0px);">
+
+
+                                        <div class="product-image-wrapper onhover animate scale animated">
+                                            <a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
+                                        </div>
+
+
+                                        <div class="wrapper-hover">
+
+                                            <div class="product-name">
+                                                <a href="/sanpham/@p.ID">
+                                                    @p.Name
+                                                </a>
+                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1016">Chi tiết</a>
+                                            <div class="wrapper">
+
+
+
+
+                                                <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1016" data-product_sku="9" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="preview hidden-tablet hidden-phone " style="display: none;">
+                                        <div class="wrapper">
+
+                                            <div class="col-1">
+
+
+                                                <a class="image" data-rel="@p.Img1" href="#">
+                                                    <img class="thumb" alt="" src="@p.Img1">
+                                                </a>
+
+
+                                                <a class="image" data-rel="@p.Img2" href="#">
+                                                    <img class="thumb" alt="" src="@p.Img2">
+                                                </a>
+
+                                                <a class="image" data-rel="@p.Img3" href="#">
+                                                    <img class="thumb" alt="" src="@p.Img3">
+                                                </a>
+
+
+                                            </div>
+                                            <div class="col-2 with_media">
+                                                <div class="big_image">
+                                                    <a href="/sanpham/@p.ID">
+
+                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name">
+                                                    </a>
+                                                </div>
+
+                                                <div class="wrapper-hover">
+
+                                                    <div class="product-name">
+                                                        <a href="/sanpham/@p.ID">
+                                                            @p.Name
+                                                        </a>
+                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1016">Chi tiết</a>
+                                                    <div class="wrapper">
+
+
+
+
+                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1016" data-product_sku="9" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+
+                                                    </div>
+                                                    <div class="clearfix"></div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+
+                        </div>
+
+                        <div class="line1"></div>			
+                        <div class="listing_header_row2">
+                            <div class="pull-left">
+                                <p class="woocommerce-result-count">
+                                    Showing all 6 results
+                                </p>
+                            </div>
+                            <div class="pull-right wft_pagination">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+
+                    <div id="column_left" class="span3">
+                        <div class="row">
+                            <div class="span3">
+                                <div id="product_categories-3" class="block woocommerce widget_product_categories">
+                                    <div class="block-title"><strong><span>Listing</span></strong></div><ul class="product-categories collapsed-menu">
+                                        <li class="level1 cat-item cat-item-38">
+                                            <a href="indexefad.html?product_cat=man">Man</a><span class="collapse_button">+</span><ul class="level1 children" style="display: none;">
+                                                <li class="level2 cat-item cat-item-42"><a href="index3218.html?product_cat=jeans-man">Jeans</a></li>
+                                                <li class="level2 cat-item cat-item-41"><a href="indexc842.html?product_cat=jumpers">Jumpers</a></li>
+                                                <li class="level2 cat-item cat-item-39"><a href="index2b84.html?product_cat=polo-shirts">Polo Shirts</a></li>
+                                                <li class="level2 cat-item cat-item-40"><a href="index90fd.html?product_cat=shirts-man">Shirts</a></li>
                                             </ul>
-
-                                        </div>
+                                        </li>
+                                        <li class="level1 cat-item cat-item-26 current-cat-parent">
+                                            <a href="index90fa.html?product_cat=women">Women</a><span class="collapse_button">+</span><ul class="level1 children" style="display: none;">
+                                                <li class="level2 cat-item cat-item-32"><a href="index0835.html?product_cat=coats">Coats</a></li>
+                                                <li class="level2 cat-item cat-item-27 current-cat-parent">
+                                                    <a href="index3a7f.html?product_cat=dresses">Dresses</a><span class="collapse_button">+</span>	<ul class="level2 children" style="display: none;">
+                                                        <li class="level3 cat-item cat-item-28 current-cat"><a href="index156d.html?product_cat=club-dresses">Club Dresses</a></li>
+                                                        <li class="level3 cat-item cat-item-29"><a href="index8c35.html?product_cat=evening-dresses">Evening Dresses</a></li>
+                                                        <li class="level3 cat-item cat-item-30"><a href="index1e07.html?product_cat=prom-dresses">Prom Dresses</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="level2 cat-item cat-item-33"><a href="index18d8.html?product_cat=jackets">Jackets</a></li>
+                                                <li class="level2 cat-item cat-item-35"><a href="indexd1f0.html?product_cat=jeans">Jeans</a></li>
+                                                <li class="level2 cat-item cat-item-37"><a href="index8104.html?product_cat=lingerie">Lingerie</a></li>
+                                                <li class="level2 cat-item cat-item-31"><a href="index6b3e.html?product_cat=shirts">Shirts</a></li>
+                                                <li class="level2 cat-item cat-item-34"><a href="indexe20d.html?product_cat=shorts">Shorts</a></li>
+                                                <li class="level2 cat-item cat-item-36"><a href="index64d2.html?product_cat=skirts">Skirts</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul><div class="clearfix"></div>
+                                </div><!-- //sidebar-widget -->
+                                <div id="tag_cloud-2" class="block widget_tag_cloud">
+                                    <div class="block-title"><strong><span>Popular Tags</span></strong></div><div class="tagcloud">
+                                        <a href='index85f0.html?product_tag=club-dresses' class='tag-link-28' title='16 topics' style='font-size: 19.666666666667pt;'>Club Dresses</a>
+                                        <a href='index58b0.html?product_tag=coats' class='tag-link-32' title='14 topics' style='font-size: 18.888888888889pt;'>Coats</a>
+                                        <a href='indexf3cf.html?product_tag=dress' class='tag-link-20' title='6 topics' style='font-size: 13.755555555556pt;'>dress</a>
+                                        <a href='index29d8.html?product_tag=dresses' class='tag-link-27' title='23 topics' style='font-size: 22pt;'>Dresses</a>
+                                        <a href='index5cca.html?product_tag=evening-dresses' class='tag-link-29' title='14 topics' style='font-size: 18.888888888889pt;'>Evening Dresses</a>
+                                        <a href='index4463.html?product_tag=jackets' class='tag-link-33' title='15 topics' style='font-size: 19.2pt;'>Jackets</a>
+                                        <a href='index9b10.html?product_tag=jeans' class='tag-link-35' title='15 topics' style='font-size: 19.2pt;'>Jeans</a>
+                                        <a href='index1edb.html?product_tag=lingerie' class='tag-link-37' title='16 topics' style='font-size: 19.666666666667pt;'>Lingerie</a>
+                                        <a href='index93dd.html?product_tag=prom-dresses' class='tag-link-30' title='15 topics' style='font-size: 19.2pt;'>Prom Dresses</a>
+                                        <a href='indexdcd6.html?product_tag=sexy' class='tag-link-22' title='6 topics' style='font-size: 13.755555555556pt;'>sexy</a>
+                                        <a href='index926a.html?product_tag=shirts' class='tag-link-31' title='15 topics' style='font-size: 19.2pt;'>Shirts</a>
+                                        <a href='indexa20d.html?product_tag=shorts' class='tag-link-34' title='16 topics' style='font-size: 19.666666666667pt;'>Shorts</a>
+                                        <a href='indexe67f.html?product_tag=silk' class='tag-link-23' title='2 topics' style='font-size: 8pt;'>silk</a>
+                                        <a href='index696b.html?product_tag=skirts' class='tag-link-36' title='16 topics' style='font-size: 19.666666666667pt;'>Skirts</a>
+                                        <a href='indexce0e.html?product_tag=strapless' class='tag-link-24' title='2 topics' style='font-size: 8pt;'>strapless</a>
+                                        <a href='indexcffa.html?product_tag=style' class='tag-link-25' title='4 topics' style='font-size: 11.422222222222pt;'>style</a>
                                     </div>
+                                    <div class="clearfix"></div>
+                                </div><!-- //sidebar-widget --><div id="wft-static-block-2" class="block wft_widget_satic_block">
+                                    <div class="banners_outer">
+                                        <div class="flexslider banners">
 
-                                    <div class="span4">
-                                        <div class="product-image"><a class="cloud-zoom" href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" id="zoom1" data-rel="position: 'right', adjustX: 10, adjustY: 0" >
-                                            
-                                            <img alt="" src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" />
-                                            
-                                            </a></div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="span6">
-                            <div class="product-shop">
-                                <div class="product_info_left">
-                                    <div class="product-name"><h1>@mainProduct.Name</h1></div><div class="short-description">
-                                        <p>@Html.Raw(mainProduct.Descriptions)</ p >
-                                    </div>
-                                    
-
-
-                                    <div class="add-to-cart">
-                                        <form class="cart" id="form-add_to_cart" method="post" enctype='multipart/form-data'>
-
-
-
-                                            		
-                                            <a href="/Home/About" class="btn btn-default" style="font-family: serif; font-size:large; height:50px;">Liên hệ để được thông tin</a>
-                                            
-                                            
-
-
-
-                                        </form>
-
-                                    </div>
-                                    
-
-                                </div>
-                            </div>
-                        </div><!-- .span7 -->
-
-                        <div class="clear"></div>
-
-
-
-
-
-
-
-
-
-                        <div class="related products span12">
-
-                            <h2>Related Products</h2>
-
-                            <div class="carousel es-carousel-wrapper style0">
-                                <div class="es-carousel">
-                                    <div class="row ">
-                                        <div class="product_outer carousel_items">
-
-                                            @{ 
-                                                for(int i = 0; i < relativeProducts.Count; i++)
-                                                {
-                                                    Product p = relativeProducts.ElementAt(i);
-
-                                                    if (p.ID != mainProduct.ID)
-                                                    {
-
-                                                    
-
-                                                    <div class="post-1020 product type-product status-publish has-post-thumbnail span3 product carousel_item new_product featured shipping-taxable purchasable product-type-simple product-cat-dresses product-cat-jackets product-cat-prom-dresses product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock">
-                                                        <div class="product-image-wrapper onhover animate scale animated">
-                                                            <a href="@p.ID"><img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="woclo_01_1 (52)"></a>
-                                                        </div>
-                                                        <div class="wrapper-hover">
-
-                                                            <div class="product-name">
-                                                                <a href="/sanpham/@p.ID">
-                                                                    @p.Name
-                                                                </a>
-                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1020">Chi tiết</a>
-                                                            
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="preview hidden-tablet hidden-phone " style="display: none;">
-                                                        <div class="wrapper">
-
-                                                            <div class="col-1">
-
-
-                                                                <a class="image" data-rel="@p.Img1" href="#">
-                                                                    <img class="thumb" alt="@p.Name" src="@p.Img1">
-                                                                </a>
-
-
-                                                                <a class="image" data-rel="@p.Img2" href="#">
-                                                                    <img class="thumb" alt="@p.Name" src="@p.Img2">
-                                                                </a>
-
-                                                                <a class="image" data-rel="@p.Img3" href="#">
-                                                                    <img class="thumb" alt="@p.Name" src="@p.Img3">
-                                                                </a>
-
-
-                                                            </div>
-                                                            <div class="col-2 with_media">
-                                                                <div class="big_image">
-                                                                    	<a href="/sanpham/@p.ID">
-
-                                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name">
-                                                                    </a>
-                                                                </div>
-
-                                                                <div class="wrapper-hover">
-
-                                                                    <div class="product-name">
-                                                                        <a href="/sanpham/@p.ID">
-                                                                            @p.Name
-                                                                        </a>
-                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1022">Chi tiết</a>
-                                                                    <div class="wrapper">
-
-
-
-
-                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1022" data-product_sku="1" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-
-                                                                    </div>
-                                                                    <div class="clearfix"></div>
-
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                                <ul class="slides" style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-768px, 0px, 0px);">
+                                                    @{
+                                                        for (int m = 0; m < trendProducts.Count; m++)
+                                                        {
+                                                            Image o = trendProducts.ElementAt(m);
+                                                            <li style="float: left; display: block; width: 152px;" class="clone"> <a href="/sanpham/@o.Utility"><img alt="" src="@o.Path"></a> </li>
+                                                        }
                                                     }
-                                                }
-                                            }
-
-                                            
-
+                                                </ul>
+                                            </div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev"><i class="icon-left-thin"></i></a></li><li><a href="#" class="flex-next"><i class="icon-right-thin"></i></a></li></ul>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div><div class="clearfix"></div>
+                                </div><!-- //sidebar-widget -->
                             </div>
-
-
                         </div>
-
-
-                        <meta itemprop="url" content="index6a5d.html?product=paisley-print-stretch-silk-camisole-3" />
-
-                    </div> <!-- .row -->
-                </div><!-- #product-1024 -->
+                    </div>
 
 
 
+                </div>
             </div>
         </section>
 
-    <link rel='stylesheet' id='cloud-zoom-css' href='~/Content/buyshop/wp-content/themes/buyshop/css/cloud-zoom4264.css?ver=3.9.11' type='text/css' media='all' />
+    </div><!-- #wrap -->
+
+
+
     <script type='text/javascript'>
 /* <![CDATA[ */
 var wc_add_to_cart_params = {"ajax_url":"\/buyshop\/woocommerce\/demo_classic\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/demo.ethemeuk.com\/buyshop\/woocommerce\/demo_classic\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"http:\/\/demo.ethemeuk.com\/buyshop\/woocommerce\/demo_classic\/?page_id=6","is_cart":"","cart_redirect_after_add":"no"};
 /* ]]> */
     </script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.mine7f3.js?ver=2.1.7'></script>
-    <script type='text/javascript'>
-/* <![CDATA[ */
-var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
-/* ]]> */
-    </script>
-    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/single-product.mine7f3.js?ver=2.1.7'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.minc8cb.js?ver=2.60'></script>
     <script type='text/javascript'>
 /* <![CDATA[ */
@@ -758,7 +736,6 @@ var yith_wcwl_l10n = {"out_of_stock":"Cannot add to the cart as product is Out o
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.selectbox-0.24264.js?ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.parallax4264.js?ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.inview4264.js?ver=3.9.11'></script>
-    <script type='text/javascript' src='wp-includes/js/comment-reply.min4264.js?ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.autocompleteea63.js?v=1.2.9&amp;ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.isotope4264.js?ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/modernizr-2.6.2.min4264.js?ver=3.9.11'></script>
@@ -778,7 +755,16 @@ var icl_vars = {"current_language":"en","icl_home":"http:\/\/demo.ethemeuk.com\/
 /* ]]> */
     </script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress4264.js?ver=3.9.11'></script>
-    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/cloud-zoom.1.0.24264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.core.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.widget.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.mouse.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.slider.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_price_slider_params = {"currency_symbol":"\u00a3","currency_pos":"left","min_price":"","max_price":""};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.mine7f3.js?ver=2.1.7'></script>
     <!-- WooCommerce JavaScript -->
     <script type="text/javascript">
 jQuery(function($) {
@@ -798,5 +784,5 @@ jQuery(function($) {
     </script>
 
 </body>
-<!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product=paisley-print-stretch-silk-camisole-3 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:50:30 GMT -->
+<!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product_cat=club-dresses by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:38:05 GMT -->
 </html>

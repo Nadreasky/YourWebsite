@@ -29,6 +29,7 @@ namespace YourWebsite.Controllers
             ViewBag.newProducts = newProducts;
 
             List<Product> trendProducts = _productService.getTrendProducts();
+            //List<Image> trendProducts = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
             ViewBag.trendProducts = trendProducts;
 
             return View();

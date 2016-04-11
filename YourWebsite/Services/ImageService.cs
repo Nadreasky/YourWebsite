@@ -18,6 +18,10 @@ namespace YourWebsite.Services
         {
             return _imageRepository.List.ToList();
         }
+        public List<Image> getImagesByNameCode(int nameCode)
+        {
+            return _imageRepository.getImagesByNameCode(nameCode);
+        }
         public List<Image> getAllSliderImage()
         {
             List<Image> allImage = getAll();
@@ -88,6 +92,22 @@ namespace YourWebsite.Services
             WebImage img = new WebImage(file.InputStream);
 
             img.Resize(SLIMCONFIG.IMG_WIDTH, SLIMCONFIG.IMG_HEIGHT, true, true);
+
+            return img;
+        }
+
+        public WebImage reSizeImg(WebImage file)
+        {
+            WebImage img = file;
+            img.Resize(SLIMCONFIG.IMG_WIDTH, SLIMCONFIG.IMG_HEIGHT, true, true);
+            return img;
+        }
+
+        public WebImage reSizeImgBig(HttpPostedFileBase file)
+        {
+            WebImage img = new WebImage(file.InputStream);
+
+            img.Resize(SLIMCONFIG.BIG_IMG_WIDTH, SLIMCONFIG.BIG_IMG_HEIGHT, true, true);
 
             return img;
         }

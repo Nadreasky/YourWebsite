@@ -13,7 +13,7 @@ namespace YourWebsite.Services
         public ProductService()
         {
             _productRepository = new ProductRepository();
-            _categoryService = new CategoryService();
+            
         }
         public List<Product> getAll()
         {
@@ -22,6 +22,20 @@ namespace YourWebsite.Services
         public List<Product> getAllProductByCategory(int categoryId)
         {
             return _productRepository.getByCategoryId(categoryId);
+        }
+
+        public string getProductName(int id)
+        {
+            return _productRepository.getProductName(id);
+        }
+        public string getProductName(string id)
+        {
+            int _id = -1;
+            if (id != null && id != "")
+            {
+                int.TryParse(id, out _id);
+            }
+            return _productRepository.getProductName(_id);
         }
 
         public void addProduct(int id, string name, double price, int cateID, string des, int quantity, string imgPath1, string imgPath2, string imgPath3, string imgPath4, int trend)
@@ -158,6 +172,7 @@ namespace YourWebsite.Services
         public List<Category> getProductTree(int id)
         {
             List<Category> productTree = new List<Category>();
+            _categoryService = new CategoryService();
 
             Product mainProduct = findByID(id);
 
