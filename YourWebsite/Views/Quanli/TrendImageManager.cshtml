@@ -10,6 +10,15 @@
 <h2>TrendImageManager</h2>
 
 <div class="container">
+    @{
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+
+    }
     <div class="col-md-6">
         @using (Html.BeginForm("saveTrendImg", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {

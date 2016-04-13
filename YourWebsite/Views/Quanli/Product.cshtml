@@ -5,12 +5,20 @@
     List<Product> products = ViewBag.products;
 }
 
-<h2>Product</h2>
 <head>
     <script type="text/javascript" src="~/Content/ckeditor/ckeditor.js"></script>
 </head>
 
 <div class="container">
+    @{ 
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+        
+    }
     <div class="col-md-4">
         <h2>Thêm sản phẩm mới</h2>
         @using (Html.BeginForm("saveProduct", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))

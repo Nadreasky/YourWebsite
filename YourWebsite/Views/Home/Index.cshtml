@@ -268,8 +268,11 @@
                             {
                                 Category c = mainModel.ElementAt(i).Key;
                                 List<Product> l = mainModel.ElementAt(i).Value;
+                                bool isHasDivNextTrend = false;
                                 int count = 0;
-                                if (i < 1)
+                                if (l.Count > 0)
+                                { 
+                                if (isHasDivNextTrend == false)
                                 {
                                     <div class="row">
                                         <div class="span9">
@@ -376,6 +379,9 @@
 
                                             </div>
                                         </div>
+                                        @{ 
+                                            isHasDivNextTrend = true;
+                                        }
                                         <div class="span3">
 
                                             <div class="wpb_raw_code  ">
@@ -469,7 +475,7 @@
                                                                             <div class="col-2 with_media">
                                                                                 <div class="big_image">
                                                                                     <a href="/sanpham/@p.ID">
-                                                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="wclo_ad_1_1 (22)" />
+                                                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
                                                                                     </a>
                                                                                 </div>
                                                                                 <div class="wrapper-hover">
@@ -480,14 +486,10 @@
                                                                                     </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
                                                                                     <div class="wrapper">
 
-                                                                                        <div class="product-price"><span class="amount">&pound;@p.Price</span></div>
 
-                                                                                        <div class="product-tocart"><a href="indexd5f5.html?add-to-cart=78" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
                                                                                     </div>
                                                                                     <div class="clearfix"></div>
-                                                                                    <div class="product-link">
-                                                                                        <a class="wft_add_to_wishlist" href="indexb436.html?action=add_to_wishlist&amp;add_to_wishlist=78" data-product-id="78" data-product-type="simple">Add to Wishlist</a>
-                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -504,6 +506,7 @@
                                     </div>
                                 </div>
                             </div>
+                                                                        }
                                                                     }
                                                                 }
 

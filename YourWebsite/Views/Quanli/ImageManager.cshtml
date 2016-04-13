@@ -7,6 +7,15 @@
 <h2>ImageManager</h2>
 
 <div class="container">
+    @{
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+
+    }
     <div class="col-md-4">
         @using (Html.BeginForm("saveImg", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {

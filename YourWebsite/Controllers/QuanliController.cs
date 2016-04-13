@@ -24,6 +24,7 @@ namespace YourWebsite.Controllers
         {
             List<Category> allCategory = _categoryService.getAll();
             ViewBag.categories = allCategory;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -33,6 +34,7 @@ namespace YourWebsite.Controllers
             ViewBag.categories = allCategory;
             List<Product> allProduct = _productService.getAll();
             ViewBag.products = allProduct;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -40,6 +42,7 @@ namespace YourWebsite.Controllers
         {
             List<Image> allImage = _imageService.getAll();
             ViewBag.images = allImage;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -47,6 +50,7 @@ namespace YourWebsite.Controllers
         {
             List<Image> allImage = _imageService.getAll();
             ViewBag.images = allImage;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -56,6 +60,7 @@ namespace YourWebsite.Controllers
             ViewBag.categories = categories;
             List<Image> trendImages = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
             ViewBag.trendImages = trendImages;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -63,7 +68,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveCategory(string id, string categoryName, string preCateID)
         {
-            String error = "";
+            ViewBag.Error = "";
             int _id = -1;
             int.TryParse(id, out _id);
             int _preCateID = -1;
@@ -71,7 +76,12 @@ namespace YourWebsite.Controllers
 
             if(categoryName == null || categoryName.Equals(""))
             {
-                error += "Error: Không có tên Category!";
+                ViewBag.Error += "Error: Không có tên Category!";
+            }
+            if (!"".Equals(ViewBag.Error))
+            {
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("Category");
             }
             _categoryService.addCategory(_id, categoryName, _preCateID);
 
@@ -82,6 +92,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public string editSubCate(string id, string name)
         {
+            ViewBag.Error = "";
             int _id = -1;
             if (id == null || id.Equals(""))
             {
@@ -136,7 +147,6 @@ namespace YourWebsite.Controllers
         public ActionResult saveProduct(string id, string productName, string productPrice, string productCateID, string description,
             string quantity, HttpPostedFileBase productImg1, HttpPostedFileBase productImg2, HttpPostedFileBase productImg3, HttpPostedFileBase productImg4, string trend)
         {
-            string error = "";
             int _id = -1;
             double _productPrice = -1;
             int _productCateID = -1;
@@ -146,6 +156,7 @@ namespace YourWebsite.Controllers
             string filePath3 = "";
             string filePath4 = "";
             int _trend = SLIMCONFIG.IS_NOT_TREND;
+            ViewBag.Error = "";
 
             if (id == null || id.Equals(""))
             {
@@ -153,22 +164,23 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ProductID";
+                ViewBag.Error += "Error: Không thể parse ProductID <br/>";
             }
             if (productName == null || productName.Equals(""))
             {
-                error += "Error: Không có tên sản phẩm";
+                ViewBag.Error += "Error: Không có tên sản phẩm <br/>";
             }
-            if (description == null || description.Equals(""))
-            {
-                error += "Error: Không có mô tả sản phẩm";
-            }
+            //if (description == null || description.Equals(""))
+            //{
+            //    error += "Error: Không có mô tả sản phẩm";
+            //}
             if (productPrice == null || productPrice.Equals(""))
             {
                 _productPrice = 0;
-            } else if (double.TryParse(productPrice, out _productPrice) == false)
+            }
+            else if (double.TryParse(productPrice, out _productPrice) == false)
             {
-                error += "Error: Không thể parse giá của sản phẩm";
+                ViewBag.Error += "Error: Không thể parse giá của sản phẩm <br/>";
             }
             if (productCateID == null || productCateID.Equals(""))
             {
@@ -176,7 +188,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(productCateID, out _productCateID) == false)
             {
-                error += "Error: Không thể parse cateID của sản phẩm";
+                ViewBag.Error += "Error: Không thể parse cateID của sản phẩm <br/>";
             }
             if (quantity == null || quantity.Equals(""))
             {
@@ -184,7 +196,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(quantity, out _quantity) == false)
             {
-                error += "Error: Không thể parse quantity của sản phẩm";
+                ViewBag.Error += "Error: Không thể parse quantity của sản phẩm <br/>";
             }
             if (trend == null || trend.Equals(""))
             {
@@ -192,7 +204,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(trend, out _trend) == false)
             {
-                error += "Error: Không thể parse Trend";
+                ViewBag.Error += "Error: Không thể parse Trend <br/>";
             }
 
             //check image
@@ -222,7 +234,7 @@ namespace YourWebsite.Controllers
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 1 <br/>";
             }
             if (productImg2 != null && productImg2.FileName != null)
             {
@@ -248,7 +260,7 @@ namespace YourWebsite.Controllers
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 2 <br/>";
             }
             if (productImg3 != null && productImg3.FileName != null)
             {
@@ -274,7 +286,7 @@ namespace YourWebsite.Controllers
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 3 <br/>";
             }
             if (productImg4 != null && productImg4.FileName != null)
             {
@@ -300,20 +312,22 @@ namespace YourWebsite.Controllers
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 4 <br/>";
+            }
+            if (!"".Equals(ViewBag.Error))
+            {
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("Product");
             }
 
-
-            TempData["Error"] = error;
-            if(error.Equals(""))
+            else
             {
                 _productService.addProduct(_id, productName, _productPrice, _productCateID, description, _quantity, filePath1, filePath2, filePath3, filePath4, _trend);
+                return RedirectToAction("Product");
             }
-
-
-
-
-            return RedirectToAction("Product");
+            
+                        
+            
         }
 
 
@@ -347,7 +361,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveImgSlider(string id, string nameCode, HttpPostedFileBase path, string utility)
         {
-            string error = "";
+            ViewBag.Error = "";
             int _id = -1;
             int _nameCode = SLIMCONFIG.SLIDER_IMAGE;
             string _path = "";
@@ -358,7 +372,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ImageID";
+                ViewBag.Error += "Error: Không thể parse ImageID";
             }
 
             if (nameCode == null || nameCode.Equals(""))
@@ -367,7 +381,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(nameCode, out _nameCode) == false)
             {
-                error += "Error: Không thể parse cateID";
+                ViewBag.Error += "Error: Không thể parse cateID";
             }
 
             if (path != null && path.FileName != null)
@@ -385,11 +399,13 @@ namespace YourWebsite.Controllers
                 ViewBag.Error += "File name is not found <\br>";
             }
 
-            TempData["Error"] = error;
-            if (error.Equals(""))
+            TempData["Error"] = ViewBag.Error;
+            if (!"".Equals(ViewBag.Error))
             {
-                _imageService.addImage(_id, _nameCode, _path, utility);
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("SliderManager");
             }
+            _imageService.addImage(_id, _nameCode, _path, utility);
 
             return RedirectToAction("SliderManager");
         }
@@ -427,7 +443,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveImg(string id, string nameCode, HttpPostedFileBase path, string utility)
         {
-            string error = "";
+            ViewBag.Error = "";
             int _id = -1;
             int _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
             string _path = "";
@@ -438,7 +454,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ImageID";
+                ViewBag.Error += "Error: Không thể parse ImageID";
             }
 
             if (nameCode == null || nameCode.Equals(""))
@@ -447,7 +463,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(nameCode, out _nameCode) == false)
             {
-                error += "Error: Không thể parse cateID";
+                ViewBag.Error += "Error: Không thể parse cateID";
             }
 
             if (path != null && path.FileName != null)
@@ -495,11 +511,14 @@ namespace YourWebsite.Controllers
                 ViewBag.Error += "File name is not found <\br>";
             }
 
-            TempData["Error"] = error;
-            if (error.Equals(""))
+            
+            if (!"".Equals(ViewBag.Error))
             {
-                _imageService.addImage(_id, _nameCode, _path, utility);
+                TempData["Error"] = ViewBag.Error;
+                return RedirectToAction("ImageManager");
             }
+            
+            _imageService.addImage(_id, _nameCode, _path, utility);
 
             return RedirectToAction("ImageManager");
         }
@@ -508,7 +527,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveTrendImg(string id, string nameCode, HttpPostedFileBase path, string utility)
         {
-            string error = "";
+            ViewBag.Error = "";
             int _id = -1;
             int _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
             string _path = "";
@@ -519,7 +538,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ImageID";
+                ViewBag.Error += "Error: Không thể parse ImageID";
             }
 
             if (nameCode == null || nameCode.Equals(""))
@@ -528,7 +547,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(nameCode, out _nameCode) == false)
             {
-                error += "Error: Không thể parse cateID";
+                ViewBag.Error += "Error: Không thể parse cateID";
             }
 
             if (path != null && path.FileName != null)
@@ -575,12 +594,13 @@ namespace YourWebsite.Controllers
             {
                 ViewBag.Error += "File name is not found <\br>";
             }
-
-            TempData["Error"] = error;
-            if (error.Equals(""))
+            if (!"".Equals(ViewBag.Error))
             {
-                _imageService.addImage(_id, _nameCode, _path, utility);
+                TempData["Error"] = ViewBag.Error;
+                return RedirectToAction("TrendImageManager");
             }
+
+            _imageService.addImage(_id, _nameCode, _path, utility);
 
             return RedirectToAction("TrendImageManager");
         }
