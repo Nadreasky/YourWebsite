@@ -1876,7 +1876,7 @@ style {
 }
 
     #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li:hover > .item_link, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li > .item_link:hover, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li > .item_link:focus, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li.current-menu-ancestor > .item_link, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li.current-menu-item > .item_link {
-        background-color: #9d3bc6;
+        background-color: #B42127;
     }
 
 #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li.nav_search_box > #mega_main_menu_searchform {
@@ -1982,7 +1982,7 @@ style {
 }
 
     #mega_main_menu > .menu_holder > .menu_inner > ul > li.multicolumn_dropdown > .mega_dropdown, #mega_main_menu > .menu_holder > .menu_inner > ul > li.widgets_dropdown > .mega_dropdown, #mega_main_menu > .menu_holder > .menu_inner > ul > li.post_type_dropdown > .mega_dropdown, #mega_main_menu > .menu_holder > .menu_inner > ul > li.grid_dropdown > .mega_dropdown, #mega_main_menu > .menu_holder > .menu_inner > ul > li .mega_dropdown > li .post_details, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li.default_dropdown .mega_dropdown, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li > .mega_dropdown, #mega_main_menu.main-menu > .menu_holder > .menu_inner > ul > li .mega_dropdown > li .post_details {
-        border-top: 5px solid #9d3bc6;
+        border-top: 5px solid #B42127;
     }
 
 #mega_main_menu.direction-horizontal > .menu_holder > .menu_inner > ul > li > .item_link:before, #mega_main_menu.direction-horizontal > .menu_holder > .menu_inner > .nav_logo:before, #mega_main_menu.direction-horizontal > .menu_holder > .menu_inner > ul > li.nav_search_box:before {
@@ -2060,7 +2060,7 @@ style {
 
 @media (max-width: 767px) {
     #mega_main_menu.responsive-enable.direction-horizontal.first-lvl-align-left > .menu_holder > .menu_inner > .nav_logo {
-        background: none repeat scroll 0 0 #9d3bc6;
+        background: none repeat scroll 0 0 #B42127;
         margin-bottom: 20px;
         border-radius: 3px;
     }

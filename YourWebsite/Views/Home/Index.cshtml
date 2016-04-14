@@ -5,6 +5,7 @@
     List<Product> newProducts = ViewBag.newProducts;
     //List<Image> trendProducts = ViewBag.trendProducts;
     List<Product> trendProducts = ViewBag.trendProducts;
+    bool isHasDivNextTrend = false;
 }
 
 
@@ -268,7 +269,7 @@
                             {
                                 Category c = mainModel.ElementAt(i).Key;
                                 List<Product> l = mainModel.ElementAt(i).Value;
-                                bool isHasDivNextTrend = false;
+                                
                                 int count = 0;
                                 if (l.Count > 0)
                                 { 
@@ -379,9 +380,7 @@
 
                                             </div>
                                         </div>
-                                        @{ 
-                                            isHasDivNextTrend = true;
-                                        }
+                                        
                                         <div class="span3">
 
                                             <div class="wpb_raw_code  ">
@@ -408,9 +407,10 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    isHasDivNextTrend = true;
                                 }
 
+                                
                                 else
                                 {
 
