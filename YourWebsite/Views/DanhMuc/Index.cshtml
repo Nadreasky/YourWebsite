@@ -468,19 +468,21 @@
                     <div class="wrapper_w">
                         <div class="pull-left">
                             <div class="breadcrumbs">
-                                <a class="home" href="/">Home</a><span>›</span>
+                                <a class="home" href="/" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">TRANG CHỦ</a>
+                                <span  style="font-size:x-large;margin-top:-3px">›</span>
                                 @{
                                     for (int i = cateTree.Count - 1; i >= 0; i--)
                                     {
                                         Category c = cateTree.ElementAt(i);
                                         if (i == 0)
                                         {
-                                            @c.Name
+                                            <a href="/danhmuc/@c.ID" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">@c.Name</a>
+                                            <span style="font-size:x-large;margin-top:-3px">›</span>
                                         }
                                         else
                                         {
-                                            <a href="/danhmuc/@c.ID">@c.Name</a>
-                                            <span>›</span>
+                                            <a href="/danhmuc/@c.ID" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">@c.Name</a>
+                                            <span  style="font-size:x-large;margin-top:-3px">›</span>
                                         }
                                     }
                                 }
@@ -488,7 +490,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="width:1200px;">
+                <div class="row" style="width:110%;">
 
 
                     <div id="column_right" class="span9">
@@ -498,9 +500,9 @@
 
 
                         <div class="listing_header_row2">
-                            <div class="pull-left">
-                                <p class="woocommerce-result-count">
-                                    Showing all @productListByCate.Count results
+                            <div class="pull-left" style="width:100%">
+                                <p class="alert-success" style="font-weight:bold;font-size:medium;padding:10px">
+                                    Chúng tôi có @productListByCate.Count sản phẩm cho danh mục @mainCate.Name
                                 </p>
                             </div>
                             <div class="pull-right wft_pagination">
@@ -526,19 +528,13 @@
 
                                         <div class="wrapper-hover">
 
-                                            <div class="product-name">
+                                            <div class="product-name" style="text-align:center;font-weight:bold;font-size:medium">
                                                 <a href="/sanpham/@p.ID">
                                                     @p.Name
                                                 </a>
+
                                             </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1016">Chi tiết</a>
-                                            <div class="wrapper">
-
-
-
-
-                                                <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1016" data-product_sku="9" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-                                                <div class="clearfix"></div>
-                                            </div>
+                                           
 
                                         </div>
 
@@ -575,7 +571,7 @@
 
                                                 <div class="wrapper-hover">
 
-                                                    <div class="product-name">
+                                                    <div class="product-name" style="text-align:center;font-weight:bold;font-size:medium">
                                                         <a href="/sanpham/@p.ID">
                                                             @p.Name
                                                         </a>
@@ -603,11 +599,7 @@
 
                         <div class="line1"></div>			
                         <div class="listing_header_row2">
-                            <div class="pull-left">
-                                <p class="woocommerce-result-count">
-                                    Showing all 6 results
-                                </p>
-                            </div>
+                           
                             <div class="pull-right wft_pagination">
                             </div>
                         </div>
