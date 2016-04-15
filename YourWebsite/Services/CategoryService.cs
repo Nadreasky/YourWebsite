@@ -9,10 +9,12 @@ namespace YourWebsite.Services
     public class CategoryService
     {
         CategoryRepository _categoryRepository;
+        ProductService _productService;
         
         public CategoryService()
         {
             _categoryRepository = new CategoryRepository();
+            
         }
         public List<Category> getAll()
         {
@@ -78,6 +80,44 @@ namespace YourWebsite.Services
             }
             Category c = _categoryRepository.FindById(id);
             return c;
+        }
+        public List<Category> getCateTree(int id)
+        {
+            List<Category> cateTree = new List<Category>();
+            Category mainCate = findByid(id);
+            if(mainCate != null && mainCate.PreCateID != null)
+            {
+                cateTree.Add(mainCate);
+                Category tmp = new Category();
+                tmp = mainCate;
+                
+                while(tmp != null && tmp.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY)
+                {
+                    if (tmp.PreCateID != SLIMCONFIG.NONE_PRE_CATEGORY && tmp.PreCateID != null)
+                    {
+
+                        Category c = findByid(tmp.PreCateID.Value);
+                        cateTree.Add(c);
+                        tmp = c;
+                    }
+                }
+            }
+            return cateTree;
+        }
+        public List<Product> getProductByCate(int id)
+        {
+            _productService = new ProductService();
+            List<Product> allProduct = _productService.getAll();
+            List<Product> productListByCate = new List<Product>();
+            for(int i = 0; i < allProduct.Count; i++)
+            {
+                Product p = allProduct.ElementAt(i);
+                if (p.CateID == id)
+                {
+                    productListByCate.Add(p);
+                }
+            }
+            return productListByCate;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using YourWebsite.Repository;
 
 namespace YourWebsite.Services
@@ -16,6 +17,10 @@ namespace YourWebsite.Services
         public List<Image> getAll()
         {
             return _imageRepository.List.ToList();
+        }
+        public List<Image> getImagesByNameCode(int nameCode)
+        {
+            return _imageRepository.getImagesByNameCode(nameCode);
         }
         public List<Image> getAllSliderImage()
         {
@@ -80,6 +85,31 @@ namespace YourWebsite.Services
             }
             Image i = _imageRepository.FindById(id);
             return i;
+        }
+
+        public WebImage reSizeImg(HttpPostedFileBase file)
+        {
+            WebImage img = new WebImage(file.InputStream);
+
+            img.Resize(SLIMCONFIG.IMG_WIDTH, SLIMCONFIG.IMG_HEIGHT, true, true);
+
+            return img;
+        }
+
+        public WebImage reSizeImg(WebImage file)
+        {
+            WebImage img = file;
+            img.Resize(SLIMCONFIG.IMG_WIDTH, SLIMCONFIG.IMG_HEIGHT, true, true);
+            return img;
+        }
+
+        public WebImage reSizeImgBig(HttpPostedFileBase file)
+        {
+            WebImage img = new WebImage(file.InputStream);
+
+            img.Resize(SLIMCONFIG.BIG_IMG_WIDTH, SLIMCONFIG.BIG_IMG_HEIGHT, true, true);
+
+            return img;
         }
     }
 }

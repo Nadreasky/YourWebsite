@@ -4,9 +4,17 @@
     List<Category> categories = ViewBag.categories;
 }
 
-<h2>Category</h2>
 
 <div class="container">
+    @{
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+
+    }
     <div class="col-md-4">
         <h2>Thêm Category mới</h2>
         @using (Html.BeginForm("saveCategory", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))

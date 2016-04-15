@@ -36,6 +36,7 @@
           <Property Name="Img2" Type="nvarchar(max)" />
           <Property Name="Img3" Type="nvarchar(max)" />
           <Property Name="Img4" Type="nvarchar(max)" />
+          <Property Name="Trend" Type="int" />
         </EntityType>
         <EntityContainer Name="OnlineShopModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
@@ -78,6 +79,7 @@
           <Property Name="Img2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Trend" Type="Int32" />
         </EntityType>
         <EntityContainer Name="OnlineshopEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
@@ -122,6 +124,7 @@
                 <ScalarProperty Name="Img2" ColumnName="Img2" />
                 <ScalarProperty Name="Img3" ColumnName="Img3" />
                 <ScalarProperty Name="Img4" ColumnName="Img4" />
+                <ScalarProperty Name="Trend" ColumnName="Trend" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,143 @@
+﻿@using YourWebsite.Services;
+@{
+    ViewBag.Title = "TrendImageManager";
+    List<Category> categories = ViewBag.categories;
+    List<Image> trendImages = ViewBag.trendImages;
+    ProductService _productService = new ProductService();
+
+}
+
+<h2>TrendImageManager</h2>
+
+<div class="container">
+    @{
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+
+    }
+    <div class="col-md-6">
+        @using (Html.BeginForm("saveTrendImg", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="hidden" id="id" name="id" />
+            <input type="hidden" id="nameCode" name="nameCode" value="@SLIMCONFIG.IS_TREND" />
+            <label>Category</label>
+            <select id="cate" class="form-control" onchange="getProductByCate()">
+                <option value="-1">Chọn một Category</option>
+                @{ 
+                    for (int i = 0; i < categories.Count; i++)
+                    {
+                        Category c = categories.ElementAt(i);
+                        <option value="@c.ID">@c.Name</option>
+                    }
+                }
+            </select>
+            <label>Chọn sản phẩm</label>
+            <select id="product" name="utility">
+                <option value="-1">None</option>
+            </select>
+            <input type="file" id="img" name="path" class="form-control" style="height:40px;" />
+            <input type="submit" class="btn btn-primary" id="btnSaveImg" value="Add" />
+        }
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Thumbnail</th>
+                    <th>Product</th>
+                    @*th>Edit</th>*@
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int i = 0; i < trendImages.Count; i++)
+                    {
+                        int n = i + 1;
+                        Image im = trendImages.ElementAt(i);
+                        <tr>
+                            <td>@n</td>
+                            <td><img src="@im.Path" style="height:200px;"/></td>
+                            <td>@_productService.getProductName(im.Utility)</td>
+                            @*<td><button class="btn btn-warning" id="btnEdit" onclick="editImage(@im.ID)">Edit</button></td>*@
+                            <td><button class="btn btn-danger" id="btnDelete" onclick="deleteImage(@im.ID)">Delete</button></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function getProductByCate() {
+        var id = document.getElementById("cate").value;
+        //alert(id);
+        if (id == -1) {
+            alert("Không có sản phẩm!");
+        }
+        else {
+            $.ajax({
+                url: "/quanli/getProductsByCate",
+                data: {
+                    format: 'json',
+                    id: id
+                },
+                error: function () {
+                    alert("Problem!")
+                },
+                success: function (data) {
+                    var productList = JSON.parse(data);
+                    $.each(productList, function () {
+                        $("#product").append(new Option(this.Name, this.ID));
+                    });
+                }
+            })
+        }
+    }
+    
+    function editImage(id) {
+        $.ajax({
+            url: "/Quanli/getImageInfo",
+            data: {
+                format: 'json',
+                id: id
+            },
+            error: function () {
+                alert("Problem!");
+            },
+            success: function (data) {
+                var imgObj = JSON.parse(data);
+
+                $("#id").val(imgObj.ID);
+                $("#nameCode").val(imgObj.NameCode);
+                $("#utility").val(imgObj.Utility);
+                $("#btnSaveImg").val("Update");
+            }
+        })
+    }
+
+    function deleteImage(id) {
+        $.ajax({
+            url: "/Quanli/deleteImage",
+            data: {
+                format: 'json',
+                id: id
+            },
+            error: function () {
+                alert("Problem!")
+            },
+            success: function (data) {
+                if (data === "Success") {
+                    location.href = location.href;
+                }
+            },
+            type: 'POST'
+        })
+    }
+</script>

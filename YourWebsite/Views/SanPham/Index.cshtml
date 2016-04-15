@@ -1,5 +1,7 @@
 ﻿@{ 
     Product mainProduct = ViewBag.mainProduct;
+
+    ViewBag.Title = "Your Shop" + " - " + mainProduct.Name;
     List<Product> relativeProducts = ViewBag.relativeProducts;
     List<Category> proTrees = ViewBag.proTrees;
 }
@@ -194,11 +196,11 @@
         .squared.icon-color[class^="icon-"],
         .squared.icon-color[class*=" icon-"],
         .nav-tabs > li > a:hover, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-            background-color: #9D3BC6;
+            background-color: #B42127;
         }
 
         .tab-content {
-            border-top-color: #9D3BC6;
+            border-top-color: #B42127;
         }
 
         .infobox .icon i,
@@ -241,7 +243,7 @@
         .squared.icon-color[class^="icon-"]:hover,
         .squared.icon-color[class*=" icon-"]:hover,
         #filters li a:hover, #filters li a.active, #filters li a.selected {
-            background-color: #6A2886;
+            background-color: #850101;
         }
 
         .widget.widget_nav_menu ul.sidenav li a, #nav > li > a {
@@ -256,7 +258,7 @@
         .direction-nav a:hover,
         .flexslider.vertical .flex-direction-nav a:hover, .flexslider.more-views .flex-direction-nav a:hover,
         .nav-header > a, .nav-list > li > a:hover {
-            background-color: #9D3BC6;
+            background-color: #B42127;
         }
 
         .filters-by-category li a.selected, .filters-by-category li a:hover, .view:hover {
@@ -445,36 +447,6 @@
 <body class="single single-product postid-1024 woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
     <div id="wrap">
 
-        <div id="right_toolbar" class="hidden-phone hidden-tablet">
-            <div><a href="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic"><img src="~/Content/buyshop/wp-content/themes/buyshop/img/logo_small.png" width="52" height="142" alt=""></a></div>
-
-            <div id="shopping_cart-3" class="woocommerce widget_shopping_cart">
-                <div class="shoppingcart">
-                    <div class="fadelink">
-                        <span class="pull-right">
-                            <a class="btn" href="index5534.html?page_id=6">
-                                <i class="icon-basket icon-large"></i>
-                            </a>
-                        </span>
-                        <span class="badge badge-inverse">0</span>
-                        <div class="shopping_cart_mini hidden-phone hidden-tablet widget_shopping_cart_content">
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- //sidebar-widget --><div id="woocommerce_product_search-3" class="woocommerce widget_product_search">
-                <h4 class="widget-title">Search</h4><div class="form-search-wrapper ">
-                    <form id="form-search" class="form-search" action="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/">
-                        <input type="text" name="s" id="s" value="" class="search-query" placeholder="Search for products">
-                        <button id="searchsubmit" class="btn" type="submit">
-                            <i class="icon-search-2 icon-large"></i>
-                        </button>
-                        <input type="hidden" name="post_type" value="product" />
-                    </form>
-                </div>
-            </div><!-- //sidebar-widget -->
-            <div id="back-top"> <a href="#top"><i class="icon-up-2"></i></a> </div>
-        </div>
 
 
         <div id="preloader">
@@ -499,7 +471,8 @@
                                 for (int i = proTrees.Count -1 ; i >= 0; i--)
                                 {
                                     Category c = proTrees.ElementAt(i);
-                                    <a href="@c.ID">@c.Name</a><span>›</span>
+
+                                    <a href="/danhmuc/@c.ID">@c.Name</a><span>›</span> //sua lai khi co trang hien thi category
                                 }
                             }
                             
@@ -517,16 +490,31 @@
                                                 <span class="prev">
                                                     <a href="@p.ID" rel="prev"><i class="icon-left-thin"></i></a><div class="small_preview prev hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@p.Img1" class="attachment-thumbnail wp-post-image" alt="wclo_ad_1_1 (26)" /></div>
                                                 </span>
-                                                hasPrv = true;
 
-                                            }
+                                            hasPrv = true;
+
                                         }
+                                    }
+
+                                    bool hasNxt = false;
+                                    for (int i = 0; i < relativeProducts.Count && hasNxt == false; i++)
+                                    {
+                                        Product p = relativeProducts.ElementAt(i);
+                                        if (p.ID > mainProduct.ID)
+                                        {
+                                            <span class="next">
+                                                <a href="@relativeProducts.ElementAt(0).ID" rel="next"><i class="icon-right-thin"></i></a><div class="small_preview next hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@relativeProducts.ElementAt(0).Img1" class="attachment-thumbnail wp-post-image" alt="woclo_01_1 (67)" /></div>
+                                            </span>
+                                            hasNxt = true;
+                                        }
+                                    }
 
 
 
 
                                 }
                                 
+
                                 <span class="next">
                                     <a href="@relativeProducts.ElementAt(0).ID" rel="next"><i class="icon-right-thin"></i></a><div class="small_preview next hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@relativeProducts.ElementAt(0).Img1" class="attachment-thumbnail wp-post-image" alt="woclo_01_1 (67)" /></div>
                                 </span>
@@ -550,17 +538,18 @@
 
                                             <ul class="slides">
                                                 @if (!"".Equals(mainProduct.Img2))                                                {
-                                                    <li><a href="@mainProduct.Img2" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@mainProduct.Img2'" alt="" width="62" height="62"><img src="@mainProduct.Img2" /></a></li>
+
+                                                    <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2" /></a></li>
 
                                                 }
                                                 @if (!"".Equals(mainProduct.Img1))
                                                 {
-                                                    <li><a href="@mainProduct.Img1" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@mainProduct.Img1'" alt="" width="62" height="62"><img src="@mainProduct.Img1" /></a></li>
+                                                    <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" /></a></li>
 
                                                 }
                                                 @if (!"".Equals(mainProduct.Img3))
                                                 {
-                                                    <li><a href="@mainProduct.Img3" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@mainProduct.Img3'" alt="" width="62" height="62"><img src="@mainProduct.Img3" /></a></li>
+                                                    <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img3" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img3'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img3" /></a></li>
 
                                                 }
 
@@ -572,9 +561,10 @@
                                     </div>
 
                                     <div class="span4">
-                                        <div class="product-image"><a class="cloud-zoom" href="@mainProduct.Img1" id="zoom1" data-rel="position: 'right', adjustX: 10, adjustY: 0" >
+
+                                        <div class="product-image"><a class="cloud-zoom" href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" id="zoom1" data-rel="position: 'right', adjustX: 10, adjustY: 0" >
                                             
-                                            <img alt="" src="@mainProduct.Img1" />
+                                            <img alt="" src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" />
                                             
                                             </a></div>
                                     </div>
@@ -597,8 +587,10 @@
 
 
 
-                                            		
-                                            <button type="submit" style="font-family:serif;" class="button btn-cart"><i class="icon-basket"></i>Liên hệ để được thông tin</button>
+
+                                            <a href="/Home/About" class="btn btn-default" style="font-family: serif; font-size:large; height:30px;">Liên hệ để được thông tin</a>
+                                            
+                                            
 
 
 
@@ -647,12 +639,66 @@
                                                         <div class="wrapper-hover">
 
                                                             <div class="product-name">
-                                                                <a href="@p.ID">
+
+                                                                <a href="/sanpham/@p.ID">
                                                                     @p.Name
                                                                 </a>
-                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1020">Quick View</a>
+                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1020">Chi tiết</a>
                                                             
 
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="preview hidden-tablet hidden-phone " style="display: none;">
+                                                        <div class="wrapper">
+
+                                                            <div class="col-1">
+
+
+                                                                <a class="image" data-rel="@p.Img1" href="#">
+                                                                    <img class="thumb" alt="@p.Name" src="@p.Img1">
+                                                                </a>
+
+
+                                                                <a class="image" data-rel="@p.Img2" href="#">
+                                                                    <img class="thumb" alt="@p.Name" src="@p.Img2">
+                                                                </a>
+
+                                                                <a class="image" data-rel="@p.Img3" href="#">
+                                                                    <img class="thumb" alt="@p.Name" src="@p.Img3">
+                                                                </a>
+
+
+                                                            </div>
+                                                            <div class="col-2 with_media">
+                                                                <div class="big_image">
+                                                                    	<a href="/sanpham/@p.ID">
+
+                                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name">
+                                                                    </a>
+                                                                </div>
+
+                                                                <div class="wrapper-hover">
+
+                                                                    <div class="product-name">
+                                                                        <a href="/sanpham/@p.ID">
+                                                                            @p.Name
+                                                                        </a>
+                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1022">Chi tiết</a>
+                                                                    <div class="wrapper">
+
+
+
+
+                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1022" data-product_sku="1" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+
+                                                                    
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     }

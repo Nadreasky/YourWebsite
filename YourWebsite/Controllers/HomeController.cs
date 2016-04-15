@@ -24,6 +24,14 @@ namespace YourWebsite.Controllers
             ImageService _imageService = new ImageService();
             List<Image> sliderImages = _imageService.getAllSliderImage();
             ViewBag.sliderImages = sliderImages;
+
+            List<Product> newProducts = _productService.getNewProducts();
+            ViewBag.newProducts = newProducts;
+
+            List<Product> trendProducts = _productService.getTrendProducts();
+            //List<Image> trendProducts = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
+            ViewBag.trendProducts = trendProducts;
+
             return View();
         }
 

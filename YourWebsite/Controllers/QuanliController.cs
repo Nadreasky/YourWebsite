@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using YourWebsite.Services;
 using System.IO;
+using System.Web.Helpers;
 
 namespace YourWebsite.Controllers
 {
@@ -23,6 +24,7 @@ namespace YourWebsite.Controllers
         {
             List<Category> allCategory = _categoryService.getAll();
             ViewBag.categories = allCategory;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -32,6 +34,7 @@ namespace YourWebsite.Controllers
             ViewBag.categories = allCategory;
             List<Product> allProduct = _productService.getAll();
             ViewBag.products = allProduct;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -39,6 +42,7 @@ namespace YourWebsite.Controllers
         {
             List<Image> allImage = _imageService.getAll();
             ViewBag.images = allImage;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -46,6 +50,17 @@ namespace YourWebsite.Controllers
         {
             List<Image> allImage = _imageService.getAll();
             ViewBag.images = allImage;
+            ViewBag.Error = TempData["error"];
+            return View();
+        }
+
+        public ActionResult TrendImageManager()
+        {
+            List<Category> categories = _categoryService.getAll();
+            ViewBag.categories = categories;
+            List<Image> trendImages = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
+            ViewBag.trendImages = trendImages;
+            ViewBag.Error = TempData["error"];
             return View();
         }
 
@@ -53,7 +68,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveCategory(string id, string categoryName, string preCateID)
         {
-            String error = "";
+            ViewBag.Error = "";
             int _id = -1;
             int.TryParse(id, out _id);
             int _preCateID = -1;
@@ -61,7 +76,12 @@ namespace YourWebsite.Controllers
 
             if(categoryName == null || categoryName.Equals(""))
             {
-                error += "Error: Không có tên Category!";
+                ViewBag.Error += "Error: Không có tên Category!";
+            }
+            if (!"".Equals(ViewBag.Error))
+            {
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("Category");
             }
             _categoryService.addCategory(_id, categoryName, _preCateID);
 
@@ -72,6 +92,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public string editSubCate(string id, string name)
         {
+            ViewBag.Error = "";
             int _id = -1;
             if (id == null || id.Equals(""))
             {
@@ -124,9 +145,8 @@ namespace YourWebsite.Controllers
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult saveProduct(string id, string productName, string productPrice, string productCateID, string description,
-            string quantity, HttpPostedFileBase productImg1, HttpPostedFileBase productImg2, HttpPostedFileBase productImg3, HttpPostedFileBase productImg4)
+            string quantity, HttpPostedFileBase productImg1, HttpPostedFileBase productImg2, HttpPostedFileBase productImg3, HttpPostedFileBase productImg4, string trend)
         {
-            string error = "";
             int _id = -1;
             double _productPrice = -1;
             int _productCateID = -1;
@@ -135,6 +155,8 @@ namespace YourWebsite.Controllers
             string filePath2 = "";
             string filePath3 = "";
             string filePath4 = "";
+            int _trend = SLIMCONFIG.IS_NOT_TREND;
+            ViewBag.Error = "";
 
             if (id == null || id.Equals(""))
             {
@@ -142,22 +164,23 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ProductID";
+                ViewBag.Error += "Error: Không thể parse ProductID <br/>";
             }
             if (productName == null || productName.Equals(""))
             {
-                error += "Error: Không có tên sản phẩm";
+                ViewBag.Error += "Error: Không có tên sản phẩm <br/>";
             }
-            if (description == null || description.Equals(""))
-            {
-                error += "Error: Không có mô tả sản phẩm";
-            }
+            //if (description == null || description.Equals(""))
+            //{
+            //    error += "Error: Không có mô tả sản phẩm";
+            //}
             if (productPrice == null || productPrice.Equals(""))
             {
                 _productPrice = 0;
-            } else if (double.TryParse(productPrice, out _productPrice) == false)
+            }
+            else if (double.TryParse(productPrice, out _productPrice) == false)
             {
-                error += "Error: Không thể parse giá của sản phẩm";
+                ViewBag.Error += "Error: Không thể parse giá của sản phẩm <br/>";
             }
             if (productCateID == null || productCateID.Equals(""))
             {
@@ -165,7 +188,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(productCateID, out _productCateID) == false)
             {
-                error += "Error: Không thể parse cateID của sản phẩm";
+                ViewBag.Error += "Error: Không thể parse cateID của sản phẩm <br/>";
             }
             if (quantity == null || quantity.Equals(""))
             {
@@ -173,78 +196,138 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(quantity, out _quantity) == false)
             {
-                error += "Error: Không thể parse quantity của sản phẩm";
+                ViewBag.Error += "Error: Không thể parse quantity của sản phẩm <br/>";
+            }
+            if (trend == null || trend.Equals(""))
+            {
+                _trend = SLIMCONFIG.IS_NOT_TREND;
+            }
+            else if (int.TryParse(trend, out _trend) == false)
+            {
+                ViewBag.Error += "Error: Không thể parse Trend <br/>";
             }
 
             //check image
             if (productImg1 != null && productImg1.FileName != null)
             {
+                
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg1.SaveAs(newPath + "/" + productImg1.FileName);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg1);
+                imgBig.FileName = productImg1.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
+                img.FileName = productImg1.FileName;
+                img.Save(newPath + "/" + img.FileName);
+                //productImg1.SaveAs(newPath + "/" + productImg1.FileName);
                 filePath1 = "/Images/" + "ProductImages/" + productImg1.FileName;
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 1 <br/>";
             }
             if (productImg2 != null && productImg2.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg2.SaveAs(newPath + "/" + productImg2.FileName);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg2);
+                imgBig.FileName = productImg2.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
+                img.FileName = productImg2.FileName;
+                img.Save(newPath + "/" + img.FileName);
                 filePath2 = "/Images/" + "ProductImages/" + productImg2.FileName;
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 2 <br/>";
             }
             if (productImg3 != null && productImg3.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg3.SaveAs(newPath + "/" + productImg3.FileName);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg3);
+                imgBig.FileName = productImg3.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
+                img.FileName = productImg3.FileName;
+                img.Save(newPath + "/" + img.FileName);
                 filePath3 = "/Images/" + "ProductImages/" + productImg3.FileName;
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 3 <br/>";
             }
             if (productImg4 != null && productImg4.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
                 if (!Directory.Exists(newPath))
                 {
                     System.IO.Directory.CreateDirectory(newPath);
                 }
-                productImg4.SaveAs(newPath + "/" + productImg4.FileName);
+                if (!Directory.Exists(newPathBig))
+                {
+                    System.IO.Directory.CreateDirectory(newPathBig);
+                }
+                WebImage imgBig = _imageService.reSizeImgBig(productImg4);
+                imgBig.FileName = productImg4.FileName;
+                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                WebImage img = _imageService.reSizeImg(imgBig);
+                img.FileName = productImg4.FileName;
+                img.Save(newPath + "/" + img.FileName);
                 filePath4 = "/Images/" + "ProductImages/" + productImg4.FileName;
             }
             else
             {
-                ViewBag.Error += "File name is not found <\br>";
+                ViewBag.Error += "Thiếu hình ảnh 4 <br/>";
             }
-
-
-            TempData["Error"] = error;
-            if(error.Equals(""))
+            if (!"".Equals(ViewBag.Error))
             {
-                _productService.addProduct(_id, productName, _productPrice, _productCateID, description, _quantity, filePath1, filePath2, filePath3, filePath4);
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("Product");
             }
 
-
-
-
-            return RedirectToAction("Product");
+            else
+            {
+                _productService.addProduct(_id, productName, _productPrice, _productCateID, description, _quantity, filePath1, filePath2, filePath3, filePath4, _trend);
+                return RedirectToAction("Product");
+            }
+            
+                        
+            
         }
 
 
@@ -278,7 +361,7 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveImgSlider(string id, string nameCode, HttpPostedFileBase path, string utility)
         {
-            string error = "";
+            ViewBag.Error = "";
             int _id = -1;
             int _nameCode = SLIMCONFIG.SLIDER_IMAGE;
             string _path = "";
@@ -289,7 +372,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ImageID";
+                ViewBag.Error += "Error: Không thể parse ImageID";
             }
 
             if (nameCode == null || nameCode.Equals(""))
@@ -298,7 +381,7 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(nameCode, out _nameCode) == false)
             {
-                error += "Error: Không thể parse cateID";
+                ViewBag.Error += "Error: Không thể parse cateID";
             }
 
             if (path != null && path.FileName != null)
@@ -316,11 +399,13 @@ namespace YourWebsite.Controllers
                 ViewBag.Error += "File name is not found <\br>";
             }
 
-            TempData["Error"] = error;
-            if (error.Equals(""))
+            TempData["Error"] = ViewBag.Error;
+            if (!"".Equals(ViewBag.Error))
             {
-                _imageService.addImage(_id, _nameCode, _path, utility);
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("SliderManager");
             }
+            _imageService.addImage(_id, _nameCode, _path, utility);
 
             return RedirectToAction("SliderManager");
         }
@@ -358,9 +443,9 @@ namespace YourWebsite.Controllers
         [ValidateInput(false)]
         public ActionResult saveImg(string id, string nameCode, HttpPostedFileBase path, string utility)
         {
-            string error = "";
+            ViewBag.Error = "";
             int _id = -1;
-            int _nameCode = SLIMCONFIG.SLIDER_IMAGE;
+            int _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
             string _path = "";
 
             if (id == null || id.Equals(""))
@@ -369,40 +454,161 @@ namespace YourWebsite.Controllers
             }
             else if (int.TryParse(id, out _id) == false)
             {
-                error += "Error: Không thể parse ImageID";
+                ViewBag.Error += "Error: Không thể parse ImageID";
             }
 
             if (nameCode == null || nameCode.Equals(""))
             {
-                _nameCode = SLIMCONFIG.SLIDER_IMAGE;
+                _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
             }
             else if (int.TryParse(nameCode, out _nameCode) == false)
             {
-                error += "Error: Không thể parse cateID";
+                ViewBag.Error += "Error: Không thể parse cateID";
             }
 
             if (path != null && path.FileName != null)
             {
-                string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
-                if (!Directory.Exists(newPath))
+                if (_nameCode == SLIMCONFIG.IS_TREND)
                 {
-                    System.IO.Directory.CreateDirectory(newPath);
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "TrendImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "TrendImages/" + path.FileName;
                 }
-                path.SaveAs(newPath + "/" + path.FileName);
-                _path = "/Images/" + "SilderImages/" + path.FileName;
+                else if (_nameCode == SLIMCONFIG.SLIDER_IMAGE)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "SilderImages/" + path.FileName;
+                }
+                else
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "OtherImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "OtherImages/" + path.FileName;
+                }
+                
             }
             else
             {
                 ViewBag.Error += "File name is not found <\br>";
             }
 
-            TempData["Error"] = error;
-            if (error.Equals(""))
+            
+            if (!"".Equals(ViewBag.Error))
             {
-                _imageService.addImage(_id, _nameCode, _path, utility);
+                TempData["Error"] = ViewBag.Error;
+                return RedirectToAction("ImageManager");
             }
+            
+            _imageService.addImage(_id, _nameCode, _path, utility);
 
             return RedirectToAction("ImageManager");
         }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult saveTrendImg(string id, string nameCode, HttpPostedFileBase path, string utility)
+        {
+            ViewBag.Error = "";
+            int _id = -1;
+            int _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
+            string _path = "";
+
+            if (id == null || id.Equals(""))
+            {
+                _id = -1;
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                ViewBag.Error += "Error: Không thể parse ImageID";
+            }
+
+            if (nameCode == null || nameCode.Equals(""))
+            {
+                _nameCode = SLIMCONFIG.UNIDENTIFIED_IMAGE;
+            }
+            else if (int.TryParse(nameCode, out _nameCode) == false)
+            {
+                ViewBag.Error += "Error: Không thể parse cateID";
+            }
+
+            if (path != null && path.FileName != null)
+            {
+                if (_nameCode == SLIMCONFIG.IS_TREND)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "TrendImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "TrendImages/" + path.FileName;
+                }
+                else if (_nameCode == SLIMCONFIG.SLIDER_IMAGE)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "SilderImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "SilderImages/" + path.FileName;
+                }
+                else
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "OtherImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    WebImage img = _imageService.reSizeImgBig(path);
+                    img.Save(newPath + "/" + path.FileName);
+                    //path.SaveAs(newPath + "/" + path.FileName);
+                    _path = "/Images/" + "OtherImages/" + path.FileName;
+                }
+
+            }
+            else
+            {
+                ViewBag.Error += "File name is not found <\br>";
+            }
+            if (!"".Equals(ViewBag.Error))
+            {
+                TempData["Error"] = ViewBag.Error;
+                return RedirectToAction("TrendImageManager");
+            }
+
+            _imageService.addImage(_id, _nameCode, _path, utility);
+
+            return RedirectToAction("TrendImageManager");
+        }
+
+        public Object getProductsByCate(int id)
+        {
+            return JsonConvert.SerializeObject(_productService.getAllProductByCategory(id));
+        }
+
     }
 }

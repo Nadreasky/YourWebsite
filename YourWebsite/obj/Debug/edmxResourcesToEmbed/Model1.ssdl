@@ -31,6 +31,7 @@
     <Property Name="Img2" Type="nvarchar(max)" />
     <Property Name="Img3" Type="nvarchar(max)" />
     <Property Name="Img4" Type="nvarchar(max)" />
+    <Property Name="Trend" Type="int" />
   </EntityType>
   <EntityContainer Name="OnlineShopModelStoreContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />

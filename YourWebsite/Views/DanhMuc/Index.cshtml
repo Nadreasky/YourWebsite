@@ -1,0 +1,791 @@
+﻿
+@{
+    Category mainCate = ViewBag.mainCate;
+    ViewBag.Title = mainCate.Name;
+    List<Category> cateTree = ViewBag.cateTree;
+    List<Product> productListByCate = ViewBag.productListByCate;
+    List<Image> trendProducts = ViewBag.trendProducts;
+}
+
+
+
+
+<!DOCTYPE html>
+
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product_cat=club-dresses by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:37:40 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="shortcut icon" href="~/Content/buyshop/wp-content/themes/buyshop/img/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>
+        Club Dresses | Product Categories | BuyShop &#8211; Premium Responsive WooCommerce WordPress Theme
+    </title>
+
+    <link rel="stylesheet" href="~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector3294.css?v=3.0.1" type="text/css" media="all" />
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="xmlrpc.php">
+
+    <!--[if IE 9 ]> <link href="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/wp-content/themes/buyshop/css/styleie9.css" rel="stylesheet"> <![endif]-->
+    <!--[if gt IE 9]><!-->
+    <link href="~/Content/buyshop/wp-content/themes/buyshop/css/styleie10.css" rel="stylesheet"> <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <link href="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/wp-content/themes/buyshop/css/styleie8.css" rel="stylesheet">
+    <script src="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/wp-content/themes/buyshop/js/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/wp-content/themes/buyshop/js/html5.js"></script>
+    <![endif]-->
+
+    <style>
+        .wishlist_table .add_to_cart, .yith-wcwl-add-button > a.button.alt {
+            border-radius: 16px;
+            -moz-border-radius: 16px;
+            -webkit-border-radius: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+        var yith_wcwl_plugin_ajax_web_url = '~/Content/buyshop/wp-admin/admin-ajax.html';
+            var login_redirect_url= 'wp-login9b15.html?redirect_to=%2Fbuyshop%2Fwoocommerce%2Fdemo_classic%2F%3Fproduct_cat%3Dclub-dresses';
+    </script>
+    <meta name='robots' content='noindex,follow' />
+    <link rel="alternate" type="application/rss+xml" title="BuyShop - Premium Responsive WooCommerce WordPress Theme &raquo; Feed" href="indexd784.html?feed=rss2" />
+    <link rel="alternate" type="application/rss+xml" title="BuyShop - Premium Responsive WooCommerce WordPress Theme &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+    <link rel='stylesheet' id='language-selector-css' href='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector-click4264.css?ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='mmm_mega_main_menu-css' href='~/Content/buyshop/wp-content/plugins/mega_main_menu/src/css/cache.skincc1a.css?ver=1454064437' type='text/css' media='all' />
+    <link rel='stylesheet' id='rs-plugin-settings-css' href='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/css/settings0b07.css?rev=4.3.3&amp;ver=3.9.11' type='text/css' media='all' />
+    <style type='text/css'>
+        .tp-caption a {
+            color: #ff7302;
+            text-shadow: none;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out;
+        }
+
+            .tp-caption a:hover {
+                color: #ffa902;
+            }
+    </style>
+    <link rel='stylesheet' id='rs-plugin-captions-css' href='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/css/captions0b07.css?rev=4.3.3&amp;ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='yith-wcwl-main-css' href='~/Content/buyshop/wp-content/plugins/yith-woocommerce-wishlist/assets/css/style4264.css?ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='bs_panel_styles-css' href='~/Content/buyshop/wp-content/plugins/buyshop-panel/css/style4264.css?ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='mm_icomoon-css' href='~/Content/buyshop/wp-content/plugins/mega_main_menu/src/css/external/icomoon7406.css?ver=2.0.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='mm_font-awesome-css' href='~/Content/buyshop/wp-content/plugins/mega_main_menu/src/css/external/font-awesome7406.css?ver=2.0.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-css' href='~/Content/buyshop/wp-content/themes/buyshop/css/style4264.css?ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-responsive-css' href='~/Content/buyshop/wp-content/themes/buyshop/css/bootstrap-responsive4264.css?ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-oswald-css' href='http://fonts.googleapis.com/css?family=Oswald%3A400%2C700&amp;ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='animate-css' href='~/Content/buyshop/wp-content/themes/buyshop/css/animate4264.css?ver=3.9.11' type='text/css' media='all' />
+    <link rel='stylesheet' id='isotope-css-css' href='~/Content/buyshop/wp-content/plugins/js_composer/assets/css/isotope9c92.css?ver=4.2.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='fancybox-css-css' href='~/Content/buyshop/wp-content/themes/buyshop/css/jquery.fancybox285d.css?v=2.1.5&amp;ver=3.9.11' type='text/css' media='1' />
+    <link rel='stylesheet' id='page-list-style-css' href='~/Content/buyshop/wp-content/plugins/sitemap/css/page-listbc19.css?ver=4.2' type='text/css' media='all' />
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/js/language-selector4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/jquerya4e6.js?ver=1.11.0'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce-multilingual/assets/js/cart_widget128b.js?ver=3.1'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.plugins.min0b07.js?rev=4.3.3&amp;ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.revolution.min0b07.js?rev=4.3.3&amp;ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/buyshop-panel/js/bs_panel4264.js?ver=3.9.11'></script>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 3.9.11" />
+    <meta name="generator" content="WooCommerce 2.1.7" />
+
+    <!-- Contact Us Form -->
+    <style type="text/css">
+        .cuf_input {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .contactform {
+        }
+
+            .contactform label {
+            }
+
+            .contactform input {
+            }
+
+            .contactform textarea {
+            }
+
+        .contactform_respons {
+        }
+
+        .contactform_error {
+        }
+
+        .widget .contactform { /* sidebar fields */
+        }
+    </style>
+    <meta name="generator" content="WPML ver:3.0.1 stt:1,3;0" />
+    <link rel="alternate" type="application/rss+xml" title="New products added to Club+Dresses" href="indexe200.html?post_type=product&amp;feed=rss2&amp;product_cat=club-dresses" />
+    <link rel='stylesheet' id='wsl_css-css' href='~/Content/buyshop/wp-content/plugins/wordpress-social-login/assets/css/style4264.css?ver=3.9.11' type='text/css' media='all' />
+
+    <style type="text/css">
+
+    </style>
+    <style type="text/css">
+        body {
+        }
+
+        .label-icon.sale-label {
+            width: 67px;
+            height: 67px;
+        }
+
+        .label-icon.sale-label {
+            background-image: url(~/Content/buyshop/wp-content/themes/buyshop/images/label-sale.html);
+        }
+
+        .label-icon.new-label {
+            width: 67px;
+            height: 67px;
+        }
+
+        .label-icon.new-label {
+            background-image: url(~/Content/buyshop/-content/themes/buyshop/images/label-new.html);
+        }
+
+
+        #topline {
+            background-color: #333333;
+        }
+
+            #topline .fadelink > a {
+                background-color: #4A4A4A;
+            }
+
+            #topline .fadelink .ul_wrapper ul {
+                background-color: #4A4A4A;
+            }
+
+        #header {
+            background-color: #FFFFFF;
+        }
+
+        #content, .span2.product, #spy, .post-preview-small, section.slider {
+            background-color: #FFFFFF;
+        }
+
+        .box-wrapper {
+            background-color: #FFFFFF;
+        }
+
+        button, .button, .btn-middle, .more-link, input[type="submit"],
+        .button_small, #topline a.button_small,
+        a.small_icon_color i,
+        #sc_chat_box div.sc-chat-header, #sc_chat_box .sc-chat-wrapper .sc-start-chat-btn > a,
+        .form-search button, .form-mail button,
+        a.btn, a.btn[rel="prev"], a.btn[rel="next"],
+        .shopping_cart_mini .button,
+        .color_mark, .promo-box.style4,
+        .squared.icon-color[class^="icon-"],
+        .squared.icon-color[class*=" icon-"],
+        .nav-tabs > li > a:hover, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+            background-color: #B42127;
+        }
+
+        .tab-content {
+            border-top-color: #9D3BC6;
+        }
+
+        .infobox .icon i,
+        h3 [class^="icon-"], h3 [class*=" icon-"],
+        #content .custom_color,
+        .tp-leftarrow.default, .tp-rightarrow.default,
+        .ls-nav-prev, .ls-nav-next {
+            color: #9D3BC6 !important;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus,
+        input:focus:invalid:focus,
+        textarea:focus:invalid:focus,
+        select:focus:invalid:focus {
+            border-color: #C68DDE;
+        }
+
+        button:hover, .button:hover, .more-link:hover, input[type="submit"]:hover,
+        .button_small:hover, #topline a.button_small:hover,
+        a.small_icon_color i:hover,
+        #sc_chat_box div.sc-chat-header:hover, #sc_chat_box .sc-chat-wrapper .sc-start-chat-btn > a:hover,
+        .form-search button:hover, .form-mail button:hover, .shoppingcart:hover .fadelink span a,
+        a.btn:hover, a.btn[rel="prev"]:hover, a.btn[rel="next"]:hover,
+        .shopping_cart_mini .button:hover,
+        .squared.icon-color[class^="icon-"]:hover,
+        .squared.icon-color[class*=" icon-"]:hover,
+        #filters li a:hover, #filters li a.active, #filters li a.selected {
+            background-color: #850101;
+        }
+
+        .widget.widget_nav_menu ul.sidenav li a, #nav > li > a {
+            background-color: #FFFFFF;
+        }
+
+        .notouch .widget.widget_nav_menu ul.sidenav li a:hover, .widget.widget_nav_menu ul.sidenav li.active a, .widget.widget_nav_menu ul.sidenav li.current-menu-item a, #nav > li:hover > a, .filters-by-category li a.selected, .sale_discount,
+        .tp-bannertimer,
+        .jcarousel-skin-brands a.btn:hover,
+        .es-nav a.btn:hover, .es-nav a[rel="prev"]:hover, .es-nav a[rel="next"]:hover,
+        .flexslider.banners .flex-direction-nav a:hover,
+        .direction-nav a:hover,
+        .flexslider.vertical .flex-direction-nav a:hover, .flexslider.more-views .flex-direction-nav a:hover,
+        .nav-header > a, .nav-list > li > a:hover {
+            background-color: #9D3BC6;
+        }
+
+        .filters-by-category li a.selected, .filters-by-category li a:hover, .view:hover {
+            border-color: #9D3BC6;
+        }
+
+        .filters-by-category li {
+            border-left-color: #9D3BC6;
+        }
+
+        .custom_blocks .box .inside, .flexslider.banners {
+            border-bottom-color: #B42127;
+        }
+
+        #nav > li > ul, #nav li:hover .menu_custom_block {
+            border-top-color: #B42127;
+        }
+
+        #footer, #footer_popup {
+            background-color: #2B2B2B;
+        }
+
+        #footer_line, #footer_button {
+            background-color: #333333;
+        }
+
+
+
+        .nav-tabs > li > a:hover, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+            color: #FFFFFF !important;
+        }
+
+        .product .product-tocart a, .preview .product-tocart a {
+            color: #9D3BC6 !important;
+        }
+
+            .product .product-tocart a:hover, .preview .product-tocart a:hover {
+                color: #9D3BC6 !important;
+            }
+
+        #topline, #topline span, #topline .phone span {
+        }
+
+            #topline .fadelink > a {
+            }
+
+            #topline .fadelink .ul_wrapper ul, #topline .fadelink li a {
+            }
+
+        #header {
+        }
+
+            #header input[type=text] {
+            }
+
+        #content, .woocommerce.widget_price_filter .price_slider_amount span, .woocommerce-page .widget_price_filter .price_slider_amount {
+        }
+
+        .table-striped tbody > tr:nth-child(2n+1) > td, .table-striped tbody > tr:nth-child(2n+1) > th, .box-wrapper {
+        }
+
+        #content a:not(.button), .product a {
+        }
+
+            #content a:not(.button):hover, .product a:hover {
+            }
+
+        .product-price .amount, .product-price del .amount, .product-shop .old-price .price, .product-listing .old-price .price, .product-shop .price-box del .amount, .price-box del .amount, .amount {
+        }
+
+        .product-price ins .amount, .product-shop .special-price .price, .product-listing .special-price .price, .product-shop .price-box ins .amount, .price-box ins .amount {
+        }
+
+        button, .button, a.button, .btn-middle, .more-link, input[type=submit], .button_small, #topline a.button_small, #sc_chat_box div.sc-chat-header, #sc_chat_box .sc-chat-wrapper .sc-start-chat-btn > a, .form-search button, .form-mail button, .shopping_cart_mini .button, .color_mark, .promo-box.style4 {
+        }
+
+            button:hover, .button:hover, a.button:hover, .more-link:hover, input[type=submit]:hover, .button_small:hover, #topline a.button_small:hover, #sc_chat_box div.sc-chat-header:hover, #sc_chat_box .sc-chat-wrapper .sc-start-chat-btn > a:hover, .shopping_cart_mini .button:hover {
+                color: #FFFFFF;
+            }
+
+        .widget.widget_nav_menu ul.sidenav li a, #nav > li > a {
+        }
+
+        .notouch .widget.widget_nav_menu ul.sidenav li a:hover, .widget.widget_nav_menu ul.sidenav li.active a, .widget.widget_nav_menu ul.sidenav li.current-menu-item a, #nav > li:hover > a, .filters-by-category li a.selected, .sale_discount {
+            color: #FFFFFF;
+        }
+
+        .form-search button, .form-mail button, a.small_icon_color i, a.btn, a.btn[rel=prev], a.btn[rel=next] {
+            color: #FFFFFF;
+        }
+
+            .form-search button:hover, .form-mail button:hover, .shoppingcart:hover .fadelink span a, a.small_icon_color i:hover, .es-nav a.btn:hover, a.btn:hover, a.btn[rel=prev]:hover, a.btn[rel=next]:hover {
+                color: #FFFFFF;
+            }
+
+        h1 {
+        }
+
+        h2 {
+        }
+
+        h3 {
+        }
+
+        h4 {
+        }
+
+        h5 {
+        }
+
+        h6 {
+        }
+
+        #footer {
+        }
+
+            #footer .custom_color {
+            }
+
+
+        #wp-social-login-connect-options a, #cancel-comment-reply-link, a.more-link {
+            color: !important;
+        }
+
+
+        #footer_popup {
+            /*background-color: #2B2B2B;*/
+            bottom: 0;
+            display: block !important;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        #footer_button {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+			var ajaxFilterEnabled = 0;
+			var successfullyAdded = 'Product successfully added to your shopping cart';
+			var view_mode_default = '';
+			var catsAccordion = false;
+									var checkoutUrl = 'index3204.html?page_id=7';
+			var contBtn = 'Continue shopping';
+			var checkBtn = 'Checkout';
+
+			var search_autocomplete_enabled = '1';
+			var isotope_animation_enabled = '1';
+
+			var hoverfold_js_url = '~/Content/buyshop/wp-content/themes/buyshop/js/jquery.hoverfold.js';
+			var fallback_css = '~/Content/buyshop/wp-content/themes/buyshop/css/fallback.css';
+
+    </script>
+
+
+    <style type="text/css">
+        html {
+            margin-top: 0 !important;
+        }
+
+        * html body {
+            margin-top: 0 !important;
+        }
+    </style>
+
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress." />
+
+    <!--[if gte IE 9]>
+        <style type="text/css">
+            .#mega_main_menu,
+            .#mega_main_menu *
+            {
+                filter: none;
+            }
+        </style>
+    <![endif]-->
+</head>
+
+<body class="archive tax-product_cat term-club-dresses term-28 woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
+    <div id="wrap">
+
+
+
+        <div id="preloader">
+            <div id="ajax_loader" style="display: none;" class="loader">
+                <img width="32" height="32" src="~/Content/buyshop/wp-content/themes/buyshop/img/ajax-loader.gif" alt="">
+            </div>
+            <div id="ajax_message" style="display: none;" class="message">
+                <div class="inside"></div>
+            </div>
+        </div>
+
+        <!--HEADER-->
+
+
+
+        <!-- end of HEADER-->
+        <section id="content">
+            <div class="container top" role="main">
+                <div class="content_top">
+                    <div class="wrapper_w">
+                        <div class="pull-left">
+                            <div class="breadcrumbs">
+                                <a class="home" href="/">Home</a><span>›</span>
+                                @{
+                                    for (int i = cateTree.Count - 1; i >= 0; i--)
+                                    {
+                                        Category c = cateTree.ElementAt(i);
+                                        if (i == 0)
+                                        {
+                                            @c.Name
+                                        }
+                                        else
+                                        {
+                                            <a href="/danhmuc/@c.ID">@c.Name</a>
+                                            <span>›</span>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="width:1200px;">
+
+
+                    <div id="column_right" class="span9">
+
+
+
+
+
+                        <div class="listing_header_row2">
+                            <div class="pull-left">
+                                <p class="woocommerce-result-count">
+                                    Showing all @productListByCate.Count results
+                                </p>
+                            </div>
+                            <div class="pull-right wft_pagination">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+
+                        <div class="row big_with_description">
+
+
+                            @{
+                                for (int j = 0; j < productListByCate.Count; j++)
+                                {
+                                    Product p = productListByCate.ElementAt(j);
+                                    <div class="post-1016 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-coats product-cat-dresses product-cat-evening-dresses product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 385px, 0px);">
+
+
+                                        <div class="product-image-wrapper onhover animate scale animated">
+                                            <a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
+                                        </div>
+
+
+                                        <div class="wrapper-hover">
+
+                                            <div class="product-name">
+                                                <a href="/sanpham/@p.ID">
+                                                    @p.Name
+                                                </a>
+                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1016">Chi tiết</a>
+                                            <div class="wrapper">
+
+
+
+
+                                                <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1016" data-product_sku="9" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="preview hidden-tablet hidden-phone " style="display: none;">
+                                        <div class="wrapper">
+
+                                            <div class="col-1">
+
+
+                                                <a class="image" data-rel="@p.Img1" href="#">
+                                                    <img class="thumb" alt="" src="@p.Img1">
+                                                </a>
+
+
+                                                <a class="image" data-rel="@p.Img2" href="#">
+                                                    <img class="thumb" alt="" src="@p.Img2">
+                                                </a>
+
+                                                <a class="image" data-rel="@p.Img3" href="#">
+                                                    <img class="thumb" alt="" src="@p.Img3">
+                                                </a>
+
+
+                                            </div>
+                                            <div class="col-2 with_media">
+                                                <div class="big_image">
+                                                    <a href="/sanpham/@p.ID">
+
+                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name">
+                                                    </a>
+                                                </div>
+
+                                                <div class="wrapper-hover">
+
+                                                    <div class="product-name">
+                                                        <a href="/sanpham/@p.ID">
+                                                            @p.Name
+                                                        </a>
+                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1016">Chi tiết</a>
+                                                    <div class="wrapper">
+
+
+
+
+                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1016" data-product_sku="9" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
+
+                                                    </div>
+                                                    <div class="clearfix"></div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+
+                        </div>
+
+                        <div class="line1"></div>			
+                        <div class="listing_header_row2">
+                            <div class="pull-left">
+                                <p class="woocommerce-result-count">
+                                    Showing all 6 results
+                                </p>
+                            </div>
+                            <div class="pull-right wft_pagination">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+
+                    <div id="column_left" class="span3">
+                        <div class="row">
+                            <div class="span3">
+                                @*
+                                <div id="product_categories-3" class="block woocommerce widget_product_categories">
+                                    <div class="block-title"><strong><span>Listing</span></strong></div><ul class="product-categories collapsed-menu">
+                                        <li class="level1 cat-item cat-item-38">
+                                            <a href="indexefad.html?product_cat=man">Man</a><span class="collapse_button">+</span><ul class="level1 children" style="display: none;">
+                                                <li class="level2 cat-item cat-item-42"><a href="index3218.html?product_cat=jeans-man">Jeans</a></li>
+                                                <li class="level2 cat-item cat-item-41"><a href="indexc842.html?product_cat=jumpers">Jumpers</a></li>
+                                                <li class="level2 cat-item cat-item-39"><a href="index2b84.html?product_cat=polo-shirts">Polo Shirts</a></li>
+                                                <li class="level2 cat-item cat-item-40"><a href="index90fd.html?product_cat=shirts-man">Shirts</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="level1 cat-item cat-item-26 current-cat-parent">
+                                            <a href="index90fa.html?product_cat=women">Women</a><span class="collapse_button">+</span><ul class="level1 children" style="display: none;">
+                                                <li class="level2 cat-item cat-item-32"><a href="index0835.html?product_cat=coats">Coats</a></li>
+                                                <li class="level2 cat-item cat-item-27 current-cat-parent">
+                                                    <a href="index3a7f.html?product_cat=dresses">Dresses</a><span class="collapse_button">+</span>	<ul class="level2 children" style="display: none;">
+                                                        <li class="level3 cat-item cat-item-28 current-cat"><a href="index156d.html?product_cat=club-dresses">Club Dresses</a></li>
+                                                        <li class="level3 cat-item cat-item-29"><a href="index8c35.html?product_cat=evening-dresses">Evening Dresses</a></li>
+                                                        <li class="level3 cat-item cat-item-30"><a href="index1e07.html?product_cat=prom-dresses">Prom Dresses</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="level2 cat-item cat-item-33"><a href="index18d8.html?product_cat=jackets">Jackets</a></li>
+                                                <li class="level2 cat-item cat-item-35"><a href="indexd1f0.html?product_cat=jeans">Jeans</a></li>
+                                                <li class="level2 cat-item cat-item-37"><a href="index8104.html?product_cat=lingerie">Lingerie</a></li>
+                                                <li class="level2 cat-item cat-item-31"><a href="index6b3e.html?product_cat=shirts">Shirts</a></li>
+                                                <li class="level2 cat-item cat-item-34"><a href="indexe20d.html?product_cat=shorts">Shorts</a></li>
+                                                <li class="level2 cat-item cat-item-36"><a href="index64d2.html?product_cat=skirts">Skirts</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul><div class="clearfix"></div>
+                                </div><!-- //sidebar-widget -->
+                                <div id="tag_cloud-2" class="block widget_tag_cloud">
+                                    <div class="block-title"><strong><span>Popular Tags</span></strong></div><div class="tagcloud">
+                                        <a href='index85f0.html?product_tag=club-dresses' class='tag-link-28' title='16 topics' style='font-size: 19.666666666667pt;'>Club Dresses</a>
+                                        <a href='index58b0.html?product_tag=coats' class='tag-link-32' title='14 topics' style='font-size: 18.888888888889pt;'>Coats</a>
+                                        <a href='indexf3cf.html?product_tag=dress' class='tag-link-20' title='6 topics' style='font-size: 13.755555555556pt;'>dress</a>
+                                        <a href='index29d8.html?product_tag=dresses' class='tag-link-27' title='23 topics' style='font-size: 22pt;'>Dresses</a>
+                                        <a href='index5cca.html?product_tag=evening-dresses' class='tag-link-29' title='14 topics' style='font-size: 18.888888888889pt;'>Evening Dresses</a>
+                                        <a href='index4463.html?product_tag=jackets' class='tag-link-33' title='15 topics' style='font-size: 19.2pt;'>Jackets</a>
+                                        <a href='index9b10.html?product_tag=jeans' class='tag-link-35' title='15 topics' style='font-size: 19.2pt;'>Jeans</a>
+                                        <a href='index1edb.html?product_tag=lingerie' class='tag-link-37' title='16 topics' style='font-size: 19.666666666667pt;'>Lingerie</a>
+                                        <a href='index93dd.html?product_tag=prom-dresses' class='tag-link-30' title='15 topics' style='font-size: 19.2pt;'>Prom Dresses</a>
+                                        <a href='indexdcd6.html?product_tag=sexy' class='tag-link-22' title='6 topics' style='font-size: 13.755555555556pt;'>sexy</a>
+                                        <a href='index926a.html?product_tag=shirts' class='tag-link-31' title='15 topics' style='font-size: 19.2pt;'>Shirts</a>
+                                        <a href='indexa20d.html?product_tag=shorts' class='tag-link-34' title='16 topics' style='font-size: 19.666666666667pt;'>Shorts</a>
+                                        <a href='indexe67f.html?product_tag=silk' class='tag-link-23' title='2 topics' style='font-size: 8pt;'>silk</a>
+                                        <a href='index696b.html?product_tag=skirts' class='tag-link-36' title='16 topics' style='font-size: 19.666666666667pt;'>Skirts</a>
+                                        <a href='indexce0e.html?product_tag=strapless' class='tag-link-24' title='2 topics' style='font-size: 8pt;'>strapless</a>
+                                        <a href='indexcffa.html?product_tag=style' class='tag-link-25' title='4 topics' style='font-size: 11.422222222222pt;'>style</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div><!-- //sidebar-widget -->
+                                *@
+                                <div id="wft-static-block-2" class="block wft_widget_satic_block">
+                                    <div class="banners_outer">
+                                        <div class="flexslider banners">
+
+                                            <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                                <ul class="slides" style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-768px, 0px, 0px);">
+                                                    @{
+                                                        for (int m = 0; m < trendProducts.Count; m++)
+                                                        {
+                                                            Image o = trendProducts.ElementAt(m);
+                                                            <li style="float: left; display: block; width: 152px;" class="clone"> <a href="/sanpham/@o.Utility"><img alt="" src="@o.Path"></a> </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev"><i class="icon-left-thin"></i></a></li><li><a href="#" class="flex-next"><i class="icon-right-thin"></i></a></li></ul>
+                                        </div>
+                                    </div><div class="clearfix"></div>
+                                </div><!-- //sidebar-widget -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+    </div><!-- #wrap -->
+
+
+
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/buyshop\/woocommerce\/demo_classic\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/demo.ethemeuk.com\/buyshop\/woocommerce\/demo_classic\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"http:\/\/demo.ethemeuk.com\/buyshop\/woocommerce\/demo_classic\/?page_id=6","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.mine7f3.js?ver=2.1.7'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.minc8cb.js?ver=2.60'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/buyshop\/woocommerce\/demo_classic\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/demo.ethemeuk.com\/buyshop\/woocommerce\/demo_classic\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif"};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.mine7f3.js?ver=2.1.7'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.mine7f0.js?ver=1.3.1'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/buyshop\/woocommerce\/demo_classic\/wp-admin\/admin-ajax.php","fragment_name":"wc_fragments"};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.mine7f3.js?ver=2.1.7'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var yith_wcwl_l10n = {"out_of_stock":"Cannot add to the cart as product is Out of Stock!"};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl5152.js?ver=1.0'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/mega_main_menu/src/js/frontend/menu_functions4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/bootstrap4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.easing4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.mousewheel4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.flexslider4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.elastislide4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.selectbox-0.24264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.parallax4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.inview4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.autocompleteea63.js?v=1.2.9&amp;ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.isotope4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/modernizr-2.6.2.min4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/jquery.fancybox.pack285d.js?v=2.1.5&amp;ver=3.9.11'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_variation_params = {"i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.mine7f3.js?ver=2.1.7'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/custom4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/retina-1.1.04264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/add-to-cart4264.js?ver=3.9.11'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var icl_vars = {"current_language":"en","icl_home":"http:\/\/demo.ethemeuk.com\/buyshop\/woocommerce\/demo_classic"};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress4264.js?ver=3.9.11'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.core.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.widget.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.mouse.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-includes/js/jquery/ui/jquery.ui.slider.min2c18.js?ver=1.10.4'></script>
+    <script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_price_slider_params = {"currency_symbol":"\u00a3","currency_pos":"left","min_price":"","max_price":""};
+/* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.mine7f3.js?ver=2.1.7'></script>
+    <!-- WooCommerce JavaScript -->
+    <script type="text/javascript">
+jQuery(function($) {
+
+            jQuery('.wcml_currency_switcher').on('change', function(){
+                    var currency = jQuery(this).val();
+                    jQuery('.wcml_currency_switcher').attr('disabled', 'disabled');
+                    jQuery('.wcml_currency_switcher').val(currency);
+                    var data = {action: 'wcml_switch_currency', currency: currency}
+                    jQuery.post(woocommerce_params.ajax_url, data, function(){
+                        jQuery('.wcml_currency_switcher').removeAttr('disabled');
+                        location.reload();
+                    });
+            });
+
+});
+    </script>
+
+</body>
+<!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product_cat=club-dresses by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:38:05 GMT -->
+</html>

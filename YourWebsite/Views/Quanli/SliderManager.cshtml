@@ -1,12 +1,21 @@
 ﻿
 @{
-    ViewBag.Title = "SliderManager";
+    ViewBag.Title = "Slider Manager";
     List<Image> images = ViewBag.images;
 }
 
 <h2>SliderManager</h2>
 
 <div class="container">
+    @{
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+
+    }
     @{ 
         if(images == null || images.Count == 0)
         {

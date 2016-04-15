@@ -194,7 +194,7 @@ a.btn, a.btn[rel=prev], a.btn[rel=next] {
 	padding:3px 10px;
 	border:none;
 	border-radius: 3px;
-	background:#9d3bc6;
+	background:#AB0000;
 	background-image:none;
 	box-shadow: none;
 	color:#fff;
@@ -206,7 +206,7 @@ a.btn, a.btn[rel=prev], a.btn[rel=next] {
 	-o-transition: background-color 0.25s 0s ease;
 }
 a.btn:hover {
-	background:#6a2886;
+	background:#AB0000;
 	color:#fff;
 	cursor: pointer;
 	-webkit-transition: background-color 0.25s 0s ease;
@@ -218,7 +218,7 @@ a.btn:hover {
 }
 a:hover .custom_color, a.custom_color:hover {
 	text-decoration:underline;
-	color:#9d3bc6;
+	color:#AB0000;
 }
 /*HEADER*/
 #header {
@@ -842,7 +842,7 @@ nav>#nav.megamenu ul ul ul ul, nav>#nav.megamenu ul ul ul li:hover ul ul, nav>#n
 	line-height:20px;
 }
 .shoppingcart:hover .fadelink span a {
-	background:#6a2886;
+	background:#AB0000;
 	color:#fff;
 	cursor: pointer;
 	-webkit-transition: background-color 0.25s 0s ease;
@@ -2614,7 +2614,7 @@ label, input, button, select, textarea {
 	padding-left:44px;
 	font-size:12px;
 	width:260px;
-	height:24px;
+	height:35px;
 	border: 2px solid #fff;
 	border-radius: 4px;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.27);
@@ -2652,7 +2652,7 @@ input[type=number]::-webkit-outer-spin-button {
 	margin: 0;
 }
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
-	border-color: #C68DDE;
+	border-color: #B42127;
 	box-shadow:         0px 0px 4px rgba(0, 0, 0, 0.27);
 }
 .contactform input {
@@ -2831,7 +2831,7 @@ button.grey:hover, .button.grey:hover {
 	height:32px;
 	border:none;
 	border-radius: 3px;
-	background:#9d3bc6;
+	background:#B42127;
 	background-image:none;
 	box-shadow: none;
 	color:#fff;
@@ -2844,7 +2844,7 @@ button.grey:hover, .button.grey:hover {
 	padding: 0 0 2px;
 }
 .form-search button:hover, .form-mail button:hover {
-	background:#6a2886;
+	background:#B42127;
 	color:#fff;
 	-webkit-transition: background-color 0.25s 0s ease;
 	-moz-transition: background-color 0.25s 0s ease;
@@ -2877,7 +2877,7 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-	border-color: #C68DDE;
+	border-color: #B42127;
 	border-radius: 6px;
 }
 .form-login-wrapper {
