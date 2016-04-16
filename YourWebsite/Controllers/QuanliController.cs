@@ -208,86 +208,95 @@ namespace YourWebsite.Controllers
             }
 
             //check image
-            if (productImg1 != null && productImg1.FileName != null)
+            if (productImg1 == null && productImg2 == null && productImg3 == null && _productService.isProductHasImage(_id) == false)
             {
-                
-                string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
-                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
-                if (!Directory.Exists(newPath))
-                {
-                    System.IO.Directory.CreateDirectory(newPath);
-                }
-                if (!Directory.Exists(newPathBig))
-                {
-                    System.IO.Directory.CreateDirectory(newPathBig);
-                }
-                WebImage imgBig = _imageService.reSizeImgBig(productImg1);
-                imgBig.FileName = productImg1.FileName;
-                imgBig.Save(newPathBig + "/" + imgBig.FileName);
-
-
-                WebImage img = _imageService.reSizeImg(imgBig);
-                img.FileName = productImg1.FileName;
-                img.Save(newPath + "/" + img.FileName);
-                //productImg1.SaveAs(newPath + "/" + productImg1.FileName);
-                filePath1 = "/Images/" + "ProductImages/" + productImg1.FileName;
+                ViewBag.Error += "Bạn chưa chọn hình ảnh cho sản phẩm, xin hãy chọn ít nhất 1 hình";
             }
             else
             {
-                ViewBag.Error += "Thiếu hình ảnh 1 <br/>";
-            }
-            if (productImg2 != null && productImg2.FileName != null)
-            {
-                string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
-                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
-                if (!Directory.Exists(newPath))
+
+                if (productImg1 != null && productImg1.FileName != null)
                 {
-                    System.IO.Directory.CreateDirectory(newPath);
-                }
-                if (!Directory.Exists(newPathBig))
-                {
-                    System.IO.Directory.CreateDirectory(newPathBig);
-                }
-                WebImage imgBig = _imageService.reSizeImgBig(productImg2);
-                imgBig.FileName = productImg2.FileName;
-                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                    string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    if (!Directory.Exists(newPathBig))
+                    {
+                        System.IO.Directory.CreateDirectory(newPathBig);
+                    }
+                    WebImage imgBig = _imageService.reSizeImgBig(productImg1);
+                    imgBig.FileName = productImg1.FileName;
+                    imgBig.Save(newPathBig + "/" + imgBig.FileName);
 
 
-                WebImage img = _imageService.reSizeImg(imgBig);
-                img.FileName = productImg2.FileName;
-                img.Save(newPath + "/" + img.FileName);
-                filePath2 = "/Images/" + "ProductImages/" + productImg2.FileName;
-            }
-            else
-            {
-                ViewBag.Error += "Thiếu hình ảnh 2 <br/>";
-            }
-            if (productImg3 != null && productImg3.FileName != null)
-            {
-                string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
-                string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
-                if (!Directory.Exists(newPath))
-                {
-                    System.IO.Directory.CreateDirectory(newPath);
+                    WebImage img = _imageService.reSizeImg(imgBig);
+                    img.FileName = productImg1.FileName;
+                    img.Save(newPath + "/" + img.FileName);
+                    //productImg1.SaveAs(newPath + "/" + productImg1.FileName);
+                    filePath1 = "/Images/" + "ProductImages/" + productImg1.FileName;
                 }
-                if (!Directory.Exists(newPathBig))
+                else
                 {
-                    System.IO.Directory.CreateDirectory(newPathBig);
+                    //ViewBag.Error += "Thiếu hình ảnh 1 <br/>";
                 }
-                WebImage imgBig = _imageService.reSizeImgBig(productImg3);
-                imgBig.FileName = productImg3.FileName;
-                imgBig.Save(newPathBig + "/" + imgBig.FileName);
+                if (productImg2 != null && productImg2.FileName != null)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                    string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    if (!Directory.Exists(newPathBig))
+                    {
+                        System.IO.Directory.CreateDirectory(newPathBig);
+                    }
+                    WebImage imgBig = _imageService.reSizeImgBig(productImg2);
+                    imgBig.FileName = productImg2.FileName;
+                    imgBig.Save(newPathBig + "/" + imgBig.FileName);
 
 
-                WebImage img = _imageService.reSizeImg(imgBig);
-                img.FileName = productImg3.FileName;
-                img.Save(newPath + "/" + img.FileName);
-                filePath3 = "/Images/" + "ProductImages/" + productImg3.FileName;
+                    WebImage img = _imageService.reSizeImg(imgBig);
+                    img.FileName = productImg2.FileName;
+                    img.Save(newPath + "/" + img.FileName);
+                    filePath2 = "/Images/" + "ProductImages/" + productImg2.FileName;
+                }
+                else
+                {
+                    //ViewBag.Error += "Thiếu hình ảnh 2 <br/>";
+                }
+                if (productImg3 != null && productImg3.FileName != null)
+                {
+                    string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
+                    string newPathBig = Server.MapPath(SLIMCONFIG.BIG_IMG_PATH + "ProductImages");
+                    if (!Directory.Exists(newPath))
+                    {
+                        System.IO.Directory.CreateDirectory(newPath);
+                    }
+                    if (!Directory.Exists(newPathBig))
+                    {
+                        System.IO.Directory.CreateDirectory(newPathBig);
+                    }
+                    WebImage imgBig = _imageService.reSizeImgBig(productImg3);
+                    imgBig.FileName = productImg3.FileName;
+                    imgBig.Save(newPathBig + "/" + imgBig.FileName);
+
+
+                    WebImage img = _imageService.reSizeImg(imgBig);
+                    img.FileName = productImg3.FileName;
+                    img.Save(newPath + "/" + img.FileName);
+                    filePath3 = "/Images/" + "ProductImages/" + productImg3.FileName;
+                }
+                else
+                {
+                    //ViewBag.Error += "Thiếu hình ảnh 3 <br/>";
+                }
             }
-            else
-            {
-                ViewBag.Error += "Thiếu hình ảnh 3 <br/>";
-            }
+
             if (productImg4 != null && productImg4.FileName != null)
             {
                 string newPath = Server.MapPath(SLIMCONFIG.path + "ProductImages");
@@ -312,8 +321,9 @@ namespace YourWebsite.Controllers
             }
             else
             {
-                ViewBag.Error += "Thiếu hình ảnh 4 <br/>";
+                //ViewBag.Error += "Thiếu hình ảnh 4 <br/>";
             }
+            
             if (!"".Equals(ViewBag.Error))
             {
                 TempData["error"] = ViewBag.Error;

@@ -45,10 +45,13 @@
             </select>
             <input type="hidden" class="form-control" id="quantity" name="quantity" />
             <label>Hình ảnh sản phẩm</label>
-            <input class="form-control" type="file" id="productImg1" name="productImg1" />
-            <input class="form-control" type="file" id="productImg2" name="productImg2" />
-            <input class="form-control" type="file" id="productImg3" name="productImg3" />
-            <input class="form-control" type="file" id="productImg4" name="productImg4" />
+            <span>1.</span><input class="form-control" type="file" id="productImg1" name="productImg1" />
+            <span>2.</span><input class="form-control" type="file" id="productImg2" name="productImg2" />
+            <span>3.</span><input class="form-control" type="file" id="productImg3" name="productImg3" />
+            <div hidden="hidden">
+                <input class="form-control" type="file" id="productImg4" name="productImg4" />
+            </div>
+            <br/>
             <label>Description</label>
             <textarea name="description" id="description" class="form-control" rows="10"></textarea>
          
@@ -84,10 +87,10 @@
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <img src="@p.Img1" style="height:100px;width:100px;"/>
-                                <img src="@p.Img2" style="height:100px;width:100px;"/>
-                                <img src="@p.Img3" style="height:100px;width:100px;"/>
-                                <img src="@p.Img4" style="height:100px;width:100px;"/>
+                                <span>1.</span><img src="@p.Img1" style="height:100px;width:100px;"/>
+                                <span>2.</span><img src="@p.Img2" style="height:100px;width:100px;"/>
+                                <span>3.</span><img src="@p.Img3" style="height:100px;width:100px;"/>
+                                @*<img src="@p.Img4" style="height:100px;width:100px;"/>*@
                             </td>
                             
                         </tr>
