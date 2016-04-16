@@ -1,10 +1,15 @@
 ﻿@{ 
     Product mainProduct = ViewBag.mainProduct;
+
     ViewBag.Title = "Your Shop" + " - " + mainProduct.Name;
     List<Product> relativeProducts = ViewBag.relativeProducts;
     List<Category> proTrees = ViewBag.proTrees;
 }
-
+<style>
+    @@font-face {
+     font-family: Yourtitle; src: url('/Content/font/UTM AmericanaBEx.ttf');
+}
+</style>
 
 <!DOCTYPE html>
 
@@ -24,9 +29,7 @@
     <link rel="shortcut icon" href="~/Content/buyshop/wp-content/themes/buyshop/img/favicon.ico" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>
-        Paisley-print stretch-silk camisole | BuyShop &#8211; Premium Responsive WooCommerce WordPress Theme
-    </title>
+   =
 
     <link rel="stylesheet" href="~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector3294.css?v=3.0.1" type="text/css" media="all" />
     <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -464,18 +467,21 @@
                     <div class="wrapper_w">
                         <div class="pull-left">
                         <div class="breadcrumbs">
-                            <a class="home" href="/">Home</a>
-                            <span>›</span>
+                            <a class="home" href="/" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">HOME</a>
+                            <span style="font-size:x-large;margin-top:-3px">›</span>
                             @{
                                 for (int i = proTrees.Count -1 ; i >= 0; i--)
                                 {
                                     Category c = proTrees.ElementAt(i);
-                                    <a href="/danhmuc/@c.ID">@c.Name</a><span>›</span> //sua lai khi co trang hien thi category
+
+                                    <a href="/danhmuc/@c.ID" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">@c.Name</a>
+                                    <span style="font-size:x-large;margin-top:-3px">›</span> //sua lai khi co trang hien thi category
                                 }
                             }
                             
                             
-                            </div></div>	<div class="pull-right">
+                            </div>
+                        </div>	<div class="pull-right">
                             <div class="direction-nav">
                                 @{
                                     bool hasPrv = false;
@@ -488,6 +494,7 @@
                                                 <span class="prev">
                                                     <a href="@p.ID" rel="prev"><i class="icon-left-thin"></i></a><div class="small_preview prev hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@p.Img1" class="attachment-thumbnail wp-post-image" alt="wclo_ad_1_1 (26)" /></div>
                                                 </span>
+
                                             hasPrv = true;
 
                                         }
@@ -511,7 +518,10 @@
 
                                 }
                                 
-                                
+
+                                <span class="next">
+                                    <a href="@relativeProducts.ElementAt(0).ID" rel="next"><i class="icon-right-thin"></i></a><div class="small_preview next hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@relativeProducts.ElementAt(0).Img1" class="attachment-thumbnail wp-post-image" alt="woclo_01_1 (67)" /></div>
+                                </span>
 
                             </div>
                         </div>
@@ -532,6 +542,7 @@
 
                                             <ul class="slides">
                                                 @if (!"".Equals(mainProduct.Img2))                                                {
+
                                                     <li><a href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2" class="cloud-zoom-gallery"  rel="prettyPhoto[product-gallery]" data-rel="useZoom: 'zoom1', smallImage: '@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2'" alt="" width="62" height="62"><img src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img2" /></a></li>
 
                                                 }
@@ -554,6 +565,7 @@
                                     </div>
 
                                     <div class="span4">
+
                                         <div class="product-image"><a class="cloud-zoom" href="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" id="zoom1" data-rel="position: 'right', adjustX: 10, adjustY: 0" >
                                             
                                             <img alt="" src="@SLIMCONFIG.BIG_IMG_PATH_WEB@mainProduct.Img1" />
@@ -566,9 +578,9 @@
                         </div>
 
                         <div class="span6">
-                            <div class="product-shop">
+                            <div class="product-shop" style="margin-top:20px">
                                 <div class="product_info_left">
-                                    <div class="product-name"><h1>@mainProduct.Name</h1></div><div class="short-description">
+                                    <div class="product-name" style="margin-top:20px"><h1 style="font-family:Yourtitle">@mainProduct.Name</h1></div><div class="short-description">
                                         <p>@Html.Raw(mainProduct.Descriptions)</ p >
                                     </div>
                                     
@@ -579,7 +591,7 @@
 
 
 
-                                            		
+
                                             <a href="/Home/About" class="btn btn-default" style="font-family: serif; font-size:large; height:30px;">Liên hệ để được thông tin</a>
                                             
                                             
@@ -607,7 +619,7 @@
 
                         <div class="related products span12">
 
-                            <h2>Related Products</h2>
+                            <h2 style="font-family:Yourtitle">Sản phẩm có liên quan</h2>
 
                             <div class="carousel es-carousel-wrapper style0">
                                 <div class="es-carousel">
@@ -630,7 +642,8 @@
                                                         </div>
                                                         <div class="wrapper-hover">
 
-                                                            <div class="product-name">
+                                                            <div class="product-name" style="text-align:center;font-weight:bolder">
+
                                                                 <a href="/sanpham/@p.ID">
                                                                     @p.Name
                                                                 </a>
@@ -639,6 +652,7 @@
 
                                                         </div>
                                                     </div>
+
 
                                                     <div class="preview hidden-tablet hidden-phone " style="display: none;">
                                                         <div class="wrapper">
@@ -671,19 +685,12 @@
 
                                                                 <div class="wrapper-hover">
 
-                                                                    <div class="product-name">
+                                                                    <div class="product-name" style="text-align:center;font-weight:bolder">
                                                                         <a href="/sanpham/@p.ID">
                                                                             @p.Name
                                                                         </a>
                                                                     </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1022">Chi tiết</a>
-                                                                    <div class="wrapper">
 
-
-
-
-                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1022" data-product_sku="1" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-
-                                                                    </div>
                                                                     <div class="clearfix"></div>
 
                                                                     

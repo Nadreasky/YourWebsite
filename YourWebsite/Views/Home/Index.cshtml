@@ -5,10 +5,21 @@
     List<Product> newProducts = ViewBag.newProducts;
     //List<Image> trendProducts = ViewBag.trendProducts;
     List<Product> trendProducts = ViewBag.trendProducts;
-    bool isHasDivNextTrend = false;
 }
+<style>
 
-
+@@font-face {
+     font-family: Yourtitle; src: url('/Content/font/UTM AmericanaBEx.ttf');
+    
+}
+h2{
+    font-family:Yourtitle
+}
+.product-name{
+    text-align:center;
+    font-weight:bolder;
+}
+</style>
 
 <body class="home page page-id-1186 page-template-default woocommerce-wishlist woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
     <div id="wrap">
@@ -149,366 +160,331 @@
             
                 
                     <div class="row">
-                        <div class="span12">
+                        <div class="row">
+                            <div class="span6">
 
-                            
-                                    
-                                    <div class="row">
-                                        <div class="span6">
-                                            <div class="">
-                                                <div class="woocommerce">
-                                                    <h2>New Products</h2>
-                                                    <div class="carousel es-carousel-wrapper style1">
-                                                        <div class="es-carousel">
-                                                            <div class="row small_with_description">
-                                                                <div class="product_outer carousel_items" style="display: block;">
-
-                                                                    @{
-                                                                        for (int i = 0; i < newProducts.Count; i++)
-                                                                        {
-                                                                            Product p = newProducts.ElementAt(i);
-                                                                            <div class="post-1025 product type-product status-publish has-post-thumbnail span2 product carousel_item new_product featured shipping-taxable purchasable product-type-simple product-cat-lingerie product-cat-shorts product-cat-skirts product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock">
-
-                                                                                <div class="product-image-wrapper onhover animate scale animated">
-                                                                                    <div class="label_new_top_left">New!</div>
-                                                                                    <a href="/sanpham/@p.ID">
-                                                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
-                                                                                    </a>
-                                                                                </div>
-
-                                                                                <div class="wrapper-hover">
-                                                                                    <div class="product-name">
-                                                                                        <a href="/sanpham/@p.ID">
-                                                                                            @p.Name
-                                                                                        </a>
-                                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
-                                                                                    <div class="wrapper">
-
-                                                                                        @*<div class="product-price"><span class="amount">Giá: @p.Price</span></div>*@
-
-                                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-                                                                                        <div class="clearfix"></div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                
-                                                                            </div>
+                                <div class="">
+                                    <div class="woocommerce">
+                                        <h2>Sản phẩm mới</h2>
+                                        <div class="carousel es-carousel-wrapper style1">
+                                            <div class="es-carousel">
+                                                <div class="row small_with_description">
+                                                    <div class="product_outer carousel_items" style="display: block; width: 1930px; margin-left: 0px;">
+                                                        @{
+                                                            foreach (Product p in newProducts)
+                                                            {
 
 
-                                                                            <div class="preview hidden-tablet hidden-phone small" style="display: block;">
-                                                                                <div class="wrapper">
-                                                                                    <div class="col-1">
-
-                                                                                        <a class="image" data-rel="@p.Img1" href="#">
-                                                                                            <img class="thumb" alt="" src="@p.Img1" />
-                                                                                        </a>
-
-                                                                                        <a class="image" data-rel="@p.Img2" href="#">
-                                                                                            <img class="thumb" alt="" src="@p.Img2" />
-                                                                                        </a>
-
-                                                                                        <a class="image" data-rel="@p.Img3" href="#">
-                                                                                            <img class="thumb" alt="" src="@p.Img3" />
-                                                                                        </a>
-
-                                                                                    </div>
-                                                                                    <div class="col-2 with_media">
-                                                                                        <div class="big_image">
-                                                                                            <a href="/sanpham/@p.ID">
-                                                                                                <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="wrapper-hover">
-                                                                                            <div class="product-name">
-                                                                                                <a href="/sanpham/@p.ID">
-                                                                                                    @p.Name
-                                                                                                </a>
-                                                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
-                                                                                            <div class="wrapper">
+                                                                <div class="post-1025 product type-product status-publish has-post-thumbnail span2 product carousel_item new_product featured shipping-taxable purchasable product-type-simple product-cat-lingerie product-cat-shorts product-cat-skirts product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock">
 
 
-                                                                                                <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-                                                                                            </div>
-                                                                                            <div class="clearfix"></div>
-                                                                                            @*
-                                                                                            <div class="product-link">
-                                                                                                <a class="wft_add_to_wishlist" href="indexb436.html?action=add_to_wishlist&amp;add_to_wishlist=78" data-product-id="78" data-product-type="simple">Add to Wishlist</a>
-                                                                                            </div>
-                                                                                                *@
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        }
-                                                                    }
+                                                                    <div class="product-image-wrapper onhover animate scale animated">
+                                                                        <div class="label_new_top_left">Mới!</div>	
+                                                                        	<a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
+                                                                    </div>
+
+
+                                                                    <div class="wrapper-hover">
+
+                                                                        <div class="product-name" style="font-weight:bolder">
+                                                                            <a href="/sanpham/@p.ID">
+                                                                                @p.Name
+                                                                            </a>
+                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                    
+
+                                                                    </div>
 
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="es-nav">
-                                                            <span class="es-nav-prev disable" style="cursor: auto; opacity: 1;">
-                                                                <a class="btn">
-                                                                    <i class="icon-left-thin icon-large"></i>
-                                                                </a>
-                                                            </span>
-                                                            <span class="es-nav-next" style="cursor: pointer; opacity: 1;">
-                                                                <a class="btn">
-                                                                    <i class="icon-right-thin icon-large"></i>
-                                                                </a>
-                                                            </span>
-                                                        </div>
+
+
+                                                                <div class="preview hidden-tablet hidden-phone small" style="display: none; top: 10px; left: -47px;">
+                                                                    <div class="wrapper">
+
+                                                                        <div class="col-1">
+
+
+                                                                            <a class="image" data-rel="@p.Img2" href="#">
+                                                                                <img class="thumb" alt="" src="@p.Img2">
+                                                                            </a>
+
+
+                                                                            <a class="image" data-rel="@p.Img1" href="#">
+                                                                                <img class="thumb" alt="" src="@p.Img1">
+                                                                            </a>
+
+
+                                                                            <a class="image" data-rel="@p.Img3" href="#">
+                                                                                <img class="thumb" alt="" src="@p.Img3">
+                                                                            </a>
+
+
+                                                                        </div>
+                                                                        <div class="col-2 with_media">
+                                                                            <div class="big_image">
+                                                                                <div class="label_new_top_left">Mới!</div>				<a href="/sanpham/@p.ID">
+
+                                                                                    <img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name">
+                                                                                </a>
+                                                                            </div>
+
+                                                                            <div class="wrapper-hover">
+
+                                                                                <div class="product-name" style="font-weight:bolder">
+                                                                                    <a href="/sanpham/@p.ID">
+                                                                                        @p.Name
+                                                                                    </a>
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                               
+                                                                                <div class="clearfix"></div>
+
+                                                                              
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
+                                         
+                                        <div class="es-nav"><span class="es-nav-prev disable" style="cursor: auto; opacity: 1;">
+                                        <a class="btn"><i class="icon-left-thin icon-large"></i></a>
+                                        </span><span class="es-nav-next" style="cursor: pointer; opacity: 1;"><a class="btn"><i class="icon-right-thin icon-large"></i></a></span>
+                                        </div>
+                                      
+                                          </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="span6">
+
+                                <div class="">
+                                    <div class="woocommerce">
+                                        <h2>Sản phẩm bán chạy</h2>
+                                        <div class="carousel es-carousel-wrapper style1">
+                                            <div class="es-carousel">
+                                                <div class="row small_with_description">
+                                                    <div class="product_outer carousel_items" style="display: block; width: 1930px; margin-left: 0px;">
+                                                        @{
+                                                            foreach (Product p in newProducts)
+                                                            {
+
+
+                                                                <div class="post-1025 product type-product status-publish has-post-thumbnail span2 product carousel_item new_product featured shipping-taxable purchasable product-type-simple product-cat-lingerie product-cat-shorts product-cat-skirts product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock">
+
+
+                                                                    <div class="product-image-wrapper onhover animate scale animated">
+                                                                        <div class="label_new_top_left">TREND!</div>
+                                                                        <a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
+                                                                    </div>
+
+
+                                                                    <div class="wrapper-hover">
+
+                                                                        <div class="product-name" style="font-weight:bolder">
+                                                                            <a href="/sanpham/@p.ID">
+                                                                                @p.Name
+                                                                            </a>
+                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div class="preview hidden-tablet hidden-phone small" style="display: none; top: 10px; left: -47px;">
+                                                                    <div class="wrapper">
+
+                                                                        <div class="col-1">
+
+
+                                                                            <a class="image" data-rel="@p.Img2" href="#">
+                                                                                <img class="thumb" alt="" src="@p.Img2">
+                                                                            </a>
+
+
+                                                                            <a class="image" data-rel="@p.Img1" href="#">
+                                                                                <img class="thumb" alt="" src="@p.Img1">
+                                                                            </a>
+
+
+                                                                            <a class="image" data-rel="@p.Img3" href="#">
+                                                                                <img class="thumb" alt="" src="@p.Img3">
+                                                                            </a>
+
+
+                                                                        </div>
+                                                                        <div class="col-2 with_media">
+                                                                            <div class="big_image">
+                                                                                <div class="label_new_top_left">Mới!</div>				<a href="/sanpham/@p.ID">
+
+                                                                                    <img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name">
+                                                                                </a>
+                                                                            </div>
+
+                                                                            <div class="wrapper-hover">
+
+                                                                                <div class="product-name" style="font-weight:bolder">
+                                                                                    <a href="/sanpham/@p.ID">
+                                                                                        @p.Name
+                                                                                    </a>
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+
+                                                                                <div class="clearfix"></div>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="es-nav">
+                                                <span class="es-nav-prev disable" style="cursor: auto; opacity: 1;">
+                                                    <a class="btn"><i class="icon-left-thin icon-large"></i></a>
+                                                </span><span class="es-nav-next" style="cursor: pointer; opacity: 1;"><a class="btn"><i class="icon-right-thin icon-large"></i></a></span>
+                                            </div>
+
                                         </div>
                                     </div>
-                             
 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            
+                                    
+                                    
+                             
+                            <div class="span9">
 
                             @for (int i = 0; i < mainModel.Count; i++)
                             {
                                 Category c = mainModel.ElementAt(i).Key;
                                 List<Product> l = mainModel.ElementAt(i).Value;
                                 
-                                int count = 0;
                                 if (l.Count > 0)
                                 { 
-                                if (isHasDivNextTrend == false)
-                                {
+
                                     <div class="row">
                                         <div class="span9">
-
                                             <div class="">
-                                                <div class="woocommerce columns-3">
-                                                    <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-                                                        @c.Name</h2> 
-                                                    <div class="row big_with_description isotope" style="position: relative; overflow: visible; height: 552px;">
-
-                                                        @{
-                                                            for (int k = 0; k < l.Count && count < 6; k++)
-                                                            {
-                                                                Product r = l.ElementAt(k);
-
-                                                                <div class="post-1025 product type-product status-publish has-post-thumbnail span3 product carousel_item new_product featured shipping-taxable purchasable product-type-simple product-cat-lingerie product-cat-shorts product-cat-skirts product-cat-women product-tag-club-dresses product-tag-coats product-tag-dresses product-tag-evening-dresses product-tag-jackets product-tag-jeans product-tag-lingerie product-tag-prom-dresses product-tag-shirts product-tag-shorts product-tag-skirts instock isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                                                                    <div class="product-image-wrapper onhover animate scale animated">
-                                                                        
-                                                                        <a href="/sanpham/@r.ID"><img width="300" height="300" src="@r.Img1" class="attachment-shop_single wp-post-image" alt="woclo_01_1 (67)"></a>
-                                                                    </div>
-                                                                    <div class="wrapper-hover">
-
-                                                                        <div class="product-name">
-                                                                            <a href="/sanpham/@r.ID">
-                                                                                @r.Name
-                                                                            </a>
-                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
-                                                                        <div class="wrapper">
-
-
-
-
-                                                                            <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1025" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-                                                                            <div class="clearfix"></div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="preview hidden-tablet hidden-phone " style="display: block;">
-                                                                    <div class="wrapper">
-
-                                                                        <div class="col-1">
-
-                                                                            <a class="image" data-rel="@r.Img1" href="#">
-                                                                                <img class="thumb" alt="" src="@r.Img1">
-                                                                            </a>
-
-                                                                            <a class="image" data-rel="@r.Img2" href="#">
-                                                                                <img class="thumb" alt="" src="@r.Img2">
-                                                                            </a>
-
-
-                                                                            <a class="image" data-rel="@r.Img3" href="#">
-                                                                                <img class="thumb" alt="" src="@r.Img3">
-                                                                            </a>
-
-
-
-
-
-                                                                        </div>
-                                                                        <div class="col-2 with_media">
-                                                                            <div class="big_image">
-                                                                                <a href="/sanpham/@r.ID">
-
-                                                                                    <img width="300" height="300" src="@r.Img1" class="attachment-shop_single wp-post-image" alt="@r.Name">
+                                                <div class="woocommerce">
+                                                    <h2>
+                                                        @c.Name
+                                                </h2><div class="carousel es-carousel-wrapper style0">
+                                                    <div class="es-carousel">
+                                                        <div class="row ">
+                                                            <div class="product_outer carousel_items">
+                                                                @{
+                                                                    for (int j = 0; j < l.Count; j++)
+                                                                    {
+                                                                        Product p = l.ElementAt(j);
+                                                                        <div class="post-78 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-dresses product-cat-jackets product-cat-prom-dresses product-cat-women instock">
+                                                                            <div class="product-image-wrapper onhover animate scale">
+                                                                                <a href="/sanpham/@p.ID">
+                                                                                    <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
                                                                                 </a>
                                                                             </div>
-
                                                                             <div class="wrapper-hover">
-
-                                                                                <div class="product-name">
-                                                                                    <a href="/sanpham/@r.ID">
-                                                                                        @r.Name
+                                                                                <div class="product-name" style="font-weight:bolder">
+                                                                                    <a href="/sanpham/@p.ID">
+                                                                                        @p.Name
                                                                                     </a>
-                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
-                                                                                <div class="wrapper">
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+
+                                                                            </div>
+
+                                                                        </div>
 
 
-
-
-                                                                                    <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="1025" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-
+                                                                        <div class="preview hidden-tablet hidden-phone " style="display: none;">
+                                                                            <div class="wrapper">
+                                                                                <div class="col-1">
+                                                                                    <a class="image" data-rel="@p.Img1" href="#">
+                                                                                        <img class="thumb" alt="" src="@p.Img1" />
+                                                                                    </a>
+                                                                                    <a class="image" data-rel="@p.Img2" href="#">
+                                                                                        <img class="thumb" alt="" src="@p.Img2" />
+                                                                                    </a>
+                                                                                    <a class="image" data-rel="@p.Img3" href="#">
+                                                                                        <img class="thumb" alt="" src="@p.Img3" />
+                                                                                    </a>
                                                                                 </div>
-                                                                                <div class="clearfix"></div>
-                                                                                @*
-                                                                                <div class="product-link">
-                                                                                    <a class="wft_add_to_wishlist" href="#" data-product-id="1025" data-product-type="simple">Add to Wishlist</a>
+                                                                                <div class="col-2 with_media">
+                                                                                    <div class="big_image">
+                                                                                        <a href="/sanpham/@p.ID">
+                                                                                            <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="wrapper-hover">
+                                                                                        <div class="product-name" style="font-weight:bolder">
+                                                                                            <a href="/sanpham/@p.ID">
+                                                                                                @p.Name
+                                                                                            </a>
+                                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+
+                                                                                        <div class="clearfix"></div>
+                                                                                    </div>
                                                                                 </div>
-                                                                                    *@
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                                count++;
-                                                            }
-                                                        }
 
-
-
-                                                    </div>
-
-</div>
-
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="span3">
-
-                                            <div class="wpb_raw_code  ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="banners_outer">
-                                                        <div class="flexslider banners">
-
-                                                            <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev"><i class="icon-left-thin"></i></a></li><li><a href="#" class="flex-next"><i class="icon-right-thin"></i></a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;">
-                                                                <ul class="slides" style="width: 1400%; transition-duration: 0.6s; transform: translate3d(-760px, 0px, 0px);">
-                                                                    @{
-                                                                        for (int m = 0; m < trendProducts.Count; m++)
-                                                                        {
-                                                                            //Image o = trendProducts.ElementAt(m);
-                                                                            Product o = trendProducts.ElementAt(m);
-                                                                            <li style="float: left; display: block; width: 152px;" class="clone"> <a href="/sanpham/@o.ID"><img alt="" src="@o.Img1"></a> </li>
-                                                                        }
                                                                     }
-                                                                    
-                                                                </ul>
-                                                            </div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"><i class="icon-left-thin"></i></a></li><li><a class="flex-next" href="#"><i class="icon-right-thin"></i></a></li></ul>
+                                                                }
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    isHasDivNextTrend = true;
-                                }
+                                     
+                                           
 
-                                
-                                else
-                                {
+                                        
+                                    </div>
 
-
-
-                            <div class="row">   
-                                <div class="span12">
-                                    <div class="">
-                                        <div class="woocommerce">
-                                            <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">@c.Name
-                                            </h2><div class="carousel es-carousel-wrapper style0">
-                                                <div class="es-carousel">
-                                                    <div class="row ">
-                                                        <div class="product_outer carousel_items">
-                                                            @{
-                                                                    for (int j = 0; j < l.Count; j++)
-                                                                    {
-                                                                     Product p = l.ElementAt(j);
-                                                                    <div class="post-78 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-dresses product-cat-jackets product-cat-prom-dresses product-cat-women instock">
-
-                                                                        <div class="product-image-wrapper onhover animate scale">
-                                                                            <a href="/sanpham/@p.ID">
-                                                                            <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" /></a>
-                                                                        </div>
-
-                                                                        <div class="wrapper-hover">
-                                                                            <div class="product-name">
-                                                                                <a href="/sanpham/@p.ID">
-                                                                                    @p.Name
-                                                                                </a>
-                                                                            </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
-                                                                            <div class="wrapper">
-
-                                                                                @*<div class="product-price"><span class="amount">Giá: @p.Price</span></div>*@
-
-                                                                                <div class="product-tocart"><a href="indexd5f5.html?add-to-cart=78" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-                                                                                <div class="clearfix"></div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="preview hidden-tablet hidden-phone " style="display: none;">
-                                                                        <div class="wrapper">
-                                                                            <div class="col-1">
-
-                                                                                <a class="image" data-rel="@p.Img1" href="#">
-                                                                                    <img class="thumb" alt="" src="@p.Img1" />
-                                                                                </a>
-
-                                                                                <a class="image" data-rel="@p.Img2" href="#">
-                                                                                    <img class="thumb" alt="" src="@p.Img2" />
-                                                                                </a>
-
-                                                                                <a class="image" data-rel="@p.Img3" href="#">
-                                                                                    <img class="thumb" alt="" src="@p.Img3" />
-                                                                                </a>
-
-                                                                            </div>
-                                                                            <div class="col-2 with_media">
-                                                                                <div class="big_image">
-                                                                                    <a href="/sanpham/@p.ID">
-                                                                                        <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
-                                                                                    </a>
-                                                                                </div>
-                                                                                <div class="wrapper-hover">
-                                                                                    <div class="product-name">
-                                                                                        <a href="/sanpham/@p.ID">
-                                                                                            @p.Name
-                                                                                        </a>
-                                                                                    </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
-                                                                                    <div class="wrapper">
-
-
-                                                                                        <div class="product-tocart"><a href="/Home/About" rel="nofollow" data-product_id="78" data-product_sku="13" data-wooclass="add_to_cart_button button product_type_simple" class="wft_add_to_cart_button product_type_simple"><i class="icon-basket"></i></a></div>
-                                                                                    </div>
-                                                                                    <div class="clearfix"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                }
+                                                                        }
+                             }
+                            </div>
+                            <div class="span3">
+                                <div class="wpb_raw_code  ">
+                                    <div class="wpb_wrapper">
+                                        <div class="banners_outer">
+                                            <div class="flexslider banners">
+                                                <div class="flex-viewport" style="overflow: hidden; position: relative;"></div><ul class="flex-direction-nav"><li><a href="#" class="flex-prev"><i class="icon-left-thin"></i></a></li><li><a href="#" class="flex-next"><i class="icon-right-thin"></i></a></li></ul><div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                                    <ul class="slides" style="width: 1400%; transition-duration: 0.6s; transform: translate3d(-760px, 0px, 0px);">
+                                                        @{
+                                                            for (int m = 0; m < trendProducts.Count; m++)
+                                                            {
+                                                                //Image o = trendProducts.ElementAt(m);
+                                                                Product o = trendProducts.ElementAt(m);
+                                                                <li style="float: left; display: block; width: 152px;" class="clone"> <a href="/sanpham/@o.ID"><img alt="" src="@o.Img1"></a> </li>
                                                             }
+                                                        }
 
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    </ul>
+                                                </div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"><i class="icon-left-thin"></i></a></li><li><a class="flex-next" href="#"><i class="icon-right-thin"></i></a></li></ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                                                        }
-                                                                    }
-                                                                }
+
+
 
                         </div>
                     </div>

@@ -13,7 +13,7 @@ namespace YourWebsite.Services
         public ProductService()
         {
             _productRepository = new ProductRepository();
-            
+            _categoryService = new CategoryService();
         }
         public List<Product> getAll()
         {
@@ -121,6 +121,7 @@ namespace YourWebsite.Services
                 }
             
             count = 0;
+
             for (int i = indexOfMainProduct - 1; i >= 0 && count < 4; i--)
             {
 
@@ -179,6 +180,7 @@ namespace YourWebsite.Services
             if (mainProduct != null && mainProduct.CateID != null)
             {
                 Category mainProCate = _categoryService.findByid(mainProduct.CateID.Value);
+
                 productTree.Add(mainProCate);
                 Category tmp = new Category();
 
@@ -199,6 +201,7 @@ namespace YourWebsite.Services
                 
                 
             }
+
 
             return productTree;
         }

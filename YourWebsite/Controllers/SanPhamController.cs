@@ -27,9 +27,6 @@ namespace YourWebsite.Controllers
 
             List<Category> proTrees = _productService.getProductTree((int)id);
             ViewBag.proTrees = proTrees;
-
-            
-
             return View();
         }
     }
