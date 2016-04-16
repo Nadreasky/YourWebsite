@@ -19,6 +19,10 @@ h2{
     text-align:center;
     font-weight:bolder;
 }
+
+.hide_this > div.es-nav {
+    display: none;
+}
 </style>
 
 <body class="home page page-id-1186 page-template-default woocommerce-wishlist woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
@@ -384,7 +388,79 @@ h2{
                                                 <div class="woocommerce">
                                                     <h2>
                                                         @c.Name
-                                                </h2><div class="carousel es-carousel-wrapper style0">
+                                                </h2>
+                                                @{
+                                                    if (l.Count < 4)
+                                                    {
+                                                        <div class="carousel es-carousel-wrapper style0 hide_this">
+                                                            <div class="es-carousel">
+                                                                <div class="row ">
+                                                                    <div class="product_outer carousel_items">
+                                                                        @{
+                                                                            for (int j = 0; j < l.Count; j++)
+                                                                            {
+                                                                                Product p = l.ElementAt(j);
+                                                                                <div class="post-78 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-dresses product-cat-jackets product-cat-prom-dresses product-cat-women instock">
+                                                                                    <div class="product-image-wrapper onhover animate scale">
+                                                                                        <a href="/sanpham/@p.ID">
+                                                                                            <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="wrapper-hover">
+                                                                                        <div class="product-name" style="font-weight:bolder">
+                                                                                            <a href="/sanpham/@p.ID">
+                                                                                                @p.Name
+                                                                                            </a>
+                                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+
+                                                                                    </div>
+
+                                                                                </div>
+
+
+                                                                                <div class="preview hidden-tablet hidden-phone " style="display: none;">
+                                                                                    <div class="wrapper">
+                                                                                        <div class="col-1">
+                                                                                            <a class="image" data-rel="@p.Img1" href="#">
+                                                                                                <img class="thumb" alt="" src="@p.Img1" />
+                                                                                            </a>
+                                                                                            <a class="image" data-rel="@p.Img2" href="#">
+                                                                                                <img class="thumb" alt="" src="@p.Img2" />
+                                                                                            </a>
+                                                                                            <a class="image" data-rel="@p.Img3" href="#">
+                                                                                                <img class="thumb" alt="" src="@p.Img3" />
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="col-2 with_media">
+                                                                                            <div class="big_image">
+                                                                                                <a href="/sanpham/@p.ID">
+                                                                                                    <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name" />
+                                                                                                </a>
+                                                                                            </div>
+                                                                                            <div class="wrapper-hover">
+                                                                                                <div class="product-name" style="font-weight:bolder">
+                                                                                                    <a href="/sanpham/@p.ID">
+                                                                                                        @p.Name
+                                                                                                    </a>
+                                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+
+                                                                                                <div class="clearfix"></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            }
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="carousel es-carousel-wrapper style0">
                                                     <div class="es-carousel">
                                                         <div class="row ">
                                                             <div class="product_outer carousel_items">
@@ -447,7 +523,12 @@ h2{
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
+                                                    }
+                                                }
+                                                
+
                                             </div>
                                         </div>
                                     </div>
