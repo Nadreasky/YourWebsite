@@ -3,6 +3,7 @@
     Dictionary<Category, List<Product>> mainModel = ViewBag.mainModel;
     List<Image> sliderImages = ViewBag.sliderImages;
     List<Product> newProducts = ViewBag.newProducts;
+    List<Product> avaiProducts = ViewBag.avaiProducts;
     //List<Image> trendProducts = ViewBag.trendProducts;
     List<Product> trendProducts = ViewBag.trendProducts;
 }
@@ -27,7 +28,36 @@ h2{
 
 <body class="home page page-id-1186 page-template-default woocommerce-wishlist woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
     <div id="wrap">
+        <div id="right_toolbar" class="hidden-phone hidden-tablet" style="display: block;">
+            <div><a href="/"><img src="~/Content/logo_rightbar.png" alt=""></a></div>
 
+            <div id="shopping_cart-3" class="woocommerce widget_shopping_cart">
+                <div class="shoppingcart">
+                    <div class="fadelink">
+                        <span class="pull-right">
+                            <a class="btn" href="index5534.html?page_id=6">
+                                <i class="icon-basket icon-large"></i>
+                            </a>
+                        </span>
+                        <span class="badge badge-inverse">0</span>
+                        <div class="shopping_cart_mini hidden-phone hidden-tablet widget_shopping_cart_content" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- //sidebar-widget --><div id="woocommerce_product_search-3" class="woocommerce widget_product_search">
+                <h4 class="widget-title">Search</h4><div class="form-search-wrapper ">
+                    <form id="form-search" class="form-search" action="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/">
+                        <input type="text" name="s" id="s" value="" class="search-query" placeholder="Search for products" style="right: 20px; width: 0px;">
+                        <button id="searchsubmit" class="btn" type="submit">
+                            <i class="icon-search-2 icon-large"></i>
+                        </button>
+                        <input type="hidden" name="post_type" value="product" style="right: 20px; width: 0px;">
+                    </form>
+                </div>
+            </div><!-- //sidebar-widget -->
+            <div id="back-top"> <a href="#top" style="opacity: 1;"><i class="icon-up-2"></i></a> </div>
+        </div>
         <div id="preloader">
             <div id="ajax_loader" style="display: none;" class="loader">
                 <img width="32" height="32" src="~/Content/buyshop/wp-content/themes/buyshop/img/ajax-loader.gif" alt="">
@@ -162,7 +192,16 @@ h2{
         <section id="content" class="shop">
             <div class="container">
             
-                
+            
+                <script>
+                    function priceFormat(n)
+                    {
+                        var pre_price = n;
+                        var result = pre_price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+                        return result + " VND";
+                    }
+                </script>    
+
                     <div class="row">
                         <div class="row">
                             <div class="span6">
@@ -268,13 +307,13 @@ h2{
 
                                 <div class="">
                                     <div class="woocommerce">
-                                        <h2>Sản phẩm bán chạy</h2>
+                                        <h2>Sản phẩm có sẵn</h2>
                                         <div class="carousel es-carousel-wrapper style1">
                                             <div class="es-carousel">
                                                 <div class="row small_with_description">
                                                     <div class="product_outer carousel_items" style="display: block; width: 1930px; margin-left: 0px;">
                                                         @{
-                                                            foreach (Product p in newProducts)
+                                                            foreach (Product p in avaiProducts)
                                                             {
 
 
@@ -282,7 +321,7 @@ h2{
 
 
                                                                     <div class="product-image-wrapper onhover animate scale animated">
-                                                                        <div class="label_new_top_left">TREND!</div>
+                                                                        <div class="label_new_top_left">AVAILABLE</div>
                                                                         <a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
                                                                     </div>
 
@@ -295,7 +334,9 @@ h2{
                                                                             </a>
                                                                         </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
 
-
+                                                                        <div class="wrapper">
+                                                                            <div class="product-price"><span class="amount" id="price"><script>document.write(priceFormat(@p.Price))</script></span></div>
+                                                                        </div>
                                                                     </div>
 
                                                                 </div>
@@ -338,6 +379,10 @@ h2{
                                                                                         @p.Name
                                                                                     </a>
                                                                                 </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                                <div class="wrapper">
+                                                                                    <div class="product-price"><span class="amount" id="price">
+                                                                                    <script>document.write(priceFormat(@p.Price))</script></span></div>
+                                                                                </div>
 
                                                                                 <div class="clearfix"></div>
 
@@ -574,6 +619,31 @@ h2{
             </div><!-- end container -->
         </section>
     </div><!-- #wrap -->
+
+    @*<script>
+        $(".product-price").each(function () {
+            var pre_price = $("#price",this).text();
+            var result = pre_price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+            $("#price", this).innerHTML = result;
+        });
+    </script>
+
+    <script>
+        function priceFormat(n)
+        {
+            var pre_price = n;
+            var result = pre_price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+            return result + " VND";
+        }
+    </script>*@
+
+    @*<script>
+        $('.amount').on('DOMSubtreeModified', function (e) {
+            var pre_price = $(this).text();
+            var result = pre_price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+            $(this).innerHTML = result + " VND";
+        });
+    </script>*@
 
     <link rel='stylesheet' id='js_composer_front-css' href='~/Content/buyshop/wp-content/plugins/js_composer/assets/css/js_composer_front9c92.css?ver=4.2.3' type='text/css' media='all' />
   

@@ -20,5 +20,6 @@ namespace YourWebsite
         public static int BIG_IMG_HEIGHT = 100000;
         public static string BIG_IMG_PATH = "~/BigImages/Images/";
         public static string BIG_IMG_PATH_WEB = "/BigImages";
+        public static string AVAILABLE_PRODUCT = "SP có sẵn";
     }
 }

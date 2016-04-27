@@ -1,6 +1,7 @@
 ﻿@using YourWebsite.Services;
 @{ 
     CategoryService _categoryService = new CategoryService();
+    ProductService _productService = new ProductService();
     List<Category> categories = _categoryService.getAll();
     List<Category> subCategories = _categoryService.getAllSubCate();
 }
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector3294.css?v=3.0.1" type="text/css" media="all" />
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="xmlrpc.php">
+
    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -433,9 +435,7 @@
     
     <!--HEADER-->
     <div id="header">
-        <div class="container">
-            <img src="~/Content/Banner_Final.png" style="width:100%;height:auto" />
-        </div>
+        
 
 
         <div class="container" id="logo_area">
@@ -501,8 +501,9 @@
                                     @{ 
                                         for(int i = 0; i < categories.Count; i++)
                                         {
+                                            
                                             Category c = categories.ElementAt(i);
-                                            if (c.PreCateID == SLIMCONFIG.NONE_PRE_CATEGORY)
+                                            if (c.PreCateID == SLIMCONFIG.NONE_PRE_CATEGORY && !c.Name.Equals(SLIMCONFIG.AVAILABLE_PRODUCT))
                                             {
 
 
@@ -561,12 +562,63 @@
                                                 
                                                 
                                             </li>
+
+                                            
                                             }
                                             
                                         }
                                     }
 
-
+                                    <li id="thongsoSize" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
+                                        <a href="/danhmuc/#" class="item_link  disable_icon" tabindex="0">
+                                            <i class></i>
+                                            <span class="link_content">
+                                                <span class="link_text">
+                                                    Thông số size
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li id="blog" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
+                                        <a href="/danhmuc/#" class="item_link  disable_icon" tabindex="0">
+                                            <i class></i>
+                                            <span class="link_content">
+                                                <span class="link_text">
+                                                    Blog
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li id="lienhe" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
+                                        <a href="/danhmuc/#" class="item_link  disable_icon" tabindex="0">
+                                            <i class></i>
+                                            <span class="link_content">
+                                                <span class="link_text">
+                                                    Liên hệ và báo giá
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li id="gioithieu" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
+                                        <a href="/danhmuc/#" class="item_link  disable_icon" tabindex="0">
+                                            <i class></i>
+                                            <span class="link_content">
+                                                <span class="link_text">
+                                                    Giới thiệu
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li id="tuyendung" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
+                                        <a href="/danhmuc/#" class="item_link  disable_icon" tabindex="0">
+                                            <i class></i>
+                                            <span class="link_content">
+                                                <span class="link_text">
+                                                    Tuyển dụng
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </div><!-- /class="menu_inner" -->

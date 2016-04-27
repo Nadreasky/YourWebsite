@@ -248,5 +248,33 @@ namespace YourWebsite.Services
             }
             return false;
         }
+
+        public List<Product> getAvailableProducts()
+        {
+            List<Product> allProduct = getAll();
+            List<Product> avaiProducts = new List<Product>();
+            _categoryService = new CategoryService();
+
+            List<Category> allCate = _categoryService.getAll();
+            int avaiCateID = -1;
+            for(int i = 0; i < allCate.Count; i++)
+            {
+                Category c = allCate.ElementAt(i);
+                if (c.Name.Equals(SLIMCONFIG.AVAILABLE_PRODUCT))
+                {
+                    avaiCateID = c.ID;
+                }
+            }
+
+            for (int i = 0; i < allProduct.Count; i++)
+            {
+                Product p = allProduct.ElementAt(i);
+                if (p.CateID == avaiCateID)
+                {
+                    avaiProducts.Add(p);
+                }
+            }
+            return avaiProducts;
+        }
     }
 }

@@ -28,6 +28,9 @@ namespace YourWebsite.Controllers
             List<Product> newProducts = _productService.getNewProducts();
             ViewBag.newProducts = newProducts;
 
+            List<Product> avaiProducts = _productService.getAvailableProducts();
+            ViewBag.avaiProducts = avaiProducts;
+
             List<Product> trendProducts = _productService.getTrendProducts();
             //List<Image> trendProducts = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
             ViewBag.trendProducts = trendProducts;

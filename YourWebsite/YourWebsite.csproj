@@ -246,10 +246,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets.pinterest.com\PinExt.png" />
+    <Content Include="Content\Autocomplete\jquery-ui.css" />
+    <Content Include="Content\Autocomplete\jquery-ui.js" />
     <Content Include="Content\Banner_Final.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\logo_rightbar.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -336,6 +339,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Autocomplete\images\" />
     <Folder Include="Content\buyshop\wp-admin\" />
     <Folder Include="Content\buyshop\wp-content\" />
     <Folder Include="Content\buyshop\wp-includes\" />
