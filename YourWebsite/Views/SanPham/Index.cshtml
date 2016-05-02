@@ -447,6 +447,26 @@
 </head>
 
 <body class="single single-product postid-1024 woocommerce woocommerce-page responsive wide notouch no_msie wpb-js-composer js-comp-ver-4.2.3 vc_responsive">
+    <script>
+        function searchProduct_sidebar()
+        {
+            var nameProduct = $("#searchPS").val();
+            $.ajax({
+                url: "/Quanli/searchProductByName",
+                data: {
+                    format: 'json',
+                    name: nameProduct
+                },
+                error: function () {
+                    alert("Problem");
+                },
+                success: function (data) {
+                    var proID = JSON.parse(data);
+                    window.location.href = '/sanpham/' + proID;
+                }
+            })
+        }
+    </script>
     <div id="wrap">
 
         <div id="right_toolbar" class="hidden-phone hidden-tablet" style="display: block;">
@@ -468,13 +488,12 @@
 
             </div><!-- //sidebar-widget --><div id="woocommerce_product_search-3" class="woocommerce widget_product_search">
                 <h4 class="widget-title">Search</h4><div class="form-search-wrapper ">
-                    <form id="form-search" class="form-search" action="http://demo.ethemeuk.com/buyshop/woocommerce/demo_classic/">
-                        <input type="text" name="s" id="s" value="" class="search-query" placeholder="Search for products" style="right: 20px; width: 0px;">
-                        <button id="searchsubmit" class="btn" type="submit">
-                            <i class="icon-search-2 icon-large"></i>
-                        </button>
-                        <input type="hidden" name="post_type" value="product" style="right: 20px; width: 0px;">
-                    </form>
+                    <div class="form-search">
+                                <input type="text" name="s" id="searchPS" class="search-query" placeholder="Search for products">
+                                <button id="searchsubmit" class="btn" onclick="searchProduct_sidebar()">
+                                    <i class="icon-search-2 icon-large"></i>
+                                </button>
+                            </div>
                 </div>
             </div><!-- //sidebar-widget -->
             <div id="back-top"> <a href="#top" style="opacity: 1;"><i class="icon-up-2"></i></a> </div>
@@ -832,7 +851,7 @@ jQuery(function($) {
 
 });
     </script>
-
+        </div>
 </body>
 <!-- Mirrored from demo.ethemeuk.com/buyshop/woocommerce/demo_classic/?product=paisley-print-stretch-silk-camisole-3 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 15:50:30 GMT -->
 </html>

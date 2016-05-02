@@ -276,5 +276,10 @@ namespace YourWebsite.Services
             }
             return avaiProducts;
         }
+
+        public Product findByProductName(string name)
+        {
+            return _productRepository.findByName(name);
+        }
     }
 }

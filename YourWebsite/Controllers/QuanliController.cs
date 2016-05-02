@@ -620,5 +620,9 @@ namespace YourWebsite.Controllers
             return JsonConvert.SerializeObject(_productService.getAllProductByCategory(id));
         }
 
+        public Object searchProductByName(string name)
+        {
+            return JsonConvert.SerializeObject(_productService.findByProductName(name).ID);
+        }
     }
 }

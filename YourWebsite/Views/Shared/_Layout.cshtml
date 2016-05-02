@@ -429,6 +429,26 @@
             background-color:#9D3BC6;
         }
     </style>
+    <script>
+        function searchProduct()
+        {
+            var nameProduct = $("#searchP").val();
+            $.ajax({
+                url: "/Quanli/searchProductByName",
+                data: {
+                    format: 'json',
+                    name: nameProduct
+                },
+                error: function () {
+                    alert("Problem");
+                },
+                success: function (data) {
+                    var proID = JSON.parse(data);
+                    window.location.href = '/sanpham/' + proID;
+                }
+            })
+        }
+    </script>
 
 </head>
 <body>
@@ -464,13 +484,12 @@
                 </div><!-- //sidebar-widget --><div class="pull-right padding-1">
                     <div id="woocommerce_product_search-2" class="woocommerce widget_product_search">
                         <h4 class="widget-title">Search</h4><div class="form-search-wrapper ">
-                            <form id="form-search" class="form-search" action="">
-                                <input type="text" name="s" id="s" value="" class="search-query" placeholder="Search for products" autocomplete="off">
-                                <button id="searchsubmit" class="btn" type="submit">
+                            <div class="form-search">
+                                <input type="text" name="s" id="searchP" class="search-query" placeholder="Search for products">
+                                <button id="searchsubmit" class="btn" onclick="searchProduct()">
                                     <i class="icon-search-2 icon-large"></i>
                                 </button>
-                                <input type="hidden" name="post_type" value="product">
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div><!-- //sidebar-widget -->
@@ -632,7 +651,7 @@
         </div>
         
         <div class="container" style="text-align:center;margin-bottom:10px">
-            <img src="~/Content/Process.png" style="width:80%;height:auto" />
+            <img src="~/Content/QTGH.png" style="width:80%;height:auto" />
         </div>
      </div>
 

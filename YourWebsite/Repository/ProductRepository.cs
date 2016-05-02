@@ -60,6 +60,12 @@ namespace YourWebsite.Repository
             return result;
         }
 
+        public Product findByName(string name)
+        {
+            var result = (from r in _productContext.Products where r.Name.Equals(name, StringComparison.OrdinalIgnoreCase) select r).FirstOrDefault();
+            return result;
+        }
+
         public List<Product> getByCategoryId(int cateId)
         {
             var result = (from r in _productContext.Products where r.CateID == cateId select r).ToList();
