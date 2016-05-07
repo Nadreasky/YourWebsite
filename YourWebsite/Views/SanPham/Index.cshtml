@@ -518,12 +518,15 @@
                             <a class="home" href="/" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">HOME</a>
                             <span style="font-size:x-large;margin-top:-3px">›</span>
                             @{
-                                for (int i = proTrees.Count -1 ; i >= 0; i--)
+                                for (int i = proTrees.Count - 1; i >= 0; i--)
                                 {
                                     Category c = proTrees.ElementAt(i);
+                                    if (c != null)
+                                    {
 
-                                    <a href="/danhmuc/@c.ID" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">@c.Name</a>
-                                    <span style="font-size:x-large;margin-top:-3px">›</span> //sua lai khi co trang hien thi category
+                                        <a href="/danhmuc/@c.ID" style="background-color:#B42127;color:white;font-weight:bolder;padding-left:10px;padding-right:10px">@c.Name</a>
+                                        <span style="font-size:x-large;margin-top:-3px">›</span> //sua lai khi co trang hien thi category
+                                    }
                                 }
                             }
                             
@@ -540,7 +543,8 @@
                                             if (p.ID < mainProduct.ID)
                                             {
                                                 <span class="prev">
-                                                    <a href="@p.ID" rel="prev"><i class="icon-left-thin"></i></a><div class="small_preview prev hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@p.Img1" class="attachment-thumbnail wp-post-image" alt="wclo_ad_1_1 (26)" /></div>
+                                                    <a href="@p.ID" rel="prev"><i class="icon-left-thin"></i></a>
+                                                    <div class="small_preview prev hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@p.Img1" class="attachment-thumbnail wp-post-image" alt="wclo_ad_1_1 (26)" /></div>
                                                 </span>
 
                                             hasPrv = true;
@@ -549,8 +553,10 @@
                                     }
 
                                     bool hasNxt = false;
+                                    
                                     for (int i = 0; i < relativeProducts.Count && hasNxt == false; i++)
                                     {
+                                        
                                         Product p = relativeProducts.ElementAt(i);
                                         if (p.ID > mainProduct.ID)
                                         {
@@ -560,16 +566,7 @@
                                             hasNxt = true;
                                         }
                                     }
-
-
-
-
                                 }
-                                
-
-                                <span class="next">
-                                    <a href="@relativeProducts.ElementAt(0).ID" rel="next"><i class="icon-right-thin"></i></a><div class="small_preview next hidden-phone hidden-tablet" style="display: none;"><img width="150" height="150" src="@relativeProducts.ElementAt(0).Img1" class="attachment-thumbnail wp-post-image" alt="woclo_01_1 (67)" /></div>
-                                </span>
 
                             </div>
                         </div>
