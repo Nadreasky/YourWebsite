@@ -22,3 +22,54 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*Footer*/
+div#footer {
+    clear: both;
+    width:1200px;
+    margin:auto;
+}
+
+div#footer div#fLeft {
+    float: left;
+    width: 600px;
+}
+
+div#footer div#fLeft ul {
+    text-align: right;
+}
+
+div#footer div#fLeft ul li {
+    display: inline;
+    border-right: solid 1px #333;
+    padding: 0 10px;
+}
+
+div#footer div#fLeft ul li a {
+    text-decoration:none;
+    color: #959595;
+}
+
+div#footer div#fLeft ul li.last {
+    border-right: none;
+    padding-right: 0;
+}
+
+div#footer div#fRight {
+    float: right;
+    width: 340px;
+}
+
+div#footer {
+    zoom: 1;
+}
+
+div#footer:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
