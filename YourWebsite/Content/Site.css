@@ -42,8 +42,9 @@ div#footer div#fLeft ul {
 
 div#footer div#fLeft ul li {
     display: inline;
-    border-right: solid 1px #333;
+    border-right: solid 1px #959595;
     padding: 0 10px;
+    font-size:medium;
 }
 
 div#footer div#fLeft ul li a {
