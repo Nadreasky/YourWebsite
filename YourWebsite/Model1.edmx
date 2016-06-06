@@ -22,6 +22,18 @@
           <Property Name="Path" Type="nvarchar" MaxLength="1000" />
           <Property Name="Utility" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Popular" Type="int" />
+          <Property Name="PublishDate" Type="date" />
+          <Property Name="MainImage" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="ShortDes" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID" />
@@ -41,6 +53,7 @@
         <EntityContainer Name="OnlineShopModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -65,6 +78,18 @@
           <Property Name="Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Utility" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Popular" Type="Int32" />
+          <Property Name="PublishDate" Type="DateTime" Precision="0" />
+          <Property Name="MainImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID" />
@@ -84,6 +109,7 @@
         <EntityContainer Name="OnlineshopEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="Products" EntityType="Self.Product" />
         </EntityContainer>
       </Schema>
@@ -108,6 +134,19 @@
                 <ScalarProperty Name="NameCode" ColumnName="NameCode" />
                 <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="Utility" ColumnName="Utility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="OnlineShopModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Popular" ColumnName="Popular" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ShortDes" ColumnName="ShortDes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

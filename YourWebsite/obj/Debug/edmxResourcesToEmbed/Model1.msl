@@ -20,6 +20,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="OnlineShopModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Popular" ColumnName="Popular" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ShortDes" ColumnName="ShortDes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="OnlineShopModel.Product">
         <MappingFragment StoreEntitySet="Product">

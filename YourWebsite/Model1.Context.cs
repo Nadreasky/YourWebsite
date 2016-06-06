@@ -27,6 +27,7 @@ namespace YourWebsite
     
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }

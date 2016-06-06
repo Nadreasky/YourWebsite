@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Quan lí tin tức";
+    List<News> allNews = ViewBag.allNews;
+}
+
+<head>
+    <script type="text/javascript" src="~/Content/ckeditor/ckeditor.js"></script>
+</head>
+<div class="container">
+    @{
+        if (!"".Equals(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>@Html.Raw(ViewBag.Error)</strong>
+            </div>
+        }
+
+    }
+    <div class="col-md-4">
+        <h2>Thêm Tin tức mới</h2>
+        @using (Html.BeginForm("saveNews", "Quanli", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input class="form-control" id="id" name="id" type="hidden" />
+            <label>Tiêu đề</label>
+            <input class="form-control" id="title" name="title" />
+            
+            @*<label>Ngày viết bài</label>
+            <div>
+                <input class="form-control" type="text" id="datepicker" name="publishDate">
+            </div>*@
+            <label>Popular</label>
+            <select class="form-control" id="popular" name="popular">
+                <option value="@SLIMCONFIG.NORMAL_NEWS">Không</option>
+                <option value="@SLIMCONFIG.POPULAR_NEWS">Có</option>
+            </select>
+           
+            <label>Thumbnail</label>
+            <div>
+                <input class="form-control" id="mainImage" name="mainImage" />
+            </div>
+            <label>Mô tả ngắn</label>
+            <input class="form-control" id="shortDes" name="shortDes" />
+            <label>Nội dung</label>
+            <textarea name="content" id="content" class="form-control" rows="10"></textarea>
+
+
+            <input type="submit" class="btn btn-success" id="btnAddNews" value="Add" />
+                    }
+    </div>
+    <div class="col-md-8">
+        <table class="table" id="newsTable">
+            <thead>
+                <tr>
+                    <th hidden="hidden">ID</th>
+                    <th>Tiêu đề</th>
+                    <th>Thumnail</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int i = 0; i < allNews.Count; i++)
+                    {
+                        News n = allNews.ElementAt(i);
+                        <tr>
+                            <td hidden="hidden">@n.ID</td>
+                            <td>@n.Title</td>
+                            <td><img src="@n.MainImage" style="height:100px;width:100px;" /></td>
+                            <td><button style="margin-top:50px;" class="btn btn-warning" onclick="editNews(@n.ID)">Edit</button></td>
+                            <td><button style="margin-top:50px;" class="btn btn-danger" onclick="deleteNews(@n.ID)">Delete</button></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    CKEDITOR.replace('content')
+</script>
+<script>
+    function editNews(id)
+    {
+       $.ajax({
+            url: "/Quanli/getNewsInfo",
+            data: {
+                format: 'json',
+                newsID:id
+            },
+            error: function() {
+                alert("Problem");
+            },
+            success: function (data) {
+                var newsObj = JSON.parse(data);
+
+                $("#id").val(newsObj.ID);
+                $("#title").val(newsObj.Title);
+                $("#popular").val(newsObj.Popular);
+                $("#mainImage").val(newsObj.MainImage);
+                $("#shortDes").val(newsObj.ShortDes);
+                CKEDITOR.instances['content'].setData(newsObj.Content);
+                $("#btnAddNews").val("Update");
+            }
+        })
+    }
+
+    function deleteNews(id) {
+        $.ajax({
+            url: "/Quanli/deleteNews",
+            data: {
+                format: 'json',
+                newsID: id
+            },
+            error: function () {
+                alert("Problem!")
+            },
+            success: function (data) {
+                if (data === "Success") {
+                    location.href = location.href;
+                }
+            },
+            type: 'POST'
+        })
+    }
+</script>
+

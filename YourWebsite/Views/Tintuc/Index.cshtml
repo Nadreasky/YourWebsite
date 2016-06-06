@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Your fashion - News";
+    List<News> allNews = ViewBag.allNews;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ColorMag</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- for fontawesome icon css file -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- for content animate css file -->
+    <link rel="stylesheet" href="css/animate.css"> 
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <!-- main site css file -->
+    <link href="structure.css" rel="stylesheet">
+
+ 
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+     <!-- Preloader -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+    <!-- End Preloader -->
+
+  
+  <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <!-- ==================start header=============== -->
+    <!-- ==================End header=============== -->
+
+    <!-- ==================start content body section=============== -->
+    <section id="contentbody">
+      <div class="container">
+        <div class="row">
+        <!-- start left bar content -->
+          <div class=" col-sm-12 col-md-6 col-lg-6">
+            <div class="row">
+              <div class="leftbar_content">
+                <h2 style="font-family:YourMenu;">Tin mới</h2>
+
+                  @{
+                      for (int i = 0; i < allNews.Count; i++)
+                      {
+                          News n = allNews.ElementAt(i);
+
+                          <!-- start single stuff post -->
+                        <div class="single_stuff wow fadeInDown">
+                            <div class="single_stuff_img">
+                                <a href="Tintuc/Details/@n.ID"><img src="@n.MainImage" alt="img"></a>
+                            </div>
+                            <div class="single_stuff_article">
+                                <div class="single_sarticle_inner">
+                                    @*<a class="stuff_category" href="#">Technology</a>*@
+                                    <div class="stuff_article_inner">
+                                        @*<span class="stuff_date">Nov <strong>17</strong></span>*@
+                                        <h2 style="font-family:YourMenu;"><a href="Tintuc/Details/@n.ID">@n.Title</a></h2>
+                                        <p>@Html.Raw(n.ShortDes)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <!-- End single stuff post -->
+
+                      }
+                }
+               
+
+                 
+               
+              </div>
+            </div>  
+          </div>
+          <!-- End left bar content -->
+
+          <!-- start middle bar content -->
+          <div class="col-sm-6 col-md-2 col-lg-2">
+          </div>
+          <!-- End middle bar content -->
+
+          <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="row">
+              <div class="rightbar_content">
+              
+
+                <!-- start Popular Posts -->
+                <div class="single_blog_sidebar wow fadeInUp">
+                <h2 style="font-family:YourMenu;">Tin nổi bật</h2>  
+                <ul class="middlebar_nav wow">
+                    @{
+                        int count = 0;
+                        for (int i = 0; i < allNews.Count && count < 6; i++)
+                        {
+                            News n = allNews.ElementAt(i);
+                            if (n.Popular == SLIMCONFIG.POPULAR_NEWS)
+                            {
+                                <li>
+                                    <a href="Tintuc/Details/@n.ID" class="mbar_thubnail"><img alt="img" src="@n.MainImage" style="width:72px; height:72px;"></a>
+                                    <a href="Tintuc/Details/@n.ID" class="mbar_title">@n.Title</a>
+                                </li>
+                            }
+                        }
+                    }
+                  
+                </ul>
+                </div>
+                <!-- End Popular Posts -->  
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ==================End content body section=============== -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script> 
+    <!-- For content animatin  -->
+    <script src="js/wow.min.js"></script> 
+    <!-- custom js file include -->
+     <script src="js/custom.js"></script>     
+        
+  </body>
+</html>
+

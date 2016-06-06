@@ -17,6 +17,18 @@
     <Property Name="Path" Type="nvarchar" MaxLength="1000" />
     <Property Name="Utility" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Popular" Type="int" />
+    <Property Name="PublishDate" Type="date" />
+    <Property Name="MainImage" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="ShortDes" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ID" />
@@ -36,6 +48,7 @@
   <EntityContainer Name="OnlineShopModelStoreContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

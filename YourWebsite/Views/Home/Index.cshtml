@@ -1,5 +1,5 @@
 ﻿@{ 
-    ViewBag.Title = "Your Shop";
+    ViewBag.Title = "Your Fashion";
     Dictionary<Category, List<Product>> mainModel = ViewBag.mainModel;
     List<Image> sliderImages = ViewBag.sliderImages;
     List<Product> newProducts = ViewBag.newProducts;
@@ -51,24 +51,10 @@ h2{
         <div id="right_toolbar" class="hidden-phone hidden-tablet" style="display: block;">
             <div><a href="/"><img src="~/Content/logo_rightbar.png" alt=""></a></div>
 
-            <div id="shopping_cart-3" class="woocommerce widget_shopping_cart">
-                <div class="shoppingcart">
-                    <div class="fadelink">
-                        <span class="pull-right">
-                            <a class="btn" href="index5534.html?page_id=6">
-                                <i class="icon-basket icon-large"></i>
-                            </a>
-                        </span>
-                        <span class="badge badge-inverse">0</span>
-                        <div class="shopping_cart_mini hidden-phone hidden-tablet widget_shopping_cart_content" style="display: none;">
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- //sidebar-widget --><div id="woocommerce_product_search-3" class="woocommerce widget_product_search">
+            <div id="woocommerce_product_search-3" class="woocommerce widget_product_search">
                 <h4 class="widget-title">Search</h4><div class="form-search-wrapper ">
                     <div class="form-search">
-                                <input type="text" name="s" id="searchPS" class="search-query" placeholder="Search for products">
+                                <input type="text" name="s" id="searchPS" class="search-query" placeholder="Tìm sản phẩm">
                                 <button id="searchsubmit" class="btn" onclick="searchProduct_sidebar()">
                                     <i class="icon-search-2 icon-large"></i>
                                 </button>
@@ -253,7 +239,7 @@ h2{
                                                                             <a href="/sanpham/@p.ID">
                                                                                 @p.Name
                                                                             </a>
-                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID">Chi tiết</a>
                                                                     
 
                                                                     </div>
@@ -297,7 +283,7 @@ h2{
                                                                                     <a href="/sanpham/@p.ID">
                                                                                         @p.Name
                                                                                     </a>
-                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="1025">Chi tiết</a>
                                                                                
                                                                                 <div class="clearfix"></div>
 
@@ -352,7 +338,7 @@ h2{
                                                                             <a href="/sanpham/@p.ID">
                                                                                 @p.Name
                                                                             </a>
-                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="1025">Chi tiết</a>
 
                                                                         <div class="wrapper">
                                                                             <div class="product-price"><span class="amount" id="price"><script>document.write(priceFormat(@p.Price))</script></span></div>
@@ -398,7 +384,7 @@ h2{
                                                                                     <a href="/sanpham/@p.ID">
                                                                                         @p.Name
                                                                                     </a>
-                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="1025">Chi tiết</a>
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="1025">Chi tiết</a>
                                                                                 <div class="wrapper">
                                                                                     <div class="product-price"><span class="amount" id="price">
                                                                                     <script>document.write(priceFormat(@p.Price))</script></span></div>
@@ -476,7 +462,7 @@ h2{
                                                                                             <a href="/sanpham/@p.ID">
                                                                                                 @p.Name
                                                                                             </a>
-                                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+                                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="78">Chi tiết</a>
 
                                                                                     </div>
 
@@ -507,7 +493,7 @@ h2{
                                                                                                     <a href="/sanpham/@p.ID">
                                                                                                         @p.Name
                                                                                                     </a>
-                                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+                                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="78">Chi tiết</a>
 
                                                                                                 <div class="clearfix"></div>
                                                                                             </div>
@@ -544,7 +530,7 @@ h2{
                                                                                     <a href="/sanpham/@p.ID">
                                                                                         @p.Name
                                                                                     </a>
-                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+                                                                                </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="78">Chi tiết</a>
 
                                                                             </div>
 
@@ -575,7 +561,7 @@ h2{
                                                                                             <a href="/sanpham/@p.ID">
                                                                                                 @p.Name
                                                                                             </a>
-                                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" data-product-id="78">Chi tiết</a>
+                                                                                        </div><a class="quickview img-circle hidden-phone hidden-small-desktop hidden-tablet" href="/sanpham/@p.ID" data-product-id="78">Chi tiết</a>
 
                                                                                         <div class="clearfix"></div>
                                                                                     </div>
@@ -606,7 +592,8 @@ h2{
                                                                         }
                              }
                             </div>
-                            <div class="span3">
+
+                            @*<div class="span3">
                                 <div class="wpb_raw_code  ">
                                     <div class="wpb_wrapper">
                                         <div class="banners_outer">
@@ -628,12 +615,37 @@ h2{
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
 
 
 
                         </div>
+                        <div class="row">
+                            <div class="span3">
+                                <h3 style="color:#be0006;font-family:YourMenu;">Cảm nhận từ</h3>
+                                <h3 style="color:#be0006;font-family:YourMenu;font-size:30px;">khách hàng</h3>
+                                <div role="tabpanel" class="tab-pane active" id="home1">
+                                    <ul style="margin: 10px 0;list-style-type: none;padding: 5px;max-height: 500px;overflow: auto;font-size:13px;">
+                                        <li style="margin:15px 0;">
+                                            <h3 style="margin: 5px 0;font-size: 16px;font-weight: 600;line-height: 20px;font-family:'Times New Roman', Times, serif;font-style:italic;">“Shop có rất nhiều mẫu áo đẹp và thời trang”  </h3>
+                                            <a href="#" style="color:#f47a22;text-decoration:none;margin:10px 0;">Trà Giang</a>
+                                        </li>
+                                        <li style="margin:15px 0;">
+                                            <h3 style="margin: 5px 0;font-size: 16px;font-weight: 600;line-height: 20px;font-family:'Times New Roman', Times, serif;font-style:italic;">“Áo bền, chất liệu tốt, mặc rất thoải mái!”  </h3>
+                                            <a href="#" style="color:#f47a22;text-decoration:none;margin:10px 0;">Ánh Linh</a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <h3 style="color:#be0006;font-family:YourMenu;font-size:30px;">Đối tác của chúng tôi</h3>
+                            </div>
+                        </div>
                     </div>
+
+            
 
                
             </div><!-- end container -->
@@ -666,8 +678,6 @@ h2{
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/retina-1.1.04264.js?ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/themes/buyshop/js/add-to-cart4264.js?ver=3.9.11'></script>
    
-    <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress4264.js?ver=3.9.11'></script>
     <script type='text/javascript' src='~/Content/buyshop/wp-content/plugins/js_composer/assets/js/js_composer_front9c92.js?ver=4.2.3'></script>
   
 </body>
-</html>

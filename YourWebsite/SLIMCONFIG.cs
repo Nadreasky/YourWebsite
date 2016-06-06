@@ -21,5 +21,7 @@ namespace YourWebsite
         public static string BIG_IMG_PATH = "~/BigImages/Images/";
         public static string BIG_IMG_PATH_WEB = "/BigImages";
         public static string AVAILABLE_PRODUCT = "SP có sẵn";
+        public static int NORMAL_NEWS = -7;
+        public static int POPULAR_NEWS = -8;
     }
 }

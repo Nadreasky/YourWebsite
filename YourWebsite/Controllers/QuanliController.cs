@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using YourWebsite.Services;
 using System.IO;
 using System.Web.Helpers;
+using System.Globalization;
 
 namespace YourWebsite.Controllers
 {
@@ -15,6 +16,7 @@ namespace YourWebsite.Controllers
         CategoryService _categoryService = new CategoryService();
         ProductService _productService = new ProductService();
         ImageService _imageService = new ImageService();
+        NewsService _newsService = new NewsService();
         // GET: Quanli
         public ActionResult Index()
         {
@@ -60,6 +62,14 @@ namespace YourWebsite.Controllers
             ViewBag.categories = categories;
             List<Image> trendImages = _imageService.getImagesByNameCode(SLIMCONFIG.IS_TREND);
             ViewBag.trendImages = trendImages;
+            ViewBag.Error = TempData["error"];
+            return View();
+        }
+
+        public ActionResult News()
+        {
+            List<News> allNews = _newsService.getAll();
+            ViewBag.allNews = allNews;
             ViewBag.Error = TempData["error"];
             return View();
         }
@@ -622,7 +632,98 @@ namespace YourWebsite.Controllers
 
         public Object searchProductByName(string name)
         {
+            
             return JsonConvert.SerializeObject(_productService.findByProductName(name).ID);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult saveNews(string id, string title, string popular, string publishDate, string mainImage, string content, string shortDes)
+        {
+            int _id = -1;
+            int _popular = -1;
+            ViewBag.Error = "";
+
+            if (title == null || title.Equals(""))
+            {
+                ViewBag.Error += "Error: Không có tên tin tức <br/>";
+            }
+            if (publishDate == null || publishDate.Equals(""))
+            {
+                //ViewBag.Error += "Error: Không có ngày tin <br/>";
+                publishDate = "22-12-2012";
+            }
+            if (shortDes == null || shortDes.Equals(""))
+            {
+                ViewBag.Error += "Error: Không có mô tả tin tức <br/>";
+            }
+            if (content == null || content.Equals(""))
+            {
+                ViewBag.Error += "Error: Không có nội dung tin tức <br/>";
+            }
+
+            if (id == null || id.Equals(""))
+            {
+                _id = -1;
+            }
+            else if (int.TryParse(id, out _id) == false)
+            {
+                ViewBag.Error += "Error: Không thể parse NewsID <br/>";
+            }
+
+            if (popular == null || popular.Equals(""))
+            {
+                _popular = -1;
+            }
+            else if (int.TryParse(popular, out _popular) == false)
+            {
+                ViewBag.Error += "Error: Không thể parse popularInt <br/>";
+            }
+
+            DateTime _publishDate;
+            if (DateTime.TryParseExact(publishDate, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _publishDate) == false)
+            {
+                ViewBag.Error += "Error: Không thể parse publishDate <br/>";
+            }
+
+            if (!"".Equals(ViewBag.Error))
+            {
+                TempData["error"] = ViewBag.Error;
+                return RedirectToAction("News");
+            }
+
+            else
+            {
+                _newsService.addNews(_id, title, _publishDate, mainImage, _popular, content, shortDes);
+                return RedirectToAction("News");
+            }
+
+        }
+
+        public Object getNewsInfo(int newsID)
+        {
+            return JsonConvert.SerializeObject(_newsService.findByID(newsID));
+        }
+
+        [HttpPost]
+        public string deleteNews(string newsID)
+        {
+            int _id = -1;
+            if (newsID == null || newsID.Equals(""))
+            {
+                return "Error: ID không hợp lệ!";
+            }
+            else if (int.TryParse(newsID, out _id) == false)
+            {
+                return "Error: Lỗi khi parse ID";
+            }
+            News n = _newsService.findByID(_id);
+            if (n == null)
+            {
+                return "Error: Không tìm thấy Tin tức yêu cầu!";
+            }
+            _newsService.delete(n);
+            return "Success";
         }
     }
 }
