@@ -92,7 +92,7 @@
                                 <ul class="middlebar_nav wow">
                                     @{
                                         int count = 0;
-                                        for (int i = 0; i < allNews.Count && count < 6; i++)
+                                        for (int i = allNews.Count -1; i >= 0 && count < 6; i--)
                                         {
                                             News n = allNews.ElementAt(i);
                                             if (n.Popular == SLIMCONFIG.POPULAR_NEWS)
@@ -101,6 +101,7 @@
                                                     <a href="/Tintuc/Details/@n.ID" class="mbar_thubnail"><img alt="img" src="@n.MainImage" style="width:72px; height:72px;"></a>
                                                     <a href="/Tintuc/Details/@n.ID" class="mbar_title">@n.Title</a>
                                                 </li>
+                                                count++;
                                             }
                                         }
                                     }

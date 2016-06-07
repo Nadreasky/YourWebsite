@@ -63,7 +63,7 @@
 
                           <!-- start single stuff post -->
                         <div class="single_stuff wow fadeInDown">
-                            <a href="Tintuc/Details/@n.ID">
+                            <a href="/Tintuc/Details/@n.ID">
                                 <div class="single_stuff_img" style="height:300px; width:600px; background-image:url(@n.MainImage)">
                                     @*<a href="Tintuc/Details/@n.ID"><img src="@n.MainImage" alt="img" style="width:450px;"></a>*@
                                 </div>
@@ -73,7 +73,7 @@
                                     @*<a class="stuff_category" href="#">Technology</a>*@
                                     <div class="stuff_article_inner">
                                         @*<span class="stuff_date">Nov <strong>17</strong></span>*@
-                                        <h2 style="font-family:YourMenu;"><a href="Tintuc/Details/@n.ID">@n.Title</a></h2>
+                                        <h2 style="font-family:YourMenu;"><a href="/Tintuc/Details/@n.ID">@n.Title</a></h2>
                                         <p>@Html.Raw(n.ShortDes)</p>
                                     </div>
                                 </div>
@@ -108,15 +108,16 @@
                 <ul class="middlebar_nav wow">
                     @{
                         int count = 0;
-                        for (int i = 0; i < allNews.Count && count < 6; i++)
+                        for (int i = allNews.Count -1; i >=0 && count < 6; i--)
                         {
                             News n = allNews.ElementAt(i);
                             if (n.Popular == SLIMCONFIG.POPULAR_NEWS)
                             {
                                 <li>
-                                    <a href="Tintuc/Details/@n.ID" class="mbar_thubnail"><img alt="img" src="@n.MainImage" style="width:72px; height:72px;"></a>
-                                    <a href="Tintuc/Details/@n.ID" class="mbar_title">@n.Title</a>
+                                    <a href="/Tintuc/Details/@n.ID" class="mbar_thubnail"><img alt="img" src="@n.MainImage" style="width:72px; height:72px;"></a>
+                                    <a href="/Tintuc/Details/@n.ID" class="mbar_title">@n.Title</a>
                                 </li>
+                                count++;
                             }
                         }
                     }
