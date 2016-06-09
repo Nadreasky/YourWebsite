@@ -60,5 +60,41 @@ namespace YourWebsite.Services
             News n = _newsRepository.FindById(id);
             return n;
         }
+
+        public List<News> getRelativeNews(int id)
+        {
+            News mainNews = findByID(id);
+            List<News> relativeNews = new List<News>();
+            List<News> allNews = getAll();
+            int count = 0;
+
+            int indexOfMainNews = allNews.IndexOf(mainNews);
+
+
+
+
+            for (int i = indexOfMainNews + 1; i < allNews.Count && count < 4; i++)
+            {
+
+                News p = allNews.ElementAt(i);
+
+                relativeNews.Add(p);
+                count++;
+            }
+
+            count = 0;
+
+            for (int i = indexOfMainNews - 1; i >= 0 && count < 4; i--)
+            {
+
+                News p = allNews.ElementAt(i);
+                relativeNews.Add(p);
+                count++;
+            }
+
+
+            return relativeNews;
+
+        }
     }
 }

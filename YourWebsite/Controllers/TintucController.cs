@@ -30,6 +30,8 @@ namespace YourWebsite.Controllers
             ViewBag.mainNews = mainNews;
             List<News> allNews = _newsService.getAll();
             ViewBag.allNews = allNews;
+            List<News> relativeNews = _newsService.getRelativeNews(mainNews.ID);
+            ViewBag.relativeNews = relativeNews;
             return View();
             
         }

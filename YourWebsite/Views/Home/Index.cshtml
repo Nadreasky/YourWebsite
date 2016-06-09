@@ -229,7 +229,7 @@ h2{
 
                                                                     <div class="product-image-wrapper onhover animate scale animated">
                                                                         <div class="label_new_top_left">Mới!</div>	
-                                                                        	<a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
+                                                                        	<a href="/sanpham/@p.ID"><img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name"></a>
                                                                     </div>
 
 
@@ -273,7 +273,7 @@ h2{
                                                                             <div class="big_image">
                                                                                 <div class="label_new_top_left">Mới!</div>				<a href="/sanpham/@p.ID">
 
-                                                                                    <img width="300" height="300" src="@p.Img2" class="attachment-shop_single wp-post-image" alt="@p.Name">
+                                                                                    <img width="300" height="300" src="@p.Img1" class="attachment-shop_single wp-post-image" alt="@p.Name">
                                                                                 </a>
                                                                             </div>
 
@@ -423,7 +423,7 @@ h2{
                                     
                                     
                              
-                            <div class="span9">
+                            <div class="row">
 
                             @for (int i = 0; i < mainModel.Count; i++)
                             {
@@ -434,14 +434,14 @@ h2{
                                 { 
 
                                     <div class="row">
-                                        <div class="span9">
+                                        <div class="col-md-11">
                                             <div class="">
                                                 <div class="woocommerce">
                                                     <h2>
                                                         @c.Name
                                                 </h2>
                                                 @{
-                                                    if (l.Count < 4)
+                                                    if (l.Count < 5)
                                                     {
                                                         <div class="carousel es-carousel-wrapper style0 hide_this">
                                                             <div class="es-carousel">
@@ -620,26 +620,24 @@ h2{
 
 
                         </div>
-                        <div class="row">
-                            <div class="span3">
+                        <div class="row" style="margin-top:30px;">
+                            <div class="span4">
                                 <h3 style="color:#be0006;font-family:YourMenu;">Cảm nhận từ</h3>
                                 <h3 style="color:#be0006;font-family:YourMenu;font-size:30px;">khách hàng</h3>
-                                <div role="tabpanel" class="tab-pane active" id="home1">
+                                <div id="home1">
                                     <ul style="margin: 10px 0;list-style-type: none;padding: 5px;max-height: 500px;overflow: auto;font-size:13px;">
-                                        <li style="margin:15px 0;">
-                                            <h3 style="margin: 5px 0;font-size: 16px;font-weight: 600;line-height: 20px;font-family:'Times New Roman', Times, serif;font-style:italic;">“Shop có rất nhiều mẫu áo đẹp và thời trang”  </h3>
-                                            <a href="#" style="color:#f47a22;text-decoration:none;margin:10px 0;">Trà Giang</a>
+                                        <li style="margin:15px 0; border:1px solid #be0006; border-top-left-radius:20px; border-bottom-right-radius:20px; background-color:#be0006;">
+                                            <h3 style="margin: 5px 0 0 10px;font-size: 16px;line-height: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-style:italic; color:white;">“Shop có rất nhiều mẫu áo đẹp và thời trang”  </h3>
+                                            <p style="color: white; text-align:right; margin-right:20px;">Hoài An</p>
                                         </li>
-                                        <li style="margin:15px 0;">
-                                            <h3 style="margin: 5px 0;font-size: 16px;font-weight: 600;line-height: 20px;font-family:'Times New Roman', Times, serif;font-style:italic;">“Áo bền, chất liệu tốt, mặc rất thoải mái!”  </h3>
-                                            <a href="#" style="color:#f47a22;text-decoration:none;margin:10px 0;">Ánh Linh</a>
+                                        <li style="margin:15px 0; border:1px solid #be0006; border-top-left-radius:20px; border-bottom-right-radius:20px; background-color:#be0006;">
+                                            <h3 style="margin: 5px 0 0 10px;font-size: 16px;line-height: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-style:italic; color:white;">Áo bền, chất liệu tốt, mặc rất thoải mái!”  </h3>
+                                            <p style="color: white; text-align:right; margin-right:20px;">Quỳnh Diệp</p>
                                         </li>
-
-
                                     </ul>
                                 </div>
                             </div>
-                            <div class="span9">
+                            <div class="span8">
                                 <h3 style="color:#be0006;font-family:YourMenu;font-size:30px;">Đối tác của chúng tôi</h3>
                             </div>
                         </div>
