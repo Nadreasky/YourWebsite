@@ -119,5 +119,10 @@ namespace YourWebsite.Services
             }
             return productListByCate;
         }
+
+        public int getEventGiftID()
+        {
+            return _categoryRepository.findEventGiftID(SLIMCONFIG.EVENT_GIFT);
+        }
     }
 }

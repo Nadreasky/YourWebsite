@@ -209,6 +209,7 @@ namespace YourWebsite.Services
 
         public List<Product> getNewProducts()
         {
+            _categoryService = new CategoryService();
             List<Product> newProducts = new List<Product>();
             List<Product> allProduct = getAll();
 
@@ -216,8 +217,15 @@ namespace YourWebsite.Services
             for (int i = allProduct.Count - 1; i >= 0 && count < 4; i--)
             {
                 Product p = allProduct.ElementAt(i);
-                newProducts.Add(p);
-                count++;
+                if (p != null)
+                {
+                    if (p.CateID.Value != _categoryService.getEventGiftID())
+                    {
+                        newProducts.Add(p);
+                        count++;
+                    }
+                }
+                
             }
 
             return newProducts;

@@ -51,5 +51,10 @@ namespace YourWebsite.Controllers
 
             return View();
         }
+
+        public ActionResult Intro()
+        {
+            return View();
+        }
     }
 }

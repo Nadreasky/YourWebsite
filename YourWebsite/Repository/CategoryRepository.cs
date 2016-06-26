@@ -65,5 +65,11 @@ namespace YourWebsite.Repository
             _categoryContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             _categoryContext.SaveChanges();
         }
+
+        public int findEventGiftID(string name)
+        {
+            var result = (from r in _categoryContext.Categories where r.Name == name select r).FirstOrDefault();
+            return result.ID;
+        }
     }
 }

@@ -23,5 +23,6 @@ namespace YourWebsite
         public static string AVAILABLE_PRODUCT = "SP có sẵn";
         public static int NORMAL_NEWS = -7;
         public static int POPULAR_NEWS = -8;
+        public static string EVENT_GIFT = "QUÀ TẶNG SỰ KIỆN";
     }
 }
