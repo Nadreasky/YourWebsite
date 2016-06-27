@@ -192,7 +192,7 @@
         .squared.icon-color[class^="icon-"],
         .squared.icon-color[class*=" icon-"],
         .nav-tabs > li > a:hover, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-            background-color: #B42127;
+            background-color: #be0006;
         }
 
         .tab-content {
@@ -204,7 +204,7 @@
         #content .custom_color,
         .tp-leftarrow.default, .tp-rightarrow.default,
         .ls-nav-prev, .ls-nav-next {
-            color: #B42127 !important;
+            color: #be0006 !important;
         }
 
         textarea:focus,
@@ -226,7 +226,7 @@
         input:focus:invalid:focus,
         textarea:focus:invalid:focus,
         select:focus:invalid:focus {
-            border-color: #B42127;
+            border-color: #be0006;
         }
 
         button:hover, .button:hover, .more-link:hover, input[type="submit"]:hover,
@@ -254,7 +254,7 @@
         .direction-nav a:hover,
         .flexslider.vertical .flex-direction-nav a:hover, .flexslider.more-views .flex-direction-nav a:hover,
         .nav-header > a, .nav-list > li > a:hover {
-            background-color: #B42127;
+            background-color: #be0006;
         }
 
         .filters-by-category li a.selected, .filters-by-category li a:hover, .view:hover {
@@ -266,15 +266,15 @@
         }
 
         .custom_blocks .box .inside, .flexslider.banners {
-            border-bottom-color: #B42127;
+            border-bottom-color: #be0006;
         }
 
         #nav > li > ul, #nav li:hover .menu_custom_block {
-            border-top-color: #9D3BC6;
+            border-top-color: #be0006;
         }
 
         #footer, #footer_popup {
-            background-color: #B42127;
+            background-color: #be0006;
         }
 
         #footer_line, #footer_button {
@@ -288,7 +288,7 @@
         }
 
         .product .product-tocart a, .preview .product-tocart a {
-            color: #B42127 !important;
+            color: #be0006 !important;
         }
 
             .product .product-tocart a:hover, .preview .product-tocart a:hover {
@@ -511,6 +511,74 @@
     <!--HEADER-->
     <div id="header">
         
+        <div id="spy" class="visible-desktop">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <nav>
+                            <ul id="nav" class="for_spy">
+                                <li id="menu-item-1033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1033 dropdown"><a href="/Home/Intro"><span style="font-family:YourMenu;font-size:14px;">Giới thiệu</span></a></li>
+                                @{ 
+                                    for (int i = 0; i < categories.Count; i++)
+                                    {
+                                        Category c = categories.ElementAt(i);
+                                        if (c.PreCateID == SLIMCONFIG.NONE_PRE_CATEGORY && !c.Name.Equals(SLIMCONFIG.AVAILABLE_PRODUCT))
+                                        {
+                                            <li id="menu-item-898" class="dropdown menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item menu-item-1062 dropdown">
+                                                <a href="/Danhmuc/@c.ID"><span style="font-family:YourMenu;font-size:14px;">@c.Name</span></a>
+                                                <ul class="level0">
+                                                    <ul class="shadow">
+                                                        <li class="row_middle">
+                                                            <ul class="rows_outer">
+                                                                <li>
+                                                                    <ul class="menu_row">
+                                                                        <li id="menu-item-929" class="col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-parent-item menu-item-929">
+                                                                            @*<a href="http://demo.ethemeuk.com/buyshop/woocommerce/demo/?post_type=product" class="title">	<span>Column 1</span>	</a>*@
+                                                                            <ul class="level1">
+                                                                                @{
+                                                                                    for (int j = 0; j < categories.Count; j++)
+                                                                                    {
+                                                                                        Category sc = categories.ElementAt(j);
+                                                                                        if (sc.PreCateID == c.ID)
+                                                                                        {
+                                                                                            <li id="menu-item-931" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1063">
+                                                                                                <a href="/Danhmuc/@sc.ID">
+                                                                                                    <span>@sc.Name</span>
+                                                                                                </a>
+
+                                                                                            </li>
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                                
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </ul>
+                                            </li>
+                                                                                        }
+                                                                                    }
+                                }
+                                <li id="menu-item-1086" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1086 dropdown"><a href="#"><span style="font-family:YourMenu;font-size:13.5px;">Thông số size</span></a></li>
+                                <li id="menu-item-1086" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1086 dropdown"><a href="#"><span style="font-family:YourMenu;font-size:13px;">Liên hệ và báo giá</span></a></li>
+                                <li id="menu-item-1086" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1086 dropdown"><a href="/Tintuc"><span style="font-family:YourMenu;font-size:13px;">Tin tức</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="spy-left">
+                        <div class="spy_logo">
+                            <a href="/"><img src="~/Content/logo.png" alt="" style="width:155px; margin-top:15px;"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 
 
         <div class="container" id="logo_area">
@@ -567,9 +635,9 @@
                                     </li>
 
                                     @{ 
-                                        for(int i = 0; i < categories.Count; i++)
+                                        for (int i = 0; i < categories.Count; i++)
                                         {
-                                            
+
                                             Category c = categories.ElementAt(i);
                                             if (c.PreCateID == SLIMCONFIG.NONE_PRE_CATEGORY && !c.Name.Equals(SLIMCONFIG.AVAILABLE_PRODUCT))
                                             {
@@ -637,7 +705,7 @@
                                     }
 
                                     <li id="thongsoSize" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
-                                        <a href="#" class="item_link  disable_icon" tabindex="0">
+                                        <a href="/Home/SizeInfo" class="item_link  disable_icon" tabindex="0">
                                             <i class></i>
                                             <span class="link_content">
                                                 <span class="link_text" style="font-family:YourMenu;font-size:17px;">
@@ -657,7 +725,7 @@
                                             </span>
                                         </a>
                                     </li>
-                                    <li id="lienhe" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
+                                    <li id="tintuc" class="widemenu menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-parent-item menu-item-898 multicolumn_dropdown default_style drop_to_right submenu_default_width columns2">
                                         <a href="/Tintuc" class="item_link  disable_icon" tabindex="0">
                                             <i class></i>
                                             <span class="link_content">
@@ -680,9 +748,9 @@
             </div>
         </div>
         
-        <div class="container" style="text-align:center;margin-bottom:10px">
+        @*<div class="container" style="text-align:center;margin-bottom:10px">
             <img src="~/Content/QTGH.png" style="width:80%;height:auto" />
-        </div>
+        </div>*@
      </div>
 
 
@@ -705,9 +773,9 @@
                             </div>
                             <div class="row" style="margin:0;font-size:16px;color:#aba6a6;line-height: 25px;font-weight: normal;">
                                 <i><b style="color: #f26b23;"></b>41 Lê Văn Huân, Phường .3, Quận Tân Bình, TP.HCM</i><br>
-                                <i>PHONE: (+84) 6652. 2468   |  PHONE: (+84) 934 090 050</i><br>
-                                <i>WEBSITE: yourfashion.vn</i><br />
-                                <i>Email: trantridung.sp@gmail.com</i><br />
+                                <i>PHONE: (+84) 6652. 2468   |   (+84) 934 090 050</i><br>
+                                <i>WEBSITE: www.yourfashion.vn</i><br />
+                                <i>EMAIL: trantridung.sp@gmail.com</i><br />
                                 <i style="margin-left:47px;">trantridung.sp@yourfashion.vn</i>
                             </div>
                         </div>

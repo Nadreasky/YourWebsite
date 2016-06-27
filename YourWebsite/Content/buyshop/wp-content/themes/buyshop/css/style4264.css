@@ -469,7 +469,7 @@ a:hover .custom_color, a.custom_color:hover {
 }
 #nav>li>ul, #nav li:hover .menu_custom_block {
 	width:auto;
-	border-top:5px solid #9d3bc6;
+	border-top:5px solid #be0006;
 	background:#fdfdfd
 }
 #nav>li>ul {

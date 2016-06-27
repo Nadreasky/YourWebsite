@@ -257,11 +257,14 @@
     <Content Include="Content\Banner_Final.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\loca_icon.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\logo_rightbar.png" />
     <Content Include="Content\favi.png" />
     <Content Include="Content\QTGH.png" />
     <Content Include="Content\quote.png" />
+    <Content Include="Content\TTS20.jpg" />
+    <Content Include="Content\TTS21.jpg" />
     <Content Include="Content\VerticalTabs\bootstrap.vertical-tabs.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -351,6 +354,7 @@
     <Content Include="Views\Quanli\News.cshtml" />
     <Content Include="Views\Tintuc\Details.cshtml" />
     <Content Include="Views\Home\Intro.cshtml" />
+    <Content Include="Views\Home\SizeInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

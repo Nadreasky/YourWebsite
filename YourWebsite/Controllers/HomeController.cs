@@ -56,5 +56,10 @@ namespace YourWebsite.Controllers
         {
             return View();
         }
+
+        public ActionResult SizeInfo()
+        {
+            return View();
+        }
     }
 }

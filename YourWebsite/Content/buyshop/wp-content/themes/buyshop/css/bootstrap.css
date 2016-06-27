@@ -3294,9 +3294,9 @@ input[type="submit"].btn.btn-mini {
 }
 
 .alert-success {
-	color: #468847;
-	background-color: #dff0d8;
-	border-color: #d6e9c6;
+	color: #999999;
+	background-color: #f0ecea;
+	border-color: #f0ecea;
 }
 
 .alert-success h4 {
