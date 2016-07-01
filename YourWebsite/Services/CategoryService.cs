@@ -107,8 +107,28 @@ namespace YourWebsite.Services
         public List<Product> getProductByCate(int id)
         {
             _productService = new ProductService();
+            Category mainCate = findByid(id);
             List<Product> allProduct = _productService.getAll();
             List<Product> productListByCate = new List<Product>();
+            if (mainCate.PreCateID == SLIMCONFIG.NONE_PRE_CATEGORY)
+            {
+                List<Category> allCate = getAll();
+                for (int i = 0; i < allCate.Count; i ++)
+                {
+                    Category c = allCate.ElementAt(i);
+                    if (c.PreCateID == mainCate.ID)
+                    {
+                        for (int j = 0; j < allProduct.Count; j++)
+                        {
+                            Product p = allProduct.ElementAt(j);
+                            if (p.CateID == c.ID)
+                            {
+                                productListByCate.Add(p);
+                            }
+                        }
+                    }
+                }
+            }
             for(int i = 0; i < allProduct.Count; i++)
             {
                 Product p = allProduct.ElementAt(i);
