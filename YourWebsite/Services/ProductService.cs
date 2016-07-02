@@ -214,7 +214,7 @@ namespace YourWebsite.Services
             List<Product> allProduct = getAll();
 
             int count = 0;
-            for (int i = allProduct.Count - 1; i >= 0 && count < 4; i--)
+            for (int i = allProduct.Count - 1; i >= 0 && count < 8; i--)
             {
                 Product p = allProduct.ElementAt(i);
                 if (p != null)

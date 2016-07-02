@@ -254,16 +254,24 @@
     <Content Include="Content\assets.pinterest.com\PinExt.png" />
     <Content Include="Content\Autocomplete\jquery-ui.css" />
     <Content Include="Content\Autocomplete\jquery-ui.js" />
-    <Content Include="Content\Banner1.jpg" />
     <Content Include="Content\Banner_Final.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Doi Tac\BKTPHCM.png" />
+    <Content Include="Content\Doi Tac\Cinestar.png" />
+    <Content Include="Content\Doi Tac\Isuzu_logo.png" />
+    <Content Include="Content\Doi Tac\logo-oto-honda-phuoc-thanh.png" />
+    <Content Include="Content\Doi Tac\LogoTuLongMekong.jpg" />
+    <Content Include="Content\Doi Tac\MienTrungComputer.jpg" />
+    <Content Include="Content\Doi Tac\SP1605_Mitsubishi_Nguc Ao_FA-01.jpg" />
+    <Content Include="Content\Doi Tac\suzuki-eps-vector-logo-200x200.png" />
     <Content Include="Content\loca_icon.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\logo_rightbar.png" />
     <Content Include="Content\favi.png" />
     <Content Include="Content\QTGH.png" />
     <Content Include="Content\quote.png" />
+    <Content Include="Content\intro_img.jpg" />
     <Content Include="Content\TTS20.jpg" />
     <Content Include="Content\TTS21.jpg" />
     <Content Include="Content\VerticalTabs\bootstrap.vertical-tabs.css" />
@@ -286,7 +294,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="Content\font\UTM AmericanaBEx.ttf" />
     <Content Include="Content\font\UVNAiCapNang.TTF" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -295,6 +302,9 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\font\UTM EdwardianKT.ttf" />
+    <Content Include="Content\font\UTM AmericanaBEx.ttf" />
+    <Content Include="Content\font\Arimo-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
