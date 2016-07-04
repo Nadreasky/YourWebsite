@@ -1,0 +1,54 @@
+<FlippingBook>
+	<width>980</width>
+	<height>700</height>
+
+	<scaleContent>true</scaleContent>
+	<firstPage>0</firstPage>
+	<alwaysOpened> false </alwaysOpened>
+	<autoFlip> 50 </autoFlip>
+	<flipOnClick> true </flipOnClick>
+
+	<staticShadowsDepth> 1 </staticShadowsDepth>
+	<dynamicShadowsDepth> 1 </dynamicShadowsDepth>
+
+	<moveSpeed> 2 </moveSpeed>
+	<closeSpeed> 3 </closeSpeed>
+	<gotoSpeed> 3 </gotoSpeed>
+
+	<flipSound></flipSound>
+	<pageBack> 0x17B991 </pageBack>
+
+	<loadOnDemand> true </loadOnDemand>
+	<cachePages> true </cachePages>
+
+  <cacheSize> 4 </cacheSize>
+	<preloaderType> Progress Bar </preloaderType>
+	<userPreloaderId></userPreloaderId>
+
+	<pages>
+		<page>fibreoptic/01.jpg</page>
+		<page>fibreoptic/02.jpg</page>
+		<page>fibreoptic/03.jpg</page>
+		<page>fibreoptic/04.jpg</page>
+		<page>fibreoptic/05.jpg</page>
+		<page>fibreoptic/06.jpg</page>
+		<page>fibreoptic/07.jpg</page>
+		<page>fibreoptic/08.jpg</page>
+		<page>fibreoptic/09.jpg</page>
+		<page>fibreoptic/10.jpg</page>
+		<page>fibreoptic/11.jpg</page>
+		<page>fibreoptic/12.jpg</page>
+		<page>fibreoptic/13.jpg</page>
+		<page>fibreoptic/14.jpg</page>
+		<page>fibreoptic/15.jpg</page>
+		<page>fibreoptic/16.jpg</page>
+		<page>fibreoptic/17.jpg</page>
+		<page>fibreoptic/18.jpg</page>
+		<page>fibreoptic/19.jpg</page>
+		<page>fibreoptic/20.jpg</page>
+		<page>fibreoptic/21.jpg</page>
+		<page>fibreoptic/22.jpg</page>
+		<page>fibreoptic/23.jpg</page>
+		<page>fibreoptic/24.jpg</page>
+	</pages>
+</FlippingBook>
