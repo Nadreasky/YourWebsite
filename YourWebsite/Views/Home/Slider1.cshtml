@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Slider1</title>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!--Flex Slider-->
+    <link rel="stylesheet" href="~/Content/Flexslider/flexslider.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="~/Content/Flexslider/jquery.flexslider.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            itemWidth: 550,
+            itemMargin: 20,
+            slideshowSpeed: 10000,
+            controlNav: false,
+            directionNav: false
+        });
+    });
+    </script>
+
+    <style>
+        @@font-face {
+            font-family: YourFont;
+            src: url('/Content/font/Arimo-Regular.ttf');
+        }
+    </style>
+
+    
+</head>
+<body>
+    <style>
+        .cmtLeft {
+            display: block;
+            float: left;
+            width: 30%;
+        }
+
+        .cmtRight {
+            display: block;
+            float: left;
+            width: 65%;
+        }
+        .cmt{
+            margin: -30px 10px -20px 20px;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="cmtLeft">
+                            <img src="~/Content/Cus/1_o.jpg" style="height:120px; width:auto;" />
+                            <h4 style="font-family:YourFont; color:#666666;">Trịnh Phương Chi</h4>
+                        </div>
+                        <div class="cmtRight">
+                            <i class="fa fa-quote-left" style="color:#666666;"></i>
+                            <div class="cmt">
+                                <p style="font-family:YourFont; color:#666666;">Các mẫu áo có hình ảnh rất dễ thương, trẻ trung. Phù hợp với mình là một người năng động.
+                                 Hi vong shop sẽ có nhiều mẫu áo độc và lạ mắt hơn nữa!</p>
+                            </div>
+                            <i class="fa fa-quote-right" style="color:#666666; float:right;"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cmtLeft">
+                            <img src="~/Content/Cus/2_o.jpg" style="height:120px; width:auto;" />
+                            <h4 style="font-family:YourFont; color:#666666;">Phan Thúy Quỳnh</h4>
+                        </div>
+                        <div class="cmtRight">
+                            <i class="fa fa-quote-left" style="color:#666666;"></i>
+                            <div class="cmt">
+                                <p style="font-family:YourFont; color:#666666;">
+                                    Nhân viên rất nhiệt tình tư vấn cho mình để có thể chọn ra những mẫu áo phù hợp. Chất liệu
+                                    áo ở đây rất tốt, mặc bền và có thể sử dụng cho nhiều mục đích khác nhau. Mình rất thích!
+                                </p>
+                            </div>
+                            <i class="fa fa-quote-right" style="color:#666666; float:right;"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cmtLeft">
+                            <img src="~/Content/Cus/3_o.jpg" style="height:120px; width:auto;" />
+                            <h4 style="font-family:YourFont; color:#666666;">Nguyễn Bích Như</h4>
+                        </div>
+                        <div class="cmtRight">
+                            <i class="fa fa-quote-left" style="color:#666666;"></i>
+                            <div class="cmt">
+                                <p style="font-family:YourFont; color:#666666;">
+                                    Mình đặt áo lớp ở cửa hàng và hoàn toàn hài lòng, mực in đều, đẹp và không bị phai khi giặt.
+                                    Làm việc rất chu đáo và giao hàng đúng hẹn. Hi vọng có thể làm việc với shop nhiều lần nữa!
+                                </p>
+                            </div>
+                            <i class="fa fa-quote-right" style="color:#666666; float:right;"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

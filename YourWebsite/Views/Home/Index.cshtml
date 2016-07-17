@@ -7,10 +7,13 @@
     //List<Image> trendProducts = ViewBag.trendProducts;
     List<Product> trendProducts = ViewBag.trendProducts;
 }
+
+
+
 <style>
 
 @@font-face {
-     font-family: Yourtitle; src: url('/Content/font/UTM AmericanaBEx.ttf');
+     font-family: Yourtitle; src: url('/Content/font/VNF-Oswald Regular.ttf');
     
 }
 h2{
@@ -451,7 +454,7 @@ h2{
                                                                 <div class="row ">
                                                                     <div class="product_outer carousel_items">
                                                                         @{
-                                                                            for (int j = 0; j < l.Count; j++)
+                                                                            for (int j = l.Count - 1; j >=0; j--)
                                                                             {
                                                                                 Product p = l.ElementAt(j);
                                                                                 <div class="post-78 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-dresses product-cat-jackets product-cat-prom-dresses product-cat-women instock">
@@ -519,7 +522,7 @@ h2{
                                                         <div class="row ">
                                                             <div class="product_outer carousel_items">
                                                                 @{
-                                                                    for (int j = 0; j < l.Count; j++)
+                                                                    for (int j = l.Count - 1; j >= 0; j--)
                                                                     {
                                                                         Product p = l.ElementAt(j);
                                                                         <div class="post-78 product type-product status-publish has-post-thumbnail span3 product carousel_item featured shipping-taxable purchasable product-type-simple product-cat-dresses product-cat-jackets product-cat-prom-dresses product-cat-women instock">
@@ -627,88 +630,23 @@ h2{
                     </div>
                 
 
-            
-
+                <div>
+                    <div class="row" style="margin-top:30px;">
+                        <h3 style="font-family:Yourtitle;">Đối tác của chúng tôi</h3>
+                        <iframe scrolling="no" src="/Home/Slider" width="1200" height="200"></iframe>
+                        <h3 style="font-family:Yourtitle;">Cảm nhận của khách hàng</h3>
+                        <iframe scrolling="no" src="/Home/Slider1" width="1200" height="200"></iframe>
+                    </div>
+                </div>
                
             </div><!-- end container -->
         </section>
     </div><!-- #wrap -->
 
-    <div class="container" >
-        <div class="row" style="margin-top:30px;">
-            <div class="col-md-6">
-                <h3 style="font-family:YourMenu;margin-left:-20px; font-size:30px;">Cảm nhận từ khách hàng</h3>
-                <div id="home1" style="margin-left:20px;">
-                    <div class="row" style="background: url(/Content/quote.png) no-repeat; width:330px; min-height:112px;">
-                        <p style="color:#999999; margin:30px 0 0 20px; font-size:15px;">
-                            <i>Shop có rất nhiều mẫu áo đẹp và thời trang</i>
-                        </p>
-                        <p style="float:right; margin:5px 35px 0 0; font-size:15px; color:#999999;">
-                            <i>Quỳnh Diệp</i>
-                        </p>
-                    </div>
-                    <div class="row" style="background: url(/Content/quote.png) no-repeat; width:330px; min-height:112px;">
-                        <p style="color:#999999; margin:30px 0 0 20px; font-size:15px;">
-                            <i>Áo bền, chất liệu tốt, mặc rất thoải mái!</i>
-                        </p>
-                        <p style="float:right; margin:5px 35px 0 0; font-size:15px; color:#999999;">
-                            <i>Hoài An</i>
-                        </p>
-                    </div>
-                    @*<ul style="margin: 10px 0;list-style-type: none;padding: 5px;max-height: 500px;overflow: auto;font-size:13px;">
-                            <li style="margin:15px 0; border:1px solid #be0006; border-top-left-radius:20px; border-bottom-right-radius:20px; background-color:#be0006;">
-                                <h3 style="margin: 5px 0 0 10px;font-size: 16px;line-height: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-style:italic; color:white;">“Shop có rất nhiều mẫu áo đẹp và thời trang”  </h3>
-                                <p style="color: white; text-align:right; margin-right:20px;">Hoài An</p>
-                            </li>
-                            <li style="margin:15px 0; border:1px solid #be0006; border-top-left-radius:20px; border-bottom-right-radius:20px; background-color:#be0006;">
-                                <h3 style="margin: 5px 0 0 10px;font-size: 16px;line-height: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-style:italic; color:white;">Áo bền, chất liệu tốt, mặc rất thoải mái!”  </h3>
-                                <p style="color: white; text-align:right; margin-right:20px;">Quỳnh Diệp</p>
-                            </li>
-                        </ul>*@
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h3 style="font-family:YourMenu;font-size:30px;">Đối tác của chúng tôi</h3>
-                <div class="row">
-                    <a href="http://www.hcmut.edu.vn/vi" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/BKTPHCM.png" style="width:70px; margin:10px 10px 10px 10px;" />
-                    </a>
-                    <a href="http://cinestar.com.vn/" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/Cinestar.png" style="width:120px; margin:10px 10px 10px 10px;" />
-                    </a>
-                    <a href="http://isuzu-vietnam.com/vi" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/Isuzu_logo.png" style="width:100px; margin:10px 10px 10px 10px;" />
-                    </a>
-                    <a href="https://www.suzuki.com.vn/" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/suzuki-eps-vector-logo-200x200.png" style="width:70px; margin:10px 0 10px 10px;" />
-                    </a>
-                    <a href="http://www.tulongmekong.com/" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/LogoTuLongMekong.jpg" style="width:140px; margin:10px 10px 10px 0;" />
-                    </a>
-                    <a href="http://tinhocmientrung.com/" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/MienTrungComputer.jpg" style="width:180px; margin:10px 10px 10px 10px;" />
-                    </a>
-                    <a href="http://ufm.edu.vn" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/DHMar.png" style="width:100px; margin:10px 10px 10px 0;" />
-                    </a>
-                    <a href="http://fbu.edu.vn" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/FBU.jpg" style="width:100px; margin:10px 10px 10px 10px;" />
-                    </a>
-                    <a href="http://ut.edu.vn" target="_blank" style="text-decoration:none;">
-                        <img src="~/Content/Doi Tac/hcmutrans.jpg" style="width:70px; margin:10px 10px 10px 10px;" />
-                    </a>
-                    <div class="row" target="_blank" style="text-align:center;">
-                        <a href="http://www.kimtingroup.com" style="text-decoration:none;">
-                            <img src="~/Content/Doi Tac/kimtin.jpg" style="width:100px;" />
-                        </a>
-                        <a href="http://www.cofico.com.vn" target="_blank" style="text-decoration:none;">
-                            <img src="~/Content/Doi Tac/cofico-logo-nor.png" style="width:160px;" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    
+
+    
 
 
     <link rel='stylesheet' id='js_composer_front-css' href='~/Content/buyshop/wp-content/plugins/js_composer/assets/css/js_composer_front9c92.css?ver=4.2.3' type='text/css' media='all' />

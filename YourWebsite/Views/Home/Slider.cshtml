@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Slider</title>
+
+
+    <!--Flex Slider-->
+    <link rel="stylesheet" href="~/Content/Flexslider/flexslider.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="~/Content/Flexslider/jquery.flexslider.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            itemWidth: 210,
+            itemMargin: 5,
+            controlNav: false,
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <a href="http://www.hcmut.edu.vn/vi" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/BKTPHCM.png" style="width:100px;" />
+                        </a>
+                    </li>
+                    <li style="text-align:center; line-height:200px;">
+                        <a href="http://cinestar.com.vn/" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/Cinestar.png" style="width:120px;" />
+                        </a>
+                    </li>
+                    <li style="text-align:center;">
+                        <a href="http://isuzu-vietnam.com/vi" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/Isuzu_logo.png" style="width:120px; margin-top:50px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.suzuki.com.vn/" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/suzuki-eps-vector-logo-200x200.png" style="width:100px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.tulongmekong.com/" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/LogoTuLongMekong.jpg" style="width:160px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://tinhocmientrung.com/" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/MienTrungComputer.jpg" style="width:180px; margin-top:30px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://ufm.edu.vn" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/DHMar.png" style="width:140px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://fbu.edu.vn" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/FBU.jpg" style="width:140px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://ut.edu.vn" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/hcmutrans.jpg" style="width:100px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.kimtingroup.com" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/kimtin.jpg" style="width:140px;" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.cofico.com.vn" target="_blank" style="text-decoration:none;">
+                            <img src="~/Content/Doi Tac/cofico-logo-nor.png" style="width:210px; margin-top:30px;" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

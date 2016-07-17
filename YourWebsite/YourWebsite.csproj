@@ -284,6 +284,9 @@
     <Content Include="Content\Catalogue\fibreoptic\24.jpg" />
     <Content Include="Content\Catalogue\fireoptic.xml" />
     <Content Include="Content\Catalogue\index.htm" />
+    <Content Include="Content\Cus\1_o.jpg" />
+    <Content Include="Content\Cus\2_o.jpg" />
+    <Content Include="Content\Cus\3_o.jpg" />
     <Content Include="Content\Doi Tac\MienTrungComputer.jpg" />
     <Content Include="Content\Doi Tac\BKTPHCM.png" />
     <Content Include="Content\Doi Tac\Cinestar.png" />
@@ -295,6 +298,9 @@
     <Content Include="Content\Doi Tac\kimtin.jpg" />
     <Content Include="Content\Doi Tac\LogoTuLongMekong.jpg" />
     <Content Include="Content\Doi Tac\suzuki-eps-vector-logo-200x200.png" />
+    <Content Include="Content\fb-art.jpg" />
+    <Content Include="Content\Flexslider\flexslider.css" />
+    <Content Include="Content\Flexslider\jquery.flexslider.js" />
     <Content Include="Content\loca_icon.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\logo_rightbar.png" />
@@ -304,6 +310,7 @@
     <Content Include="Content\intro_img.jpg" />
     <Content Include="Content\TTS20.jpg" />
     <Content Include="Content\TTS21.jpg" />
+    <Content Include="Content\tw-icon.png" />
     <Content Include="Content\VerticalTabs\bootstrap.vertical-tabs.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -335,6 +342,7 @@
     <Content Include="Content\font\UTM EdwardianKT.ttf" />
     <Content Include="Content\font\UTM AmericanaBEx.ttf" />
     <Content Include="Content\font\Arimo-Regular.ttf" />
+    <Content Include="Content\font\VNF-Oswald Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -396,6 +404,8 @@
     <Content Include="Views\Tintuc\Details.cshtml" />
     <Content Include="Views\Home\Intro.cshtml" />
     <Content Include="Views\Home\SizeInfo.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Home\Slider1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -404,6 +414,8 @@
     <Folder Include="Content\buyshop\wp-content\" />
     <Folder Include="Content\buyshop\wp-includes\" />
     <Folder Include="Content\ckeditor\" />
+    <Folder Include="Content\Flexslider\fonts\" />
+    <Folder Include="Content\Flexslider\images\" />
     <Folder Include="Content\platform.twitter.com\" />
   </ItemGroup>
   <ItemGroup>
